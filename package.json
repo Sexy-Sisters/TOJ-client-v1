@@ -16,9 +16,12 @@
     "eslint-config-next": "13.0.3",
     "next": "13.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-full-page": "^0.1.12",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "eslint-config-airbnb": "19.0.4",
