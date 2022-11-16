@@ -1,12 +1,14 @@
-import type { AppProps } from "next/app";
 import React from "react";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../../styles/global.style";
+import { darkTheme } from "../../styles/theme/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
       <Component {...pageProps} />
-    </React.Fragment>
+    </ThemeProvider>
   );
 }
