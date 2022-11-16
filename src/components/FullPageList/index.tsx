@@ -1,5 +1,5 @@
 import { FullPage, Slide } from "react-full-page";
-import { StartPage, VideoPage, ResultPage, EndPage } from "./ChilrenPage";
+import { StartPage, VideoPage, ResultPage, EndPage } from "./ChildrenPage";
 
 export default function FullPageList() {
   return (
