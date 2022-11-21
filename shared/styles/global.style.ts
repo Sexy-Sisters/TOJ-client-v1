@@ -1,3 +1,4 @@
+import { PAD_SIZE } from "components/IntroduceSections/IntroduceSections.style";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -86,7 +87,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -104,8 +104,14 @@ section {
   display: block;
 }
 body {
-  line-height: 1;
+  line-height: 1; 
   font-family: "Noto Sans KR", sans-serif;
+  
+  @media (max-width: ${PAD_SIZE}) {
+    .Navigation {
+      display: none;
+    }
+  }
 }
 ol,
 ul {
