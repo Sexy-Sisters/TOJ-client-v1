@@ -18,7 +18,7 @@ export const EndTOJPage = styled(Page)`
   }
 `;
 
-export const TitleBox = styled.div`
+export const Title__box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ export const TitleBox = styled.div`
   }
 `;
 
-export const TitleText = styled.h1`
+export const Title = styled.h1`
   font-weight: bold;
   font-size: 50px;
   color: ${props => props.theme.textColor};
@@ -44,7 +44,7 @@ export const TitleText = styled.h1`
   }
 `;
 
-export const ContentBox = styled.div`
+export const Content__box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,7 +73,7 @@ export const ContentText = styled.h2`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const Content__wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -107,7 +107,7 @@ export const Word = styled.p`
   }
 `;
 
-export const WordsBox = styled.div`
+export const WordBox = styled.div`
   position: absolute;
   left: 80px;
   bottom: 0;

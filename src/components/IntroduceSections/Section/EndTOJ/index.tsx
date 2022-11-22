@@ -1,64 +1,54 @@
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import {
-  TitleText,
-  TitleBox,
   EndTOJPage,
-  ContentBox,
   ContentText,
   StrongText,
-  ContentWrapper,
-  WordsBox,
   Word,
+  Content__box,
+  Content__wrapper,
+  Title__box,
+  WordBox,
+  Title,
 } from "./EndTOJ.style";
 
-const title = "👩‍🏫 ♻️ 👨‍🎓 선생님과 학생의\n의존성 역전의 시작";
+const TITLE: string = "👩‍🏫 ♻️ 👨‍🎓 선생님과 학생의\n의존성 역전의 시작";
 
-const tojColor = ["#EB2F06", "#FDCB6E", "#0984E3"];
-const tojText = ["T", "O", "J"];
-const addText = [" eacher", " ♻️", ""];
-const words = ["ustices", "uggernaut", "uxtaposed"];
+const TOJ_COLOR: string[] = ["#EB2F06", "#FDCB6E", "#0984E3"];
+const TOJ_STRONG_TEXT: string[] = ["T", "O", "J"];
+const TOJ_ADD_TEXT: string[] = [" eacher", " ♻️", ""];
+const J_WORD: string[] = ["ustices", "uggernaut", "uxtaposed"];
 
 const tojContent = () => {
-  return tojText.map((text, i) => (
-    <ContentText key={text}>
-      <StrongText color={tojColor[i]}>{text}</StrongText>
-      {addText[i]}
+  return TOJ_STRONG_TEXT.map((toj_strong, i) => (
+    <ContentText key={toj_strong}>
+      <StrongText color={TOJ_COLOR[i]}>{toj_strong}</StrongText>
+      {TOJ_ADD_TEXT[i]}
     </ContentText>
   ));
 };
 
 const wordChapter = () => {
   return (
-    <WordsBox>
-      {words.map(word => (
+    <WordBox>
+      {J_WORD.map(word => (
         <Word key={word}>{word}</Word>
       ))}
-    </WordsBox>
+    </WordBox>
   );
 };
 
 export default function EndTOJ() {
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView && typeof window !== "undefined") {
-      // location.replace("/introduce");
-    }
-  }, [inView]);
-
   return (
-    <EndTOJPage ref={ref}>
-      <TitleBox>
-        <TitleText>{title}</TitleText>
-      </TitleBox>
+    <EndTOJPage>
+      <Title__box>
+        <Title>{TITLE}</Title>
+      </Title__box>
 
-      <ContentBox>
-        <ContentWrapper>
+      <Content__box>
+        <Content__wrapper>
           {tojContent()}
           {wordChapter()}
-        </ContentWrapper>
-      </ContentBox>
+        </Content__wrapper>
+      </Content__box>
     </EndTOJPage>
   );
 }
