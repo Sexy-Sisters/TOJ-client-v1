@@ -1,46 +1,50 @@
 import {
-  Box,
-  Container,
-  NameTag,
-  ContentBox,
+  Page__container,
   PrincipalPage,
-  Content,
-  ContentWrapper,
-  Person,
-  PersonInfo,
+  Profile__nameTag,
+  Profile__person,
+  NameTag__info,
   Profile,
+  Interview__box,
+  Interview__wrapper,
+  Interview__content,
+  Principal__interview,
 } from "./Principal.style";
 import { useInView } from "react-intersection-observer";
 
-const content_url = "/img/principal_content.png";
-const person_url = "/img/principal.svg";
-const info_url = "/img/principal_info.png";
+const CONTENT_URL = "/img/principal_content.png";
+const PERSON_URL = "/img/principal.svg";
+const INFO_URL = "/img/principal_info.png";
 
 export default function InterviewPricipal() {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
     <PrincipalPage ref={curPage}>
-      <Container>
-        <Profile className={inView ? "principal_profile" : ""}>
-          <Person className="person" src={person_url} alt="교장의 실루엣" />
-          <NameTag>
-            <PersonInfo src={info_url} alt="교장 정보" />
-          </NameTag>
+      <Page__container>
+        <Profile className={inView ? "interviewee-profile" : ""}>
+          <Profile__person
+            className="interviewee-person"
+            src={PERSON_URL}
+            alt="교장의 실루엣"
+          />
+          <Profile__nameTag>
+            <NameTag__info src={INFO_URL} alt="교장 정보" />
+          </Profile__nameTag>
         </Profile>
 
-        <Box className={inView ? "principal_contentBox" : ""}>
-          <ContentBox>
-            <ContentWrapper className="content">
-              <Content
-                className={inView ? "principal_contentText" : ""}
-                src={content_url}
+        <Principal__interview className={inView ? "interview" : ""}>
+          <Interview__box>
+            <Interview__wrapper className="interview-content">
+              <Interview__content
+                className={inView ? "interview-content-text" : ""}
+                src={CONTENT_URL}
                 alt="교장의 인터뷰 내용"
               />
-            </ContentWrapper>
-          </ContentBox>
-        </Box>
-      </Container>
+            </Interview__wrapper>
+          </Interview__box>
+        </Principal__interview>
+      </Page__container>
     </PrincipalPage>
   );
 }

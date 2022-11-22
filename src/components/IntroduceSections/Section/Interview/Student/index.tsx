@@ -1,50 +1,50 @@
 import {
-  Box,
-  Container,
-  NameTag,
-  ContentBox,
   StudentPage,
-  Content,
-  ContentWrapper,
-  Person,
-  PersonInfo,
   Profile,
+  Page__container,
+  Profile__nameTag,
+  Profile__person,
+  NameTag__info,
+  Students__Interview,
+  Interview__box,
+  Interview__wrapper,
+  Interview__content,
 } from "./Student.style";
 import { useInView } from "react-intersection-observer";
 
-const content_url = "/img/students_content.png";
-const person_url = "/img/students.svg";
-const info_url = "/img/students_info.png";
+const CONTENT_URL = "/img/students_content.png";
+const PERSON_URL = "/img/students.svg";
+const INFO_URL = "/img/students_info.png";
 
 export default function InterviewStudent() {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
     <StudentPage ref={curPage}>
-      <Container>
-        <Profile className={inView ? "students_profile" : ""}>
-          <Person
+      <Page__container>
+        <Profile className={inView ? "students-profile" : ""}>
+          <Profile__person
             className="person"
-            src={person_url}
+            src={PERSON_URL}
             alt="피해자 학생들의 실루엣"
           />
-          <NameTag>
-            <PersonInfo src={info_url} alt="피해자 학생들 정보" />
-          </NameTag>
+          <Profile__nameTag>
+            <NameTag__info src={INFO_URL} alt="피해자 학생들 정보" />
+          </Profile__nameTag>
         </Profile>
 
-        <Box>
-          <ContentBox>
-            <ContentWrapper className="content_wrapper">
-              <Content
-                className={inView ? "students_content" : ""}
-                src={content_url}
+        <Students__Interview>
+          <Interview__box>
+            <Interview__wrapper className="content-wrapper">
+              <Interview__content
+                className={inView ? "students-content" : ""}
+                src={CONTENT_URL}
                 alt="피해자 학생들의 인터뷰 내용"
               />
-            </ContentWrapper>
-          </ContentBox>
-        </Box>
-      </Container>
+            </Interview__wrapper>
+          </Interview__box>
+        </Students__Interview>
+      </Page__container>
     </StudentPage>
   );
 }

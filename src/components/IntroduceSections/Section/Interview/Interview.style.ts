@@ -15,8 +15,8 @@ export const InterviewPage = styled(Page)`
 
 export const InterviewContainer = styled.div`
   position: absolute;
-  height: 100%;
   width: 100%;
+  height: 100%;
 `;
 
 export const InterviewBox = styled.div`
@@ -24,38 +24,38 @@ export const InterviewBox = styled.div`
   position: absolute;
   z-index: ${Z_BOX};
   top: 100px;
-  height: 400px;
   width: 100%;
+  height: 400px;
   background-color: ${BOX_COLOR};
 `;
 
-export const InterviewContentBox = styled.div`
-  height: 100%;
+export const Interview = styled.div`
   width: 60%;
+  height: 100%;
 `;
 
-export const InterviewContentWrapper = styled.div`
+export const InterviewWrapper = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
   width: 100%;
+  height: 100%;
 `;
 
 export const InterviewContent = styled.img`
   position: absolute;
-  height: auto;
   width: 650px;
+  height: auto;
 `;
 
-export const InterviewProfile = styled.div`
+export const IntervieweeProfile = styled.div`
   position: relative;
 `;
 
-export const InterviewPerson = styled.img`
+export const IntervieweePerson = styled.img`
   position: absolute;
   z-index: ${Z_PERSON_IMG};
-  height: auto;
   width: 400px;
+  height: auto;
   animation: personIdle 1s infinite;
 
   @keyframes personIdle {
@@ -71,19 +71,19 @@ export const InterviewPerson = styled.img`
   }
 `;
 
-export const InterviewNameTag = styled.div`
+export const IntervieweeNameTag = styled.div`
   position: absolute;
   z-index: ${Z_NAME_TAG};
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
   width: 500px;
+  height: 80px;
   border-radius: 20px;
   background-color: ${NAME_TAG_COLOR};
 `;
 
-export const InterveiwPersonInfo = styled.img`
+export const InterveiweePersonInfo = styled.img`
   width: 80%;
   height: auto;
 `;

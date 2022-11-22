@@ -8,14 +8,14 @@ import styled from "styled-components";
 import {
   InterviewBox,
   InterviewContainer,
-  InterviewContentBox,
   InterviewPage,
+  IntervieweePerson,
+  IntervieweeNameTag,
+  InterveiweePersonInfo,
+  IntervieweeProfile,
+  InterviewWrapper,
   InterviewContent,
-  InterviewPerson,
-  InterviewContentWrapper,
-  InterviewNameTag,
-  InterveiwPersonInfo,
-  InterviewProfile,
+  Interview,
 } from "../Interview.style";
 
 export const StudentPage = styled(InterviewPage)`
@@ -28,7 +28,7 @@ export const StudentPage = styled(InterviewPage)`
     .person {
       width: 220px;
     }
-    .content_wrapper {
+    .content-wrapper {
       align-items: flex-end;
       img {
         margin: 30px;
@@ -38,11 +38,11 @@ export const StudentPage = styled(InterviewPage)`
   }
 `;
 
-export const Container = styled(InterviewContainer)`
-  .students_profile {
+export const Page__container = styled(InterviewContainer)`
+  .students-profile {
     animation: students_profileMove ease-out 1s;
   }
-  .students_content {
+  .students-content {
     animation: students_contentMove ease-out 1.5s;
   }
   @keyframes students_profileMove {
@@ -71,17 +71,17 @@ export const Container = styled(InterviewContainer)`
   }
 `;
 
-export const Box = styled(InterviewBox)`
+export const Students__Interview = styled(Interview)`
   justify-content: flex-start;
 `;
 
-export const ContentBox = styled(InterviewContentBox)``;
+export const Interview__box = styled(InterviewBox)``;
 
-export const ContentWrapper = styled(InterviewContentWrapper)`
+export const Interview__wrapper = styled(InterviewWrapper)`
   justify-content: center;
 `;
 
-export const Content = styled(InterviewContent)`
+export const Interview__content = styled(InterviewContent)`
   left: 100px;
   @media (max-width: ${PAD_SIZE}) {
     left: 50px;
@@ -92,9 +92,9 @@ export const Content = styled(InterviewContent)`
   }
 `;
 
-export const Profile = styled(InterviewProfile)``;
+export const Profile = styled(IntervieweeProfile)``;
 
-export const Person = styled(InterviewPerson)`
+export const Profile__person = styled(IntervieweePerson)`
   top: 250px;
   right: -100px;
   width: 500px;
@@ -111,7 +111,7 @@ export const Person = styled(InterviewPerson)`
   }
 `;
 
-export const NameTag = styled(InterviewNameTag)`
+export const Profile__nameTag = styled(IntervieweeNameTag)`
   z-index: 5;
   top: 550px;
   right: 350px;
@@ -135,4 +135,4 @@ export const NameTag = styled(InterviewNameTag)`
   }
 `;
 
-export const PersonInfo = styled(InterveiwPersonInfo)``;
+export const NameTag__info = styled(InterveiweePersonInfo)``;
