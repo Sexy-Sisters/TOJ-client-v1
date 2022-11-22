@@ -1,16 +1,15 @@
-const THEME_MODE = "THEME_MODE";
+import { DefaultTheme } from "styled-components";
+import { darkTheme, lightTheme } from "../../../styles/theme/theme";
+
+const THEME_KEY = "theme";
 const DARK = "dark";
 const LIGHT = "light";
 
-export const getThemeMode = (): boolean | null => {
-  let isDark = null;
-  if (typeof window !== "undefined") {
-    isDark = localStorage.getItem(THEME_MODE) === DARK ? true : false;
-  }
-  return isDark;
+export const getThemeMode = (): DefaultTheme => {
+  return localStorage.getItem(THEME_KEY) === DARK ? darkTheme : lightTheme;
 };
 
 export const setThemeMode = () => {
-  const changeMode = getThemeMode() ? LIGHT : DARK;
-  localStorage.setItem(THEME_MODE, changeMode);
+  const changeTheme = getThemeMode() === darkTheme ? LIGHT : DARK;
+  localStorage.setItem(THEME_KEY, changeTheme);
 };

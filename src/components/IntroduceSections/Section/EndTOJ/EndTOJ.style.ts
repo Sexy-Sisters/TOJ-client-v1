@@ -88,7 +88,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const StrongText = styled.span<{ color: string }>`
+export const StrongText = styled.strong<{ color: string }>`
   text-transform: uppercase;
   color: ${props => props.color};
 `;
