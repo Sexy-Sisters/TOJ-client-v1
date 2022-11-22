@@ -14,7 +14,7 @@ const LeverStick = styled.div`
   border-radius: 10px;
 `;
 
-const Wrapper = styled.div`
+const Block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,64 @@ const Wrapper = styled.div`
 `;
 
 export const CurcialVideoPage = styled(Page)`
+  display: flex;
   background-color: ${props => props.theme.bgColor};
 
-  .video_wrapper {
+  @media (max-width: ${PAD_SIZE}) {
+    flex-direction: column;
+
+    .video-block {
+      justify-content: center;
+      width: 100%;
+      height: 70%;
+
+      iframe {
+        width: 500px;
+        height: 350px;
+      }
+    }
+    .lever-block {
+      flex-direction: row;
+      width: 100%;
+      height: 30%;
+    }
+  }
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    flex-direction: row;
+    width: 100vh;
+    transform: rotate(${MOBILE_ROTATE});
+
+    .video-block {
+      align-items: center;
+      height: 100vw;
+
+      iframe {
+        width: 65vh;
+        height: 270px;
+        margin: 50px;
+      }
+    }
+    .lever-block {
+      flex-direction: column;
+      height: 100vw;
+
+      .lever {
+        width: 50px;
+        height: 50px;
+        margin: 20px;
+        div {
+          width: 20px;
+          height: 70px;
+        }
+      }
+    }
+  }
+
+  .video-block {
     animation: popUp 2s;
   }
-  .lever_wrapper {
+  .lever-block {
     animation: rightMove 2s;
   }
 
@@ -53,69 +105,12 @@ export const CurcialVideoPage = styled(Page)`
   }
 `;
 
-export const Container = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-
-  @media (max-width: ${PAD_SIZE}) {
-    flex-direction: column;
-
-    .video_wrapper {
-      width: 100%;
-      height: 70%;
-      justify-content: center;
-
-      iframe {
-        width: 500px;
-        height: 350px;
-      }
-    }
-    .lever_wrapper {
-      flex-direction: row;
-      width: 100%;
-      height: 30%;
-    }
-  }
-
-  @media (max-width: ${MOBILE_SIZE}) {
-    transform: rotate(${MOBILE_ROTATE});
-    width: 100vh;
-    flex-direction: row;
-
-    .video_wrapper {
-      height: 100vw;
-      align-items: center;
-
-      iframe {
-        width: 65vh;
-        height: 270px;
-        margin: 50px;
-      }
-    }
-    .lever_wrapper {
-      flex-direction: column;
-      height: 100vw;
-
-      .lever_ui {
-        width: 50px;
-        height: 50px;
-        margin: 20px;
-        div {
-          height: 70px;
-          width: 20px;
-        }
-      }
-    }
-  }
-`;
-
-export const VideoWrapper = styled(Wrapper)`
+export const Video__block = styled(Block)`
   width: 70%;
   justify-content: flex-end;
 `;
 
-export const LeverWrapper = styled(Wrapper)`
+export const Lever__block = styled(Block)`
   width: 30%;
   flex-direction: column;
 `;
@@ -126,7 +121,7 @@ export const Video = styled.iframe`
   border-radius: 50px;
 `;
 
-export const LeverUI = styled.div<{ color: string }>`
+export const Lever = styled.div<{ color: string }>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -138,7 +133,7 @@ export const LeverUI = styled.div<{ color: string }>`
   background-color: ${props => props.color};
 `;
 
-export const RedStick = styled(LeverStick)<{ color: string }>`
+export const Lever__redStick = styled(LeverStick)<{ color: string }>`
   background-color: ${props => props.color};
   animation: lotate 2s linear infinite alternate;
 
@@ -152,7 +147,7 @@ export const RedStick = styled(LeverStick)<{ color: string }>`
   }
 `;
 
-export const BlueStick = styled(LeverStick)<{ color: string }>`
+export const Lever__blueStick = styled(LeverStick)<{ color: string }>`
   background-color: ${props => props.color};
   animation: lotate 4s linear infinite alternate;
 
@@ -166,7 +161,7 @@ export const BlueStick = styled(LeverStick)<{ color: string }>`
   }
 `;
 
-export const YellowStick = styled(LeverStick)<{ color: string }>`
+export const Lever__yellowStick = styled(LeverStick)<{ color: string }>`
   background-color: ${props => props.color};
   animation: lotate 8s linear infinite alternate;
 

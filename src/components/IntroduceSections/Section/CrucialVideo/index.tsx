@@ -1,38 +1,32 @@
 import {
-  LeverWrapper,
-  LeverUI,
-  Container,
-  VideoWrapper,
   Video,
-  RedStick,
-  BlueStick,
-  YellowStick,
   CurcialVideoPage,
+  Video__block,
+  Lever__block,
+  Lever,
+  Lever__blueStick,
+  Lever__redStick,
+  Lever__yellowStick,
 } from "./CrucialVideo.style";
+import {
+  STICK_COLOR,
+  LEVER_COLOR,
+  VIDEO_TITLE,
+  VIDEO_URL,
+} from "./CrucialVideo.constant";
 import { useInView } from "react-intersection-observer";
 
-export const video_url =
-  "https://www.youtube.com/embed/kR3yyaSXtK4?controls=0&amp;start=136&?autoplay=1";
-export const video_title = "교장 인터뷰 증거 영상";
-
-export const lever_colors = ["#EB2F06", "#0984E3", "#FDCB6E"];
-export const stick_colors = {
-  red: "#C02200",
-  blue: "#0068B8",
-  yellow: "#FFB326",
-};
-
-const sticks: JSX.Element[] = [
-  <RedStick color={stick_colors.red} />,
-  <BlueStick color={stick_colors.blue} />,
-  <YellowStick color={stick_colors.yellow} />,
+const STICK: JSX.Element[] = [
+  <Lever__redStick color={STICK_COLOR.red} />,
+  <Lever__blueStick color={STICK_COLOR.blue} />,
+  <Lever__yellowStick color={STICK_COLOR.yellow} />,
 ];
 
 const leverUI = (): JSX.Element[] => {
-  return lever_colors.map((leverColor, i) => (
-    <LeverUI color={leverColor} key={leverColor} className="lever_ui">
-      {sticks[i]}
-    </LeverUI>
+  return LEVER_COLOR.map((leverColor, i) => (
+    <Lever color={leverColor} key={leverColor} className="lever">
+      {STICK[i]}
+    </Lever>
   ));
 };
 
@@ -41,15 +35,13 @@ export default function CrucialVideo() {
 
   return (
     <CurcialVideoPage ref={curPage}>
-      <Container>
-        <VideoWrapper className={inView ? "video_wrapper" : ""}>
-          <Video src={video_url} title={video_title} />
-        </VideoWrapper>
+      <Video__block className={inView ? "video-block" : ""}>
+        <Video src={VIDEO_URL} title={VIDEO_TITLE} />
+      </Video__block>
 
-        <LeverWrapper className={inView ? "lever_wrapper" : ""}>
-          {leverUI()}
-        </LeverWrapper>
-      </Container>
+      <Lever__block className={inView ? "lever-block" : ""}>
+        {leverUI()}
+      </Lever__block>
     </CurcialVideoPage>
   );
 }

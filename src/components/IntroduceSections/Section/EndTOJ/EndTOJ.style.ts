@@ -18,7 +18,7 @@ export const EndTOJPage = styled(Page)`
   }
 `;
 
-export const Title__box = styled.div`
+export const Title__block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +44,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Content__box = styled.div`
+export const Content__block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@ export const Content__box = styled.div`
   }
 `;
 
-export const ContentText = styled.h2`
+export const Content = styled.h2`
   white-space: nowrap;
   font-weight: bold;
   font-size: 80px;
@@ -79,8 +79,8 @@ export const Content__wrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  height: 90%;
   width: 60%;
+  height: 90%;
 
   @media (max-width: ${MOBILE_SIZE}) {
     height: 70%;
@@ -94,8 +94,8 @@ export const StrongText = styled.strong<{ color: string }>`
 `;
 
 export const Word = styled.p`
-  font-weight: bold;
   font-size: 80px;
+  font-weight: bold;
   white-space: nowrap;
   color: ${props => props.theme.textColor};
 
@@ -107,7 +107,7 @@ export const Word = styled.p`
   }
 `;
 
-export const WordBox = styled.div`
+export const Word__block = styled.div`
   position: absolute;
   left: 80px;
   bottom: 0;
