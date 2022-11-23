@@ -1,64 +1,54 @@
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import {
-  TitleText,
-  TitleBox,
   EndTOJPage,
-  ContentBox,
-  ContentText,
   StrongText,
-  ContentWrapper,
-  WordsBox,
   Word,
+  Content__block,
+  Content__wrapper,
+  Title__block,
+  Word__block,
+  Content,
+  Title,
 } from "./EndTOJ.style";
-
-const title = "👩‍🏫 ♻️ 👨‍🎓 선생님과 학생의\n의존성 역전의 시작";
-
-const tojColor = ["#EB2F06", "#FDCB6E", "#0984E3"];
-const tojText = ["T", "O", "J"];
-const addText = [" eacher", " ♻️", ""];
-const words = ["ustices", "uggernaut", "uxtaposed"];
+import {
+  TOJ_ADD_TEXT,
+  TOJ_STRONG_TEXT,
+  TOJ_COLOR,
+  J_WORD,
+  TITLE,
+} from "./EndTOJ.constant";
 
 const tojContent = () => {
-  return tojText.map((text, i) => (
-    <ContentText key={text}>
-      <StrongText color={tojColor[i]}>{text}</StrongText>
-      {addText[i]}
-    </ContentText>
+  return TOJ_STRONG_TEXT.map((toj_strong, i) => (
+    <Content key={toj_strong}>
+      <StrongText color={TOJ_COLOR[i]}>{toj_strong}</StrongText>
+      {TOJ_ADD_TEXT[i]}
+    </Content>
   ));
 };
 
 const wordChapter = () => {
   return (
-    <WordsBox>
-      {words.map(word => (
+    <Word__block>
+      {J_WORD.map(word => (
         <Word key={word}>{word}</Word>
       ))}
-    </WordsBox>
+    </Word__block>
   );
 };
 
 export default function EndTOJ() {
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView && typeof window !== "undefined") {
-      // location.replace("/introduce");
-    }
-  }, [inView]);
-
   return (
-    <EndTOJPage ref={ref}>
-      <TitleBox>
-        <TitleText>{title}</TitleText>
-      </TitleBox>
+    <EndTOJPage>
+      <Title__block>
+        <Title>{TITLE}</Title>
+      </Title__block>
 
-      <ContentBox>
-        <ContentWrapper>
+      <Content__block>
+        <Content__wrapper>
           {tojContent()}
           {wordChapter()}
-        </ContentWrapper>
-      </ContentBox>
+        </Content__wrapper>
+      </Content__block>
     </EndTOJPage>
   );
 }

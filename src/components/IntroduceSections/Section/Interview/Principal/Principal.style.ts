@@ -6,16 +6,16 @@ import {
 } from "components/IntroduceSections/IntroduceSections.style";
 import styled from "styled-components";
 import {
+  Interview,
   InterviewBox,
   InterviewContainer,
-  InterviewContentBox,
   InterviewPage,
   InterviewContent,
-  InterviewPerson,
-  InterviewContentWrapper,
-  InterviewNameTag,
-  InterveiwPersonInfo,
-  InterviewProfile,
+  IntervieweePerson,
+  IntervieweeNameTag,
+  InterveiweePersonInfo,
+  IntervieweeProfile,
+  InterviewWrapper,
 } from "../Interview.style";
 
 export const PrincipalPage = styled(InterviewPage)`
@@ -25,30 +25,30 @@ export const PrincipalPage = styled(InterviewPage)`
   );
 
   @media (max-width: ${MOBILE_SIZE}) {
-    transform: rotate(${MOBILE_ROTATE});
     width: 100vh;
+    transform: rotate(${MOBILE_ROTATE});
 
-    .person {
+    .interviewee-person {
       width: 150px;
     }
-    .content {
+    .interview-content {
       align-items: flex-end;
-      img {
-        margin: 30px;
+      .interview-content-text {
         width: 500px;
+        margin: 30px;
       }
     }
   }
 `;
 
-export const Container = styled(InterviewContainer)`
-  .principal_profile {
+export const Page__container = styled(InterviewContainer)`
+  .interviewee-profile {
     animation: profileMove ease-out 1s;
   }
-  .principal_contentText {
+  .interview-content-text {
     animation: contentMove ease-out 1.5s;
   }
-  .principal_contentBox {
+  .interview {
     animation: contentFadeIn linear 1.5s;
   }
 
@@ -86,15 +86,17 @@ export const Container = styled(InterviewContainer)`
   }
 `;
 
-export const Box = styled(InterviewBox)`
+export const Principal__interview = styled(Interview)`
   justify-content: flex-end;
 `;
 
-export const ContentBox = styled(InterviewContentBox)``;
+export const Interview__box = styled(InterviewBox)``;
 
-export const ContentWrapper = styled(InterviewContentWrapper)``;
+export const Interview__wrapper = styled(InterviewWrapper)``;
 
-export const Content = styled(InterviewContent)`
+export const Interview__content = styled(InterviewContent)`
+  right: 100px;
+
   @media (max-width: ${PAD_SIZE}) {
     right: 20px;
   }
@@ -104,9 +106,9 @@ export const Content = styled(InterviewContent)`
   }
 `;
 
-export const Profile = styled(InterviewProfile)``;
+export const Profile = styled(IntervieweeProfile)``;
 
-export const Person = styled(InterviewPerson)`
+export const Profile__person = styled(IntervieweePerson)`
   top: 150px;
   left: 100px;
 
@@ -117,14 +119,14 @@ export const Person = styled(InterviewPerson)`
   }
 `;
 
-export const NameTag = styled(InterviewNameTag)`
+export const Profile__nameTag = styled(IntervieweeNameTag)`
   top: 470px;
   left: 450px;
 
   @media (max-width: ${PAD_SIZE}) {
     left: 200px;
-    height: 50px;
     width: 300px;
+    height: 50px;
   }
   @media (max-width: ${MOBILE_SIZE}) {
     left: 110px;
@@ -133,4 +135,4 @@ export const NameTag = styled(InterviewNameTag)`
   }
 `;
 
-export const PersonInfo = styled(InterveiwPersonInfo)``;
+export const NameTag__info = styled(InterveiweePersonInfo)``;

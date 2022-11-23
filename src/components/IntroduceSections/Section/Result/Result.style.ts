@@ -13,30 +13,30 @@ export const ResultPage = styled(Page)`
     ${props => props.theme.bgColor}
   );
   @media (max-width: ${PAD_SIZE}) {
-    .title {
+    .victim-title {
       font-size: 40px;
     }
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
-    transform: rotate(${MOBILE_ROTATE});
     width: 100vh;
+    transform: rotate(${MOBILE_ROTATE});
 
-    .wrapper {
+    .victim {
       justify-content: flex-start;
     }
-    .title {
-      font-size: 20px;
+    .victim-title {
       margin: 10px;
+      font-size: 20px;
     }
-    .victim {
+    .victim-person {
       height: 70vw;
       margin: 5px 0 0 0;
     }
   }
 `;
 
-export const VictimWrapper = styled.div`
+export const Victim = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,10 +44,10 @@ export const VictimWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  .title {
+  .victim-title {
     animation: vibration 0.3s infinite;
   }
-  .victim {
+  .victim-person {
     animation: popUp 2s;
   }
 
@@ -73,14 +73,14 @@ export const VictimWrapper = styled.div`
   }
 `;
 
-export const Person = styled.img`
+export const Victim__person = styled.img`
   width: auto;
   height: 450px;
-  border-radius: 40px;
   margin: 50px 0 0 0;
+  border-radius: 40px;
 `;
 
-export const ResultTitle = styled.h1`
+export const Victim__title = styled.h1`
   font-size: 50px;
   font-weight: bold;
   white-space: pre-wrap;

@@ -1,42 +1,39 @@
 import {
-  CircleWrapper,
-  TitleText,
-  TitleWrapper,
-  SubText,
-  YellowCircle,
-  RedCircle,
-  BlueCircle,
-  GreenCircle,
-  Container,
-  TextBundle,
+  Title,
   IntroTOJPage,
-  DescriptionText,
+  Page__titleBlock,
+  TitleBlock__wrapper,
+  SubTitle,
+  Page__UIBlock,
+  DescribeMobile,
+  UIBlock__yellowCircle,
+  UIBlock__blueCircle,
+  UIBlock__redCircle,
+  UIBlock__greenCircle,
 } from "./IntroTOJ.style";
 
-const title = "TOJ";
-const sub_title = "Teacher Online Judge 🧑‍💻";
-const description = "모바일은 가로 모드로 동작합니다! 🙏";
+const TITLE = "TOJ";
+const SUB_TITLE = "Teacher Online Judge 🧑‍💻";
+const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 
 export default function IntroTOJ() {
   return (
     <IntroTOJPage>
-      <Container>
-        <TitleWrapper>
-          <TextBundle>
-            <TitleText className="titleText">{title}</TitleText>
-            <SubText className="subText">{sub_title}</SubText>
-          </TextBundle>
-        </TitleWrapper>
+      <Page__titleBlock>
+        <TitleBlock__wrapper>
+          <Title className="title-text">{TITLE}</Title>
+          <SubTitle className="sub-text">{SUB_TITLE}</SubTitle>
+        </TitleBlock__wrapper>
+      </Page__titleBlock>
 
-        <CircleWrapper>
-          <DescriptionText>{description}</DescriptionText>
+      <Page__UIBlock>
+        <DescribeMobile>{DESCRIBE}</DescribeMobile>
 
-          <YellowCircle />
-          <RedCircle />
-          <BlueCircle />
-          <GreenCircle />
-        </CircleWrapper>
-      </Container>
+        <UIBlock__yellowCircle />
+        <UIBlock__redCircle />
+        <UIBlock__blueCircle />
+        <UIBlock__greenCircle />
+      </Page__UIBlock>
     </IntroTOJPage>
   );
 }

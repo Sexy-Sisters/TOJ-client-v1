@@ -18,7 +18,7 @@ export const EndTOJPage = styled(Page)`
   }
 `;
 
-export const TitleBox = styled.div`
+export const Title__block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ export const TitleBox = styled.div`
   }
 `;
 
-export const TitleText = styled.h1`
+export const Title = styled.h1`
   font-weight: bold;
   font-size: 50px;
   color: ${props => props.theme.textColor};
@@ -44,7 +44,7 @@ export const TitleText = styled.h1`
   }
 `;
 
-export const ContentBox = styled.div`
+export const Content__block = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,7 +59,7 @@ export const ContentBox = styled.div`
   }
 `;
 
-export const ContentText = styled.h2`
+export const Content = styled.h2`
   white-space: nowrap;
   font-weight: bold;
   font-size: 80px;
@@ -73,14 +73,14 @@ export const ContentText = styled.h2`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const Content__wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  height: 90%;
   width: 60%;
+  height: 90%;
 
   @media (max-width: ${MOBILE_SIZE}) {
     height: 70%;
@@ -88,14 +88,14 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const StrongText = styled.span<{ color: string }>`
+export const StrongText = styled.strong<{ color: string }>`
   text-transform: uppercase;
   color: ${props => props.color};
 `;
 
 export const Word = styled.p`
-  font-weight: bold;
   font-size: 80px;
+  font-weight: bold;
   white-space: nowrap;
   color: ${props => props.theme.textColor};
 
@@ -107,7 +107,7 @@ export const Word = styled.p`
   }
 `;
 
-export const WordsBox = styled.div`
+export const Word__block = styled.div`
   position: absolute;
   left: 80px;
   bottom: 0;
