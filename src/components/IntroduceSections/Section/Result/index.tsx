@@ -5,9 +5,9 @@ import {
   ResultPage,
 } from "./Result.style";
 import { useInView } from "react-intersection-observer";
+import { VICTIM_URL } from "components/IntroduceSections/assets";
 
 const TITLE = "12시에 공부하러\n내려갔다가 선도 갔습니다 🤦‍♂️";
-const PERSON_URL = "/img/victim.jpeg";
 
 export default function Result() {
   const [curPage, inView] = useInView({ threshold: 0.1 });
@@ -20,7 +20,7 @@ export default function Result() {
         </Victim__title>
         <Victim__person
           className={inView ? "victim-person" : ""}
-          src={PERSON_URL}
+          src={VICTIM_URL}
           alt={"피해자 학생의 벌 받는 사진"}
         />
       </Victim>

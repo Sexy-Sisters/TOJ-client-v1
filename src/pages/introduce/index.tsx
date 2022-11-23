@@ -1,8 +1,9 @@
 import { FullPageList } from "components";
+import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { BASE_URL } from "../../../shared/constants";
 
-export default function Introduce() {
+const Introduce: NextPage = () => {
   return (
     <>
       <NextSeo
@@ -16,4 +17,6 @@ export default function Introduce() {
       <FullPageList />
     </>
   );
-}
+};
+
+export default Introduce;

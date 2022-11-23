@@ -11,12 +11,13 @@ import {
   Principal__interview,
 } from "./Principal.style";
 import { useInView } from "react-intersection-observer";
+import {
+  P_CONTENT_URL,
+  P_INFO_URL,
+  P_PERSON_URL,
+} from "components/IntroduceSections/assets";
 
-const CONTENT_URL = "/img/principal_content.png";
-const PERSON_URL = "/img/principal.svg";
-const INFO_URL = "/img/principal_info.png";
-
-export default function InterviewPricipal() {
+export default function Pricipal() {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -25,11 +26,11 @@ export default function InterviewPricipal() {
         <Profile className={inView ? "interviewee-profile" : ""}>
           <Profile__person
             className="interviewee-person"
-            src={PERSON_URL}
+            src={P_PERSON_URL}
             alt="교장의 실루엣"
           />
           <Profile__nameTag>
-            <NameTag__info src={INFO_URL} alt="교장 정보" />
+            <NameTag__info src={P_INFO_URL} alt="교장 정보" />
           </Profile__nameTag>
         </Profile>
 
@@ -38,7 +39,7 @@ export default function InterviewPricipal() {
             <Interview__wrapper className="interview-content">
               <Interview__content
                 className={inView ? "interview-content-text" : ""}
-                src={CONTENT_URL}
+                src={P_CONTENT_URL}
                 alt="교장의 인터뷰 내용"
               />
             </Interview__wrapper>

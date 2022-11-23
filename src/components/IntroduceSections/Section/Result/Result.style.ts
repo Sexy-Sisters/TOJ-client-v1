@@ -6,6 +6,7 @@ import {
   Page,
 } from "components/IntroduceSections/IntroduceSections.style";
 import styled from "styled-components";
+import Image from "next/image";
 
 export const ResultPage = styled(Page)`
   background: linear-gradient(
@@ -73,7 +74,7 @@ export const Victim = styled.div`
   }
 `;
 
-export const Victim__person = styled.img`
+export const Victim__person = styled(Image)`
   width: auto;
   height: 450px;
   margin: 50px 0 0 0;

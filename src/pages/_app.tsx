@@ -8,7 +8,7 @@ import { RecoilRoot } from "recoil";
 import { getThemeMode } from "../../shared/util/funcs/themeMode";
 import { useEffect, useState } from "react";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const [curTheme, setTheme] = useState<DefaultTheme>(lightTheme);
 
   useEffect(() => {
@@ -24,4 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </RecoilRoot>
   );
-}
+};
+
+export default App;
