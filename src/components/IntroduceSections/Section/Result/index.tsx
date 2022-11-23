@@ -1,11 +1,12 @@
+import React from "react";
 import {
   Victim__person,
   Victim__title,
   Victim,
   ResultPage,
-} from "./Result.style";
+} from "./result.style";
 import { useInView } from "react-intersection-observer";
-import { VICTIM_URL } from "components/IntroduceSections/assets";
+import { VICTIM_URL } from "../../assets";
 
 const TITLE = "12시에 공부하러\n내려갔다가 선도 갔습니다 🤦‍♂️";
 

@@ -1,4 +1,4 @@
-import { Page } from "components/IntroduceSections/IntroduceSections.style";
+import { Page } from "../../introduceSections.style";
 import styled from "styled-components";
 import Image from "next/image";
 

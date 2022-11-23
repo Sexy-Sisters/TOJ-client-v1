@@ -7,13 +7,13 @@ import {
   Lever__blueStick,
   Lever__redStick,
   Lever__yellowStick,
-} from "./CrucialVideo.style";
+} from "./crucialVideo.style";
 import {
   STICK_COLOR,
   LEVER_COLOR,
   VIDEO_TITLE,
   VIDEO_URL,
-} from "./CrucialVideo.constant";
+} from "./crucialVideo.constant";
 import { useInView } from "react-intersection-observer";
 
 const STICK: JSX.Element[] = [
@@ -30,7 +30,7 @@ const leverUI = (): JSX.Element[] => {
   ));
 };
 
-export default function CrucialVideo() {
+const CrucialVideo = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -44,4 +44,6 @@ export default function CrucialVideo() {
       </Lever__block>
     </CurcialVideoPage>
   );
-}
+};
+
+export default CrucialVideo;

@@ -3,7 +3,7 @@ import {
   PAD_SIZE,
   MOBILE_ROTATE,
   INTERVIEW_BG_COLOR,
-} from "components/IntroduceSections/IntroduceSections.style";
+} from "../../../introduceSections.style";
 import styled from "styled-components";
 import {
   InterviewBox,
@@ -16,7 +16,7 @@ import {
   InterviewWrapper,
   InterviewContent,
   Interview,
-} from "../Interview.style";
+} from "../interview.style";
 
 export const StudentPage = styled(InterviewPage)`
   background-color: ${INTERVIEW_BG_COLOR};

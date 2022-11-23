@@ -4,7 +4,7 @@ import {
   MOBILE_SIZE,
   PAD_SIZE,
   Page,
-} from "../../IntroduceSections.style";
+} from "../../introduceSections.style";
 
 export const EndTOJPage = styled(Page)`
   display: flex;

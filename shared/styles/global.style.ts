@@ -1,4 +1,4 @@
-import { PAD_SIZE } from "components/IntroduceSections/IntroduceSections.style";
+import { PAD_SIZE } from "components/introduceSections/introduceSections.style";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   StudentPage,
   Profile,
@@ -9,15 +10,11 @@ import {
   Interview__box,
   Interview__wrapper,
   Interview__content,
-} from "./Student.style";
+} from "./student.style";
 import { useInView } from "react-intersection-observer";
-import {
-  S_CONTENT_URL,
-  S_PERSON_URL,
-  S_INFO_URL,
-} from "components/IntroduceSections/assets";
+import { S_CONTENT_URL, S_PERSON_URL, S_INFO_URL } from "../../../assets";
 
-export default function Student() {
+const Student = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -48,4 +45,6 @@ export default function Student() {
       </Page__container>
     </StudentPage>
   );
-}
+};
+
+export default Student;

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Title,
   IntroTOJPage,
@@ -10,7 +11,7 @@ import {
   UIBlock__blueCircle,
   UIBlock__redCircle,
   UIBlock__greenCircle,
-} from "./IntroTOJ.style";
+} from "./introTOJ.style";
 
 const TITLE = "TOJ";
 const SUB_TITLE = "Teacher Online Judge 🧑‍💻";
@@ -19,6 +20,8 @@ const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 export default function IntroTOJ() {
   return (
     <IntroTOJPage>
+      {/* 일회성 헤더 넣기 */}
+
       <Page__titleBlock>
         <TitleBlock__wrapper>
           <Title className="title-text">{TITLE}</Title>

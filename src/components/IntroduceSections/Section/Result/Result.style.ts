@@ -4,7 +4,7 @@ import {
   MOBILE_SIZE,
   PAD_SIZE,
   Page,
-} from "components/IntroduceSections/IntroduceSections.style";
+} from "../../introduceSections.style";
 import styled from "styled-components";
 import Image from "next/image";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { SectionsContainer, Section } from "react-fullpage";
 import {
   IntroTOJ,
@@ -6,7 +7,7 @@ import {
   EndTOJ,
   CrucialVideo,
   Result,
-} from "./Section";
+} from "./section";
 
 const sectionComponents: JSX.Element[] = [
   <IntroTOJ />,
@@ -29,6 +30,6 @@ const sections = (): JSX.Element[] => {
   ));
 };
 
-export default function FullPageList() {
+export default function IntroduceSection() {
   return <SectionsContainer {...options}>{sections()}</SectionsContainer>;
 }

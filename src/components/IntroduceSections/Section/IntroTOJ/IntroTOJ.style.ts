@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MOBILE_SIZE, PAD_SIZE, Page } from "../../IntroduceSections.style";
+import { MOBILE_SIZE, PAD_SIZE, Page } from "../../introduceSections.style";
 
 const WRAPPER = styled.div`
   display: flex;

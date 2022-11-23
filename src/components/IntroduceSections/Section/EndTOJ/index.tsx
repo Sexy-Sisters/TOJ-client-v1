@@ -8,14 +8,14 @@ import {
   Word__block,
   Content,
   Title,
-} from "./EndTOJ.style";
+} from "./endTOJ.style";
 import {
   TOJ_ADD_TEXT,
   TOJ_STRONG_TEXT,
   TOJ_COLOR,
   J_WORD,
   TITLE,
-} from "./EndTOJ.constant";
+} from "./endTOJ.constant";
 
 const tojContent = () => {
   return TOJ_STRONG_TEXT.map((toj_strong, i) => (
@@ -36,7 +36,7 @@ const wordChapter = () => {
   );
 };
 
-export default function EndTOJ() {
+const EndTOJ = () => {
   return (
     <EndTOJPage>
       <Title__block>
@@ -51,4 +51,6 @@ export default function EndTOJ() {
       </Content__block>
     </EndTOJPage>
   );
-}
+};
+
+export default EndTOJ;

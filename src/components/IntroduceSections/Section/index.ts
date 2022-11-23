@@ -1,6 +1,6 @@
-export { default as IntroTOJ } from "./IntroTOJ";
-export { default as CrucialVideo } from "./CrucialVideo";
-export { default as Result } from "./Result";
-export { default as EndTOJ } from "./EndTOJ";
-export { default as InterviewPrincipal } from "./Interview/Principal";
-export { default as InterviewStudent } from "./Interview/Student";
+export { default as IntroTOJ } from "./introTOJ";
+export { default as CrucialVideo } from "./crucialVideo";
+export { default as Result } from "./result";
+export { default as EndTOJ } from "./endTOJ";
+export { default as InterviewPrincipal } from "./interview/principal";
+export { default as InterviewStudent } from "./interview/student";
