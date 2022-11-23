@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import React from "react";
 
-export const Home: NextPage = () => {
+const Home: NextPage = () => {
   return <React.Fragment></React.Fragment>;
 };
+
+export default Home;
