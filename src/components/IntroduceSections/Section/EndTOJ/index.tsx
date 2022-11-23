@@ -36,7 +36,7 @@ const wordChapter = () => {
   );
 };
 
-export default function EndTOJ() {
+const EndTOJ = () => {
   return (
     <EndTOJPage>
       <Title__block>
@@ -51,4 +51,6 @@ export default function EndTOJ() {
       </Content__block>
     </EndTOJPage>
   );
-}
+};
+
+export default EndTOJ;

@@ -16,7 +16,7 @@ const TITLE = "TOJ";
 const SUB_TITLE = "Teacher Online Judge 🧑‍💻";
 const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 
-export default function IntroTOJ() {
+const IntroTOJ = () => {
   return (
     <IntroTOJPage>
       <Page__titleBlock>
@@ -36,4 +36,6 @@ export default function IntroTOJ() {
       </Page__UIBlock>
     </IntroTOJPage>
   );
-}
+};
+
+export default IntroTOJ;

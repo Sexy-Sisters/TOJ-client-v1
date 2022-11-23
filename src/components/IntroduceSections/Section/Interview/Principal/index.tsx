@@ -17,7 +17,7 @@ import {
   P_PERSON_URL,
 } from "components/IntroduceSections/assets";
 
-export default function Pricipal() {
+const Principal = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -48,4 +48,6 @@ export default function Pricipal() {
       </Page__container>
     </PrincipalPage>
   );
-}
+};
+
+export default Principal;

@@ -1,1 +1,1 @@
-export { default as FullPageList } from "./IntroduceSections";
+export { default as IntroduceSections } from "./IntroduceSections";

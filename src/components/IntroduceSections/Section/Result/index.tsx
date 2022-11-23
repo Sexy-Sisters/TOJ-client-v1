@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Victim__person,
   Victim__title,
@@ -5,11 +6,11 @@ import {
   ResultPage,
 } from "./Result.style";
 import { useInView } from "react-intersection-observer";
-import { VICTIM_URL } from "components/IntroduceSections/assets";
+import { VICTIM_URL } from "../../assets";
 
 const TITLE = "12시에 공부하러\n내려갔다가 선도 갔습니다 🤦‍♂️";
 
-export default function Result() {
+const Result = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -26,4 +27,6 @@ export default function Result() {
       </Victim>
     </ResultPage>
   );
-}
+};
+
+export default Result;
