@@ -1,5 +1,6 @@
 import { Page } from "components/IntroduceSections/IntroduceSections.style";
 import styled from "styled-components";
+import Image from "next/image";
 
 const BG_COLOR = "#1E272E";
 const BOX_COLOR = "#DCDDE1";
@@ -41,7 +42,7 @@ export const InterviewWrapper = styled.div`
   height: 100%;
 `;
 
-export const InterviewContent = styled.img`
+export const InterviewContent = styled(Image)`
   position: absolute;
   width: 650px;
   height: auto;
@@ -51,7 +52,7 @@ export const IntervieweeProfile = styled.div`
   position: relative;
 `;
 
-export const IntervieweePerson = styled.img`
+export const IntervieweePerson = styled(Image)`
   position: absolute;
   z-index: ${Z_PERSON_IMG};
   width: 400px;
@@ -83,7 +84,7 @@ export const IntervieweeNameTag = styled.div`
   background-color: ${NAME_TAG_COLOR};
 `;
 
-export const InterveiweePersonInfo = styled.img`
+export const InterveiweePersonInfo = styled(Image)`
   width: 80%;
   height: auto;
 `;
