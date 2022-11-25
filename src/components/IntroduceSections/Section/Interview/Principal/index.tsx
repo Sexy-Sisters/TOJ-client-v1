@@ -1,3 +1,4 @@
+import { useInView } from "react-intersection-observer";
 import {
   Page__container,
   PrincipalPage,
@@ -10,14 +11,13 @@ import {
   Interview__content,
   Principal__interview,
 } from "./Principal.style";
-import { useInView } from "react-intersection-observer";
 import {
   P_CONTENT_URL,
   P_INFO_URL,
   P_PERSON_URL,
 } from "components/IntroduceSections/assets";
 
-export default function Pricipal() {
+const Principal = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -48,4 +48,6 @@ export default function Pricipal() {
       </Page__container>
     </PrincipalPage>
   );
-}
+};
+
+export default Principal;

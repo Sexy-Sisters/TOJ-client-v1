@@ -98,7 +98,7 @@ export const Interview__content = styled(InterviewContent)`
   right: 100px;
 
   @media (max-width: ${PAD_SIZE}) {
-    right: 20px;
+    right: 5vw;
   }
   @media (max-width: 700px) {
     right: 0;
@@ -110,7 +110,7 @@ export const Profile = styled(IntervieweeProfile)``;
 
 export const Profile__person = styled(IntervieweePerson)`
   top: 150px;
-  left: 100px;
+  left: 50px;
 
   @media (max-width: ${PAD_SIZE}) {
     top: 400px;
@@ -121,7 +121,7 @@ export const Profile__person = styled(IntervieweePerson)`
 
 export const Profile__nameTag = styled(IntervieweeNameTag)`
   top: 470px;
-  left: 450px;
+  left: 400px;
 
   @media (max-width: ${PAD_SIZE}) {
     left: 200px;

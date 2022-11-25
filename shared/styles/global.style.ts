@@ -89,7 +89,6 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -107,11 +106,16 @@ body {
   line-height: 1; 
   font-family: "Noto Sans KR", sans-serif;
   
+  div {
+    transition: background-color 1s;
+  }
+  
   @media (max-width: ${PAD_SIZE}) {
     .Navigation {
       display: none;
     }
   }
+
 }
 ol,
 ul {
@@ -131,5 +135,13 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+a {
+  text-decoration-line: none;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 `;

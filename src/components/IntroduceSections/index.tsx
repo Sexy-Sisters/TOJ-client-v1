@@ -29,6 +29,8 @@ const sections = (): JSX.Element[] => {
   ));
 };
 
-export default function FullPageList() {
+const IntroduceSections = () => {
   return <SectionsContainer {...options}>{sections()}</SectionsContainer>;
-}
+};
+
+export default IntroduceSections;

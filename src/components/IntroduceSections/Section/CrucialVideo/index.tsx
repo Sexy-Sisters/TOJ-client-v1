@@ -30,7 +30,7 @@ const leverUI = (): JSX.Element[] => {
   ));
 };
 
-export default function CrucialVideo() {
+const CrucialVideo = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -44,4 +44,6 @@ export default function CrucialVideo() {
       </Lever__block>
     </CurcialVideoPage>
   );
-}
+};
+
+export default CrucialVideo;

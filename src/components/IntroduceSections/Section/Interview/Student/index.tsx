@@ -17,7 +17,7 @@ import {
   S_INFO_URL,
 } from "components/IntroduceSections/assets";
 
-export default function Student() {
+const Student = () => {
   const [curPage, inView] = useInView({ threshold: 0.1 });
 
   return (
@@ -48,4 +48,6 @@ export default function Student() {
       </Page__container>
     </StudentPage>
   );
-}
+};
+
+export default Student;

@@ -1,28 +1,22 @@
 import type { AppProps } from "next/app";
-import { DefaultTheme, ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../../shared/styles/global.style";
-import { lightTheme } from "../../shared/styles/theme/theme";
 import { DefaultSeo } from "next-seo";
 import SEO from "../../seo.config";
-import { RecoilRoot } from "recoil";
-import { getThemeMode } from "../../shared/util/funcs/themeMode";
-import { useEffect, useState } from "react";
+import { useTheme } from "../../shared/hooks";
+import { ThemeContext } from "../../shared/contexts";
+import { ThemeProvider } from "styled-components";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  const [curTheme, setTheme] = useState<DefaultTheme>(lightTheme);
-
-  useEffect(() => {
-    setTheme(getThemeMode());
-  }, []);
+  const { curTheme, toggleTheme } = useTheme();
 
   return (
-    <RecoilRoot>
+    <ThemeContext.Provider value={{ curTheme, toggleTheme }}>
       <ThemeProvider theme={curTheme}>
         <DefaultSeo {...SEO} />
-        <Component {...pageProps} />
         <GlobalStyle />
+        <Component {...pageProps} />
       </ThemeProvider>
-    </RecoilRoot>
+    </ThemeContext.Provider>
   );
 };
 

@@ -1,7 +1,8 @@
-import { FullPageList } from "components";
+import React from "react";
 import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { BASE_URL } from "../../../shared/constants";
+import { IntroduceSections } from "../../components";
 
 const Introduce: NextPage = () => {
   return (
@@ -14,7 +15,7 @@ const Introduce: NextPage = () => {
           url: BASE_URL + "/introduce",
         }}
       />
-      <FullPageList />
+      <IntroduceSections />
     </>
   );
 };

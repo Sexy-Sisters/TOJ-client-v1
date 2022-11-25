@@ -1,3 +1,4 @@
+import { HaveAuth_Header, NoAuth_Header } from "components/layout";
 import {
   Title,
   IntroTOJPage,
@@ -16,9 +17,12 @@ const TITLE = "TOJ";
 const SUB_TITLE = "Teacher Online Judge 🧑‍💻";
 const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 
-export default function IntroTOJ() {
+const IntroTOJ = () => {
   return (
     <IntroTOJPage>
+      {/* 권한에 따라 헤더 */}
+      <NoAuth_Header isIntroduce={true} />
+
       <Page__titleBlock>
         <TitleBlock__wrapper>
           <Title className="title-text">{TITLE}</Title>
@@ -36,4 +40,6 @@ export default function IntroTOJ() {
       </Page__UIBlock>
     </IntroTOJPage>
   );
-}
+};
+
+export default IntroTOJ;
