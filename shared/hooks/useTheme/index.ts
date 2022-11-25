@@ -26,7 +26,6 @@ const useTheme: IUseTheme = () => {
 
   React.useEffect(() => {
     const localTheme: string | null = localStorage.getItem(THEME_KEY);
-    console.log(localTheme);
 
     if (localTheme !== null) {
       if (localTheme === DARK) {

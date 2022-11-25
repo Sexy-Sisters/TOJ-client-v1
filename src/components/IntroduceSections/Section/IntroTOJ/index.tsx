@@ -1,4 +1,4 @@
-import Header from "components/common/Header";
+import { HaveAuth_Header, NoAuth_Header } from "components/layout";
 import {
   Title,
   IntroTOJPage,
@@ -20,7 +20,8 @@ const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 const IntroTOJ = () => {
   return (
     <IntroTOJPage>
-      <Header />
+      {/* 권한에 따라 헤더 */}
+      <NoAuth_Header isIntroduce={true} />
 
       <Page__titleBlock>
         <TitleBlock__wrapper>
