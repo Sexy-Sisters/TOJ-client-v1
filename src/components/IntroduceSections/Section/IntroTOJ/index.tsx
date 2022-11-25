@@ -1,3 +1,4 @@
+import Header from "components/common/Header";
 import {
   Title,
   IntroTOJPage,
@@ -19,6 +20,8 @@ const DESCRIBE = "모바일은 가로 모드로 동작합니다! 🙏";
 const IntroTOJ = () => {
   return (
     <IntroTOJPage>
+      <Header />
+
       <Page__titleBlock>
         <TitleBlock__wrapper>
           <Title className="title-text">{TITLE}</Title>

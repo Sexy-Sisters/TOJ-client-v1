@@ -1,3 +1,4 @@
+import { useInView } from "react-intersection-observer";
 import {
   Page__container,
   PrincipalPage,
@@ -10,7 +11,6 @@ import {
   Interview__content,
   Principal__interview,
 } from "./Principal.style";
-import { useInView } from "react-intersection-observer";
 import {
   P_CONTENT_URL,
   P_INFO_URL,

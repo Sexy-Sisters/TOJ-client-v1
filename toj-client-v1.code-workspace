@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "toj-client-v1",
+			"path": "."
+		},
+		{
+			"name": ".github",
+			"path": "../../Downloads/.github"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": ".yarn/sdks/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true
+	}
+}
