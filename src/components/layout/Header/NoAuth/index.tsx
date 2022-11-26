@@ -3,12 +3,13 @@ import { useRouter } from "next/router";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
-import { HOME_URL, IHeader, LOGO_URL } from "../Header.constant";
+import { HOME_URL, LOGO_URL } from "../common/Header.constant";
+import { IHeader } from "../common/Header.interface";
 import {
   Header,
   Logo,
   ThemeButton,
-} from "components/layout/Header/Header.style";
+} from "components/layout/Header/common/Header.style";
 import {
   SignIn,
   SignUp_button,

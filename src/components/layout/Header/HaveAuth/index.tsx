@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { Header, Logo, ThemeButton } from "../Header.style";
+import { Header, Logo, ThemeButton } from "../common/Header.style";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
+import { IHeader } from "../common/Header.interface";
 import {
   HOME_URL,
-  IHeader,
   LOGO_URL,
   USER_SETTING_URL,
-} from "components/layout/Header/Header.constant";
+} from "components/layout/Header/common/Header.constant";
 import {
   Header__logo,
   Header__UI,

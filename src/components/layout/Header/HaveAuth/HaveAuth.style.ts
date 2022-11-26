@@ -1,4 +1,7 @@
-import { Logo__block, UI__block } from "components/layout/Header/Header.style";
+import {
+  Logo__block,
+  UI__block,
+} from "components/layout/Header/common/Header.style";
 import Image from "next/image";
 import styled from "styled-components";
 
