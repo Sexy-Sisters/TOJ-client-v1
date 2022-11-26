@@ -3,7 +3,7 @@ import {
   PAD_SIZE,
   MOBILE_ROTATE,
   INTERVIEW_BG_COLOR,
-} from "components/IntroduceSections/IntroduceSections.style";
+} from "components/IntroduceSections/common/IntroduceSections.style";
 import styled from "styled-components";
 import {
   Interview,

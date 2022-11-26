@@ -34,18 +34,20 @@ export const Logo__block = styled.div`
 export const ThemeButton = styled.button`
   font-size: 30px;
   border-radius: 50%;
-  transition: all linear 0.3s;
 
   &:hover {
-    animation: rotateBtn 1s linear infinite;
+    animation: pop 0.6s;
   }
 
-  @keyframes rotateBtn {
-    from {
-      transform: rotate(0);
+  @keyframes pop {
+    0% {
+      transform: scale(1);
     }
-    to {
-      transform: rotate(360deg);
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 `;

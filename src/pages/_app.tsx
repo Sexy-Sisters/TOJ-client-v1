@@ -1,3 +1,4 @@
+import React from "react";
 import type { AppProps } from "next/app";
 import { GlobalStyle } from "../../shared/styles/global.style";
 import { DefaultSeo } from "next-seo";
@@ -5,8 +6,14 @@ import SEO from "../../seo.config";
 import { useTheme } from "../../shared/hooks";
 import { ThemeContext } from "../../shared/contexts";
 import { ThemeProvider } from "styled-components";
+import { NextPageWithLayout } from "../../shared/interfaces/page";
 
-const App = ({ Component, pageProps }: AppProps) => {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? (page => page);
   const { curTheme, toggleTheme } = useTheme();
 
   return (
@@ -14,7 +21,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider theme={curTheme}>
         <DefaultSeo {...SEO} />
         <GlobalStyle />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </ThemeProvider>
     </ThemeContext.Provider>
   );
