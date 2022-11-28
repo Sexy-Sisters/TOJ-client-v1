@@ -58,7 +58,7 @@ const IntroduceSections = () => {
     }
   };
 
-  const naviButtons = () => {
+  const naviButton = () => {
     return (
       <>
         {curSection === section_elements.length - 1 ? null : (
@@ -83,7 +83,7 @@ const IntroduceSections = () => {
 
   return (
     <Intorduce_page>
-      {naviButtons()}
+      {naviButton()}
       <SectionContainer ref={sectionRef}>{sections()}</SectionContainer>
     </Intorduce_page>
   );
