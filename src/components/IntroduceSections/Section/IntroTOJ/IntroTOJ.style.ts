@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import {
-  MOBILE_SIZE,
-  PAD_SIZE,
-  Page,
-} from "../../common/IntroduceSections.style";
+import { Page } from "../../shared/IntroduceSections.style";
+import { MOBILE_SIZE, PAD_SIZE } from "../../shared/IntroduceSections.constant";
 
 const WRAPPER = styled.div`
   display: flex;

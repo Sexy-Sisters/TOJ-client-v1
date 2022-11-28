@@ -6,7 +6,7 @@ import {
   ResultPage,
 } from "./Result.style";
 import { useInView } from "react-intersection-observer";
-import { VICTIM_URL } from "../../assets";
+import { VICTIM_URL } from "../../shared/assets";
 
 const TITLE = "12시에 공부하러\n내려갔다가 선도 갔습니다 🤦‍♂️";
 

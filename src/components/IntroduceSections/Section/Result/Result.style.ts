@@ -1,12 +1,12 @@
+import { Page } from "../../shared/IntroduceSections.style";
+import styled from "styled-components";
+import Image from "next/image";
 import {
   INTERVIEW_BG_COLOR,
   MOBILE_ROTATE,
   MOBILE_SIZE,
   PAD_SIZE,
-  Page,
-} from "../../common/IntroduceSections.style";
-import styled from "styled-components";
-import Image from "next/image";
+} from "../../shared/IntroduceSections.constant";
 
 export const ResultPage = styled(Page)`
   background: linear-gradient(

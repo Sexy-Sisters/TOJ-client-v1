@@ -9,7 +9,7 @@ export const Header = styled.header<{ isIntroduce: boolean }>`
   width: 100vw;
   height: 80px;
   background-color: ${props =>
-    props.isIntroduce ? "transparent" : props.theme.bgColor};
+    props.isIntroduce ? "transparent" : props.theme.header};
 `;
 
 export const Logo = styled(Image)`

@@ -1,4 +1,4 @@
-import { HaveAuth_Header, NoAuth_Header } from "components/layout";
+import { NoAuth_Header } from "components/layout";
 import {
   Title,
   IntroTOJPage,

@@ -1,10 +1,10 @@
-import { HaveAuth_Header } from "components/layout";
-import Base_Layout from "components/base_layout";
 import React from "react";
+import { HaveAuth_Header } from "components/layout";
+import Base_Layout from "components/layout/base_layout";
 import { NextPageWithLayout } from "../../shared/interfaces/page";
 
 const Home: NextPageWithLayout = () => {
-  return <React.Fragment></React.Fragment>;
+  return <></>;
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {

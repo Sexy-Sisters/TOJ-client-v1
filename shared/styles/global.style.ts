@@ -1,4 +1,3 @@
-import { PAD_SIZE } from "components/IntroduceSections/common/IntroduceSections.style";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -103,19 +102,12 @@ section {
   display: block;
 }
 body {
-  line-height: 1; 
-  font-family: "Noto Sans KR", sans-serif;
+  line-height: 1;
   
-  div {
-    transition: background-color 1s;
+  * {
+    font-family: "Noto Sans KR", sans-serif;
+    transition: background-color 0.5s;
   }
-  
-  @media (max-width: ${PAD_SIZE}) {
-    .Navigation {
-      display: none;
-    }
-  }
-
 }
 ol,
 ul {

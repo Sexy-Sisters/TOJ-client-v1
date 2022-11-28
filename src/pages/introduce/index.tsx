@@ -1,10 +1,11 @@
 import React from "react";
-import { NextPage } from "next";
 import { NextSeo } from "next-seo";
 import { BASE_URL } from "../../../shared/constants";
 import { IntroduceSections } from "../../components";
+import { NextPageWithLayout } from "../../../shared/interfaces/page";
+import Base_Layout from "components/layout/base_layout";
 
-const Introduce: NextPage = () => {
+const Introduce: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
@@ -18,6 +19,10 @@ const Introduce: NextPage = () => {
       <IntroduceSections />
     </>
   );
+};
+
+Introduce.getLayout = function getLayout(page: React.ReactElement) {
+  return <Base_Layout>{page}</Base_Layout>;
 };
 
 export default Introduce;
