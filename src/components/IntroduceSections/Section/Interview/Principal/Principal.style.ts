@@ -3,7 +3,7 @@ import {
   PAD_SIZE,
   MOBILE_ROTATE,
   INTERVIEW_BG_COLOR,
-} from "components/IntroduceSections/common/IntroduceSections.style";
+} from "../../../shared/IntroduceSections.constant";
 import styled from "styled-components";
 import {
   Interview,
@@ -16,7 +16,7 @@ import {
   InterveiweePersonInfo,
   IntervieweeProfile,
   InterviewWrapper,
-} from "../Interview.style";
+} from "../shared/Interview.style";
 
 export const PrincipalPage = styled(InterviewPage)`
   background: linear-gradient(

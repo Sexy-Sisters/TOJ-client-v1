@@ -15,10 +15,10 @@ import {
   P_CONTENT_URL,
   P_INFO_URL,
   P_PERSON_URL,
-} from "components/IntroduceSections/assets";
+} from "components/IntroduceSections/shared/assets";
 
 const Principal = () => {
-  const [curPage, inView] = useInView({ threshold: 0.1 });
+  const [curPage, inView] = useInView({ threshold: 0.001 });
 
   return (
     <PrincipalPage ref={curPage}>

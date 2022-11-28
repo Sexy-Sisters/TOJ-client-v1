@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Page } from "../../common/IntroduceSections.style";
+import { Page } from "../../shared/IntroduceSections.style";
 import {
   MOBILE_ROTATE,
   MOBILE_SIZE,
   PAD_SIZE,
-} from "../../common/IntroduceSections.style";
+} from "../../shared/IntroduceSections.constant";
 
 const LeverStick = styled.div`
   position: absolute;

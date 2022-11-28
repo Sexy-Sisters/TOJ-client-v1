@@ -1,7 +1,7 @@
 import {
   Logo__block,
   UI__block,
-} from "components/layout/Header/common/Header.style";
+} from "components/layout/Header/shared/Header.style";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -24,7 +24,8 @@ export const SignIn = styled(Link)`
 `;
 
 export const SignUp_button = styled.button`
-  padding: 10px;
+  width: 100px;
+  height: 40px;
   border: solid 3px ${props => props.theme.textColor};
   border-radius: 20px;
   white-space: nowrap;

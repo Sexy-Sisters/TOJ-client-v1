@@ -15,10 +15,10 @@ import {
   S_CONTENT_URL,
   S_PERSON_URL,
   S_INFO_URL,
-} from "components/IntroduceSections/assets";
+} from "components/IntroduceSections/shared/assets";
 
 const Student = () => {
-  const [curPage, inView] = useInView({ threshold: 0.1 });
+  const [curPage, inView] = useInView({ threshold: 0.001 });
 
   return (
     <StudentPage ref={curPage}>

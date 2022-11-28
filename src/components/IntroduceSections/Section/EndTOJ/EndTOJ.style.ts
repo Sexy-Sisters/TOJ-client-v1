@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { Page } from "../../shared/IntroduceSections.style";
 import {
   MOBILE_ROTATE,
   MOBILE_SIZE,
   PAD_SIZE,
-  Page,
-} from "../../common/IntroduceSections.style";
+} from "../../shared/IntroduceSections.constant";
 
 export const EndTOJPage = styled(Page)`
   display: flex;
