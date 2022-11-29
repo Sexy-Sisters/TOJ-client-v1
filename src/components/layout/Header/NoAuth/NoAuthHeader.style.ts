@@ -1,5 +1,4 @@
 import {
-  Hamburger,
   Logo__block,
   UI__block,
 } from "components/layout/Header/shared/Header.style";
@@ -11,6 +10,9 @@ const MOBILE_SIZE = "450px";
 export const Header__logo = styled(Logo__block)`
   @media (max-width: ${MOBILE_SIZE}) {
     width: 100%;
+    .hamburger-button {
+      margin: 0 30px 0 0;
+    }
   }
 `;
 
@@ -59,33 +61,9 @@ export const Header__menu = styled.div<{ toggle: boolean }>`
     transition: all 0.5s ease-in-out;
 
     .header-ui {
-      height: 300px;
       flex-direction: column;
+      height: 300px;
       margin: 0;
     }
-  }
-`;
-
-export const Header__hamburger = styled(Hamburger)<{ toggle: boolean }>`
-  display: none;
-
-  @media (max-width: ${MOBILE_SIZE}) {
-    display: block;
-    position: relative;
-    z-index: 200;
-    margin: 0 30px 0 0;
-  }
-
-  .bar-one {
-    animation: ${props =>
-      props.toggle ? "one 0.7s forwards" : "one-back 0.7s forwards"};
-  }
-  .bar-two {
-    animation: ${props =>
-      props.toggle ? "two 0.7s forwards" : "two-back 0.7s forwards"};
-  }
-  .bar-three {
-    animation: ${props =>
-      props.toggle ? "three 0.7s forwards" : "three-back 0.7s forwards"};
   }
 `;

@@ -5,6 +5,8 @@ import {
 import Image from "next/image";
 import styled from "styled-components";
 
+const MOBILE_SIZE = "500px";
+
 export const Header__logo = styled(Logo__block)`
   justify-content: space-between;
   width: 280px;
@@ -19,7 +21,7 @@ export const SearchBar = styled.input`
   width: 200px;
   height: 40px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10px;
   outline: none;
   border: none;
   border-radius: 20px;

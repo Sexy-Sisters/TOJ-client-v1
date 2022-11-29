@@ -6,7 +6,6 @@ import { darkTheme } from "../../../../../shared/styles/theme";
 import { HOME_URL, LOGO_URL } from "../shared/Header.constant";
 import { IHeader } from "../shared/Header.interface";
 import {
-  Hamburger__bar,
   Header,
   Logo,
   ThemeButton,
@@ -17,8 +16,8 @@ import {
   Header__logo,
   Header__UI,
   Header__menu,
-  Header__hamburger,
 } from "./NoAuthHeader.style";
+import { HamburgerButton } from "components/common";
 
 const SIGN_IN_URL = "";
 const SIGN_UP_URL = "";
@@ -26,7 +25,7 @@ const SIGN_UP_URL = "";
 const NoAuthHeader = ({ isIntroduce }: IHeader) => {
   const router = useRouter();
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
-  const [hamburgerToggle, setHamburgerToggle] = useState<boolean>(false);
+  const [menuToggle, setMenuToggle] = useState<boolean>(false);
 
   return (
     <Header isIntroduce={isIntroduce}>
@@ -35,17 +34,14 @@ const NoAuthHeader = ({ isIntroduce }: IHeader) => {
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
         </Link>
 
-        <Header__hamburger
-          toggle={hamburgerToggle}
-          onClick={() => setHamburgerToggle(cur => !cur)}
-        >
-          <Hamburger__bar className="bar-one" />
-          <Hamburger__bar className="bar-two" />
-          <Hamburger__bar className="bar-three" />
-        </Header__hamburger>
+        <HamburgerButton
+          power={menuToggle}
+          onSize="450px"
+          onClick={setMenuToggle}
+        />
       </Header__logo>
 
-      <Header__menu toggle={hamburgerToggle}>
+      <Header__menu toggle={menuToggle}>
         <Header__UI className="header-ui">
           <SignIn href={SIGN_IN_URL}>Sign in</SignIn>
           <SignUp_button onClick={() => router.push(SIGN_UP_URL)}>
