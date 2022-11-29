@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Hamburger = styled.button<{
-  power: boolean;
+  state: boolean;
   onSize: string;
 }>`
   display: none;
@@ -17,15 +17,15 @@ export const Hamburger = styled.button<{
 
   .bar-one {
     animation: ${props =>
-      props.power ? "one 0.7s forwards" : "one-back 0.7s forwards"};
+      props.state ? "one 0.7s forwards" : "one-back 0.7s forwards"};
   }
   .bar-two {
     animation: ${props =>
-      props.power ? "two 0.7s forwards" : "two-back 0.7s forwards"};
+      props.state ? "two 0.7s forwards" : "two-back 0.7s forwards"};
   }
   .bar-three {
     animation: ${props =>
-      props.power ? "three 0.7s forwards" : "three-back 0.7s forwards"};
+      props.state ? "three 0.7s forwards" : "three-back 0.7s forwards"};
   }
 `;
 

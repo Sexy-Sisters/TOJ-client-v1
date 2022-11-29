@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Header, Logo, ThemeButton } from "../shared/Header.style";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
 import { IHeader } from "../shared/Header.interface";
+import { Header, Logo, ThemeButton } from "../shared/Header.style";
 import {
   HOME_URL,
   LOGO_URL,
@@ -11,13 +11,17 @@ import {
 } from "components/layout/Header/shared/Header.constant";
 import {
   Header__logo,
-  Header__UI,
   SearchBar,
   UserProfile,
+  Header__sideMenu,
+  UserName,
+  Header__UI,
 } from "./HaveAuth.style";
+import { HamburgerButton } from "components/common";
 
 const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
+  const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
 
   return (
     <Header isIntroduce={isIntroduce}>
@@ -26,11 +30,21 @@ const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
         </Link>
 
-        <SearchBar type="search" placeholder="학교를 검색 해보자! 🧑‍💻" />
+        <SearchBar
+          className="header-search-bar"
+          type="search"
+          placeholder="학교를 검색 해보자! 🧑‍💻"
+        />
+
+        <HamburgerButton
+          state={menuToggle}
+          onSize={"500px"}
+          onClick={setMenuToggle}
+        />
       </Header__logo>
 
       <Header__UI>
-        <ThemeButton onClick={toggleTheme}>
+        <ThemeButton className="theme-button" onClick={toggleTheme}>
           {curTheme === darkTheme ? "🌝" : "🌚"}
         </ThemeButton>
 
@@ -43,6 +57,20 @@ const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
           />
         </Link>
       </Header__UI>
+
+      <Header__sideMenu toggle={menuToggle}>
+        <UserProfile
+          src={"/image/user_profile.jpeg"}
+          alt="사용자 프로필"
+          width={40}
+          height={40}
+        />
+        <UserName>유저 닉네임</UserName>
+        <ThemeButton className="theme-button" onClick={toggleTheme}>
+          {curTheme === darkTheme ? "🌝" : "🌚"}
+        </ThemeButton>
+        <SearchBar type="search" placeholder="학교를 검색 해보자! 🧑‍💻" />
+      </Header__sideMenu>
     </Header>
   );
 };

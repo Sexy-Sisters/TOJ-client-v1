@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
 import { HOME_URL, LOGO_URL } from "../shared/Header.constant";
@@ -25,7 +25,7 @@ const SIGN_UP_URL = "";
 const NoAuthHeader = ({ isIntroduce }: IHeader) => {
   const router = useRouter();
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
-  const [menuToggle, setMenuToggle] = useState<boolean>(false);
+  const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
 
   return (
     <Header isIntroduce={isIntroduce}>
@@ -35,7 +35,7 @@ const NoAuthHeader = ({ isIntroduce }: IHeader) => {
         </Link>
 
         <HamburgerButton
-          power={menuToggle}
+          state={menuToggle}
           onSize="450px"
           onClick={setMenuToggle}
         />
