@@ -58,32 +58,24 @@ const IntroduceSections = () => {
     }
   };
 
-  const naviButtons = () => {
-    return (
-      <>
-        {curSection === section_elements.length - 1 ? null : (
-          <TfiArrowCircleDown
-            onClick={() => {
-              moveSection(DOWN);
-            }}
-            className="section-navi down-button"
-          />
-        )}
-        {curSection === 0 ? null : (
-          <TfiArrowCircleUp
-            onClick={() => {
-              moveSection(UP);
-            }}
-            className="section-navi up-button"
-          />
-        )}
-      </>
-    );
-  };
-
   return (
     <Intorduce_page>
-      {naviButtons()}
+      {curSection !== section_elements.length - 1 && (
+        <TfiArrowCircleDown
+          onClick={() => {
+            moveSection(DOWN);
+          }}
+          className="section-navi down-button"
+        />
+      )}
+      {curSection !== 0 && (
+        <TfiArrowCircleUp
+          onClick={() => {
+            moveSection(UP);
+          }}
+          className="section-navi up-button"
+        />
+      )}
       <SectionContainer ref={sectionRef}>{sections()}</SectionContainer>
     </Intorduce_page>
   );
