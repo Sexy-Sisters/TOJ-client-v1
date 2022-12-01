@@ -1,3 +1,4 @@
 export interface IHeader {
-  isIntroduce: boolean;
+  isTransparent: boolean;
+  isFixed: boolean;
 }

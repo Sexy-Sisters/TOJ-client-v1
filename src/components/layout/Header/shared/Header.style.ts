@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { IHeader } from "./Header.interface";
 
-export const Header = styled.header<{ isIntroduce: boolean }>`
+export const Header = styled.header<IHeader>`
   display: flex;
   justify-content: space-between;
-  position: ${props => (props.isIntroduce ? "absolute" : "fixed")};
-  z-index: 100;
+  position: ${props => (props.isFixed ? "fixed" : "absolute")};
+  z-index: 1000;
   width: 100vw;
   height: 80px;
   background-color: ${props =>
-    props.isIntroduce ? "transparent" : props.theme.header};
+    props.isTransparent ? "transparent" : props.theme.header};
 `;
 
 export const Logo = styled(Image)`

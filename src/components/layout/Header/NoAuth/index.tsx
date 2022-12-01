@@ -19,16 +19,16 @@ import {
 } from "./NoAuthHeader.style";
 import { HamburgerButton } from "components/common";
 
-const SIGN_IN_URL = "";
-const SIGN_UP_URL = "";
+const SIGN_IN_URL = "auth/signIn";
+const SIGN_UP_URL = "auth/signUp";
 
-const NoAuthHeader = ({ isIntroduce }: IHeader) => {
-  const router = useRouter();
+const NoAuthHeader = (props: IHeader) => {
+  const { push } = useRouter();
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
 
   return (
-    <Header isIntroduce={isIntroduce}>
+    <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
       <Header__logo>
         <Link href={HOME_URL}>
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
@@ -44,7 +44,7 @@ const NoAuthHeader = ({ isIntroduce }: IHeader) => {
       <Header__menu toggle={menuToggle}>
         <Header__UI className="header-ui">
           <SignIn href={SIGN_IN_URL}>Sign in</SignIn>
-          <SignUp_button onClick={() => router.push(SIGN_UP_URL)}>
+          <SignUp_button onClick={() => push(SIGN_UP_URL)}>
             Sign up
           </SignUp_button>
           <ThemeButton onClick={toggleTheme}>

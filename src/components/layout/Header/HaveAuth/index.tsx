@@ -19,12 +19,12 @@ import {
 } from "./HaveAuth.style";
 import { HamburgerButton } from "components/common";
 
-const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
+const HaveAuthHeader = (props: IHeader) => {
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
 
   return (
-    <Header isIntroduce={isIntroduce}>
+    <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
       <Header__logo>
         <Link href={HOME_URL}>
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
@@ -38,7 +38,7 @@ const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
 
         <HamburgerButton
           state={menuToggle}
-          onSize={"500px"}
+          onSize="500px"
           onClick={setMenuToggle}
         />
       </Header__logo>
@@ -50,7 +50,7 @@ const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
 
         <Link href={USER_SETTING_URL}>
           <UserProfile
-            src={"/image/user_profile.jpeg"}
+            src="/image/user_profile.jpeg"
             alt="사용자 프로필"
             width={40}
             height={40}
@@ -60,7 +60,7 @@ const HaveAuthHeader = ({ isIntroduce }: IHeader) => {
 
       <Header__sideMenu toggle={menuToggle}>
         <UserProfile
-          src={"/image/user_profile.jpeg"}
+          src="/image/user_profile.jpeg"
           alt="사용자 프로필"
           width={40}
           height={40}

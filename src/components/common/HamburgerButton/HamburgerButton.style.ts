@@ -5,8 +5,8 @@ export const Hamburger = styled.button<{
   onSize: string;
 }>`
   display: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 
   @media (max-width: ${props => props.onSize}) {
