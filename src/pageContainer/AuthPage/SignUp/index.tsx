@@ -1,8 +1,11 @@
 import React from "react";
-import EmailForm from "./Form/Email";
+import { EmailForm, PasswordForm } from "./Form";
 import { Section, SectionContainer } from "./SignUp.style";
 
 const SignUpSections = () => {
+  const [email, setEmail] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
+
   const [curSection, setCurSection] = React.useState<number>(0);
   const sectionRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -16,11 +19,12 @@ const SignUpSections = () => {
   return (
     <SectionContainer ref={sectionRef}>
       <Section>
-        <EmailForm nextSection={setCurSection} />
+        <EmailForm signUpData={setEmail} nextSection={setCurSection} />
       </Section>
       <Section>
-        <EmailForm nextSection={setCurSection} />
+        <PasswordForm signUpData={setPassword} nextSection={setCurSection} />
       </Section>
+      <Section></Section>
     </SectionContainer>
   );
 };

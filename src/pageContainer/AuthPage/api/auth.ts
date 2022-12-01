@@ -1,5 +1,5 @@
 import RequestApi from "../../../../shared/utils/requestApi";
-import { IEmail, ICode } from "../interface/signUp";
+import { ICodeAPI, IEmailAPI } from "../interface/signUp";
 import { SignUpController } from "./requestUrls";
 
 class Auth {
@@ -7,7 +7,7 @@ class Auth {
    * signUp 이메일 유효성 확인을 위한 api
    * @param data 이메일
    */
-  signUp_email(data: IEmail) {
+  signUp_email(data: IEmailAPI) {
     try {
       return RequestApi({
         method: "POST",
@@ -23,7 +23,7 @@ class Auth {
    * signUp 이메일 인증 코드 확인을 `위한 api
    * @param data 이메일, 인증 코드
    */
-  signUp_code(data: ICode) {
+  signUp_code(data: ICodeAPI) {
     try {
       return RequestApi({
         method: "DELETE",

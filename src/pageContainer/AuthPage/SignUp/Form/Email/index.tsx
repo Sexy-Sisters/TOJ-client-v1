@@ -2,30 +2,33 @@ import { useForm } from "react-hook-form";
 import * as G from "pageContainer/AuthPage/SignUp/SignUp.style";
 import * as S from "./Email.style";
 import auth from "pageContainer/AuthPage/api/auth";
-import { IEmail, ICode } from "pageContainer/AuthPage/interface/signUp";
-import React, { Dispatch, SetStateAction } from "react";
+import {
+  IEmailForm,
+  ICodeForm,
+  ISignUpForm,
+} from "pageContainer/AuthPage/interface/signUp";
+import React from "react";
 
 const mainColor = "#EB2F06";
 const buttonColor = "#FF6464";
 
-const EmailForm = (props: {
-  nextSection: Dispatch<SetStateAction<number>>;
-}) => {
+const EmailForm = (props: ISignUpForm) => {
   const [curEmail, setCurEmail] = React.useState<string>("");
 
   const {
     register: registerEmail,
     handleSubmit: submitEmail,
+    watch: watchEmail,
     formState: { isSubmitting: email },
-  } = useForm<IEmail>();
+  } = useForm<IEmailForm>();
 
   const {
     register: registerCode,
     handleSubmit: submitCode,
     formState: { isSubmitting: code },
-  } = useForm<ICode>();
+  } = useForm<ICodeForm>();
 
-  const onValidEmail = async (data: IEmail) => {
+  const onValidEmail = async (data: IEmailForm) => {
     try {
       await auth.signUp_email(data);
       setCurEmail(data.email);
@@ -34,35 +37,40 @@ const EmailForm = (props: {
     }
   };
 
-  const onInValidEmail = () => {};
+  const onInValidEmail = () => {
+    /* todo: 검증 실패시 애니메이션 or alert */
+  };
 
-  const onValidCode = async (data: ICode) => {
+  const onValidCode = async (data: ICodeForm) => {
     try {
       await auth.signUp_code({
         email: curEmail,
         code: data.code,
       });
 
+      props.signUpData(curEmail);
       props.nextSection(curSection => curSection + 1);
     } catch (e) {
       console.log(e);
     }
   };
 
-  const onInValidCode = () => {};
+  const onInValidCode = () => {
+    /* todo: 검증 실패시 애니메이션 or alert */
+  };
 
   return (
     <G.PageContainer>
       <S.FormWrapper>
-        <G.KindName>이메일 Email</G.KindName>
+        <G.KindName>이메일 📩</G.KindName>
 
         <S.EmailForm onSubmit={submitEmail(onValidEmail, onInValidEmail)}>
           <G.Input
             placeholder="이메일..."
-            width="70%"
-            border="15px"
             type="email"
             spellCheck="false"
+            width="70%"
+            border="15px"
             {...registerEmail("email", {
               required: "이메일을 입력해 주세요",
             })}
