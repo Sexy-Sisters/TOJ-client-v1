@@ -5,6 +5,9 @@ export const SignUpController = {
   code: () => {
     return `/api/v2/auth/code`;
   },
+  signUp: () => {
+    return `/api/v2/user`;
+  },
 };
 
 export const SignInController = {};

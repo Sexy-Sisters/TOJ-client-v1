@@ -7,12 +7,3 @@ export const CodeForm = styled(S.Form)`
 `;
 
 export const EmailForm = styled(S.Form)``;
-
-export const FormWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  height: 350px;
-  margin-top: 150px;
-`;

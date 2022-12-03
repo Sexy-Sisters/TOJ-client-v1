@@ -3,13 +3,12 @@ import { useRouter } from "next/router";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
-import { HOME_URL, LOGO_URL } from "../shared/Header.constant";
-import { IHeader } from "../shared/Header.interface";
+import { IHeader, LOGO_URL } from "../Header.constant";
 import {
   Header,
   Logo,
   ThemeButton,
-} from "components/layout/Header/shared/Header.style";
+} from "components/layout/Header/Header.style";
 import {
   SignIn,
   SignUp_button,
@@ -19,8 +18,8 @@ import {
 } from "./NoAuthHeader.style";
 import { HamburgerButton } from "components/common";
 
-const SIGN_IN_URL = "auth/signIn";
-const SIGN_UP_URL = "auth/signUp";
+const SIGN_IN_URL = "/auth/signIn";
+const SIGN_UP_URL = "/auth/signUp";
 
 const NoAuthHeader = (props: IHeader) => {
   const { push } = useRouter();
@@ -30,7 +29,7 @@ const NoAuthHeader = (props: IHeader) => {
   return (
     <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
       <Header__logo>
-        <Link href={HOME_URL}>
+        <Link href={"/"}>
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
         </Link>
 

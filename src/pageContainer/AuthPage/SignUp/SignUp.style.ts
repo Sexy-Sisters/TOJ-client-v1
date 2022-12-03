@@ -23,6 +23,15 @@ export const PageContainer = styled.div`
   background-color: ${props => props.theme.bgColor};
 `;
 
+export const FormWrapper = styled.div<{ height: string }>`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: ${props => props.height};
+  margin-top: 150px;
+`;
+
 export const Form = styled.form`
   display: flex;
   justify-content: space-between;
@@ -36,6 +45,8 @@ export const Form = styled.form`
 export const KindName = styled.h1`
   font-size: 30px;
   color: ${props => props.theme.textColor};
+  white-space: pre-wrap;
+  line-height: 40px;
 `;
 
 export const Input = styled.input<{ width: string; border: string }>`
@@ -43,7 +54,7 @@ export const Input = styled.input<{ width: string; border: string }>`
   height: 50px;
   border-radius: ${props => props.border};
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   background-color: ${props => props.theme.input};
   color: ${props => props.theme.textColor};
 
@@ -63,6 +74,7 @@ export const Button = styled.button<{
   defaultColor: string;
   hoverColor: string;
 }>`
+  position: relative;
   width: ${props => props.width};
   height: 50px;
   border-radius: ${props => props.border};

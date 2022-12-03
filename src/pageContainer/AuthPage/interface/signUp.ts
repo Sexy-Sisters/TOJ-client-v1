@@ -1,8 +1,33 @@
 import React from "react";
+import { IAPIResponse } from "../../../../shared/interfaces/page";
+
+export interface IEmailResponse extends IAPIResponse {
+  // data: {
+  //   data: boolean;
+  //   errorCode: string | null;
+  //   message: string | null;
+  //   result: string;
+  // };
+}
+
+export interface ICodeResponse extends IAPIResponse {
+  data: {
+    data: boolean;
+    errorCode: string | null;
+    message: string | null;
+    result: string;
+  };
+}
 
 export interface ISignUpForm {
   nextSection: React.Dispatch<React.SetStateAction<number>>;
   signUpData: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface ISignUpAPI {
+  email: string;
+  nickname: string;
+  password: string;
 }
 
 export interface IEmailForm {
@@ -28,4 +53,8 @@ export interface IPwdForm {
 
 export interface IRePwdForm {
   rePassword: string;
+}
+
+export interface INicknameForm {
+  nickname: string;
 }

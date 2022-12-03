@@ -39,7 +39,7 @@ const PasswordForm = (props: ISignUpForm) => {
 
   return (
     <G.PageContainer>
-      <S.FormWrapper>
+      <G.FormWrapper height="350px">
         <G.KindName>비밀번호 🔐</G.KindName>
 
         <G.Form onSubmit={submitPwd(onValidPwd, onInValidPwd)}>
@@ -87,7 +87,7 @@ const PasswordForm = (props: ISignUpForm) => {
             저장
           </G.Button>
         </S.RePasswordForm>
-      </S.FormWrapper>
+      </G.FormWrapper>
 
       <G.ColorLine color={mainColor} />
     </G.PageContainer>

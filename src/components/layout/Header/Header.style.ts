@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { IHeader } from "./Header.interface";
+import { IHeader } from "./Header.constant";
 
 export const Header = styled.header<IHeader>`
   display: flex;

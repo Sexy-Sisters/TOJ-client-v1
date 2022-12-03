@@ -2,13 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
-import { IHeader } from "../shared/Header.interface";
-import { Header, Logo, ThemeButton } from "../shared/Header.style";
+import { Header, Logo, ThemeButton } from "../Header.style";
 import {
-  HOME_URL,
+  IHeader,
   LOGO_URL,
   USER_SETTING_URL,
-} from "components/layout/Header/shared/Header.constant";
+} from "components/layout/Header/Header.constant";
 import {
   Header__logo,
   SearchBar,
@@ -18,6 +17,7 @@ import {
   Header__UI,
 } from "./HaveAuth.style";
 import { HamburgerButton } from "components/common";
+import { HOME_URL } from "../../../../../shared/constants";
 
 const HaveAuthHeader = (props: IHeader) => {
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
