@@ -1,3 +1,4 @@
+import { LOADING_EMOJI } from "../../../../shared/constants";
 import * as S from "./Loading.style";
 
 interface ILoadingIcon {
@@ -9,7 +10,7 @@ interface ILoadingIcon {
 const LoadingIcon = (props: ILoadingIcon) => {
   return (
     <S.Loading loading={props.isLoading} posY={props.posY} posX={props.posX}>
-      ♻️
+      {LOADING_EMOJI}
     </S.Loading>
   );
 };

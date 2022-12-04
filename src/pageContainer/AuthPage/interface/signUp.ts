@@ -1,13 +1,22 @@
 import React from "react";
 import { IAPIResponse } from "../../../../shared/interfaces/page";
 
+export interface ISignUpResponse extends IAPIResponse {
+  data: {
+    data: { userId: number };
+    errorCode: string | null;
+    message: string | null;
+    result: "SUCCESS" | "FAIL";
+  };
+}
+
 export interface IEmailResponse extends IAPIResponse {
-  // data: {
-  //   data: boolean;
-  //   errorCode: string | null;
-  //   message: string | null;
-  //   result: string;
-  // };
+  data: {
+    data: object;
+    errorCode: string | null;
+    message: string | null;
+    result: "SUCCESS" | "FAIL";
+  };
 }
 
 export interface ICodeResponse extends IAPIResponse {
@@ -15,7 +24,7 @@ export interface ICodeResponse extends IAPIResponse {
     data: boolean;
     errorCode: string | null;
     message: string | null;
-    result: string;
+    result: "SUCCESS" | "FAIL";
   };
 }
 

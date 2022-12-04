@@ -4,6 +4,7 @@ export const Success = styled.p<{ success: boolean }>`
   display: ${props => (props.success ? "inline" : "none")};
   position: absolute;
   z-index: 100;
+  white-space: nowrap;
   margin-top: 60px;
   font-size: 16px;
   color: ${props => props.theme.success};

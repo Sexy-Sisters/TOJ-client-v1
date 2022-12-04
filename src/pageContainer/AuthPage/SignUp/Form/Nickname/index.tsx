@@ -1,46 +1,83 @@
+import { ErrorText } from "components/common";
 import { useRouter } from "next/router";
 import auth from "pageContainer/AuthPage/api/auth";
-import { INicknameForm } from "pageContainer/AuthPage/interface/signUp";
+import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import { useForm } from "react-hook-form";
+import * as I from "pageContainer/AuthPage/interface/signUp";
 import * as G from "../../SignUp.style";
 
 const mainColor = "#0984E3";
 const buttonColor = "#4B9CDB";
 
 const NicknameForm = (props: { email: string; password: string }) => {
-  const { register, handleSubmit } = useForm<INicknameForm>();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<I.INicknameForm>();
   const { push } = useRouter();
 
-  const onValid = async (data: INicknameForm) => {
-    const authUser = {
-      email: props.email,
-      nickname: data.nickname,
-      password: props.password,
-    };
-    await auth.signUp(authUser);
-    push("/");
-  };
+  const onValid = async (data: I.INicknameForm) => {
+    // 닉네임 공백 검증
+    const validResult = validSpace(data.nickname.length, data.nickname, () => {
+      setError(
+        "nickname",
+        { message: "닉네임에 공백을 포함할 수 없어요" },
+        { shouldFocus: true },
+      );
+    });
 
-  const onInValid = () => {
-    // 예외 처리
+    if (validResult === false) {
+      const authUser = {
+        email: props.email,
+        nickname: data.nickname,
+        password: props.password,
+      };
+      const APIresponse = (await auth.signUp(authUser)) as I.ISignUpResponse;
+
+      if (APIresponse.data.result === "SUCCESS") {
+        push("signIn");
+      }
+      if (APIresponse.data.result === "FAIL" && APIresponse.data.message) {
+        setError(
+          "nickname",
+          { message: APIresponse.data.message },
+          { shouldFocus: true },
+        );
+      }
+    }
   };
 
   return (
     <G.PageContainer>
       <G.FormWrapper height="200px">
-        <G.KindName>{`마지막으로\n닉네임 👶`}</G.KindName>
+        <G.KindName>{`Last,\nNickname 🦋`}</G.KindName>
 
-        <G.Form onSubmit={handleSubmit(onValid, onInValid)}>
+        <G.Form onSubmit={handleSubmit(onValid)}>
           <G.Input
             placeholder="닉네임..."
             width="70%"
             border="15px"
             {...register("nickname", {
               required: "닉네임을 입력해 주세요",
-              minLength: 2,
-              maxLength: 8,
+              minLength: {
+                value: 2,
+                message: "닉네임은 2자 이상으로 입력해 주세요",
+              },
+              maxLength: {
+                value: 8,
+                message: "닉네임은 8자 이하로 입력해 주세요",
+              },
             })}
           />
+
+          {/* 닉네임 폼 상태 텍스트 */}
+          <ErrorText
+            isError={errors.nickname ? true : false}
+            message={errors.nickname?.message}
+          />
+
           <G.Button
             type="submit"
             width="25%"

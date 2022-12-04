@@ -3,7 +3,7 @@ import * as G from "../../SignUp.style";
 
 export const RePasswordForm = styled(G.Form)`
   flex-direction: column;
-  height: 130px;
+  height: 140px;
 `;
 
 export const InputBox = styled.div`

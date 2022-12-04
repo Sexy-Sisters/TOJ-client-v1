@@ -38,7 +38,7 @@ const HaveAuthHeader = (props: IHeader) => {
 
         <HamburgerButton
           state={menuToggle}
-          onSize="500px"
+          reWidth="500px"
           onClick={setMenuToggle}
         />
       </Header__logo>

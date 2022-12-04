@@ -2,17 +2,17 @@ import { Hamburger, Hamburger__bar } from "./HamburgerButton.style";
 
 interface IHamburgerButton {
   state: boolean;
-  onSize: string;
+  reWidth: string;
   onClick: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HamburgerButton = ({ state, onSize, onClick }: IHamburgerButton) => {
+const HamburgerButton = ({ state, reWidth, onClick }: IHamburgerButton) => {
   return (
     <Hamburger
       className="hamburger-button"
       onClick={() => onClick(cur => !cur)}
       state={state}
-      onSize={onSize}
+      reWidth={reWidth}
     >
       <Hamburger__bar className="bar-one" />
       <Hamburger__bar className="bar-two" />

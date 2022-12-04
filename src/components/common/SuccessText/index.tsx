@@ -1,3 +1,4 @@
+import { SUCCESS_EMOJI } from "../../../../shared/constants";
 import * as S from "./Success.style";
 
 interface ISuccessText {
@@ -6,7 +7,11 @@ interface ISuccessText {
 }
 
 const SuccessText = (props: ISuccessText) => {
-  return <S.Success success={props.isSuccess}>{props.message}</S.Success>;
+  return (
+    <S.Success success={props.isSuccess}>
+      {props.message} {SUCCESS_EMOJI}
+    </S.Success>
+  );
 };
 
 export default SuccessText;

@@ -5,12 +5,13 @@ import * as I from "pageContainer/AuthPage/interface/signUp";
 import * as G from "pageContainer/AuthPage/SignUp/SignUp.style";
 import * as S from "./Email.style";
 
-const mainColor = "#EB2F06";
-const buttonColor = "#FF6464";
+const mainColor = "#FDCB6E";
+const buttonColor = "#FFDC9C";
 
 const EmailForm = (props: I.ISignUpForm) => {
   const {
     watch,
+    setError: setErrorEmail,
     register: registerEmail,
     handleSubmit: submitEmail,
     formState: {
@@ -21,7 +22,7 @@ const EmailForm = (props: I.ISignUpForm) => {
   } = useForm<I.IEmailForm>();
 
   const {
-    setError,
+    setError: setErrorCode,
     register: registerCode,
     handleSubmit: submitCode,
     formState: { errors: errorCode },
@@ -29,7 +30,14 @@ const EmailForm = (props: I.ISignUpForm) => {
 
   const onValidEmail = async (data: I.IEmailForm) => {
     try {
-      const response = (await auth.signUp_email(data)) as I.IEmailResponse;
+      const APIresponse = (await auth.signUp_email(data)) as I.IEmailResponse;
+      if (APIresponse.data.result === "FAIL" && APIresponse.data.message) {
+        setErrorEmail(
+          "email",
+          { message: APIresponse.data.message },
+          { shouldFocus: true },
+        );
+      }
     } catch (e) {
       console.log(e);
     }
@@ -37,17 +45,17 @@ const EmailForm = (props: I.ISignUpForm) => {
 
   const onValidCode = async (data: I.ICodeForm) => {
     try {
-      const response = (await auth.signUp_code({
+      const APIresponse = (await auth.signUp_code({
         email: watch("email"),
         code: data.code,
       })) as I.ICodeResponse;
 
       // 유효한 코드인지 검증
-      if (response.data.data === true) {
+      if (APIresponse.data.data === true) {
         props.signUpData(watch("email"));
         props.nextSection(curSection => curSection + 1);
       } else {
-        setError(
+        setErrorCode(
           "code",
           { message: "코드가 일치하지 않아요" },
           { shouldFocus: true },
@@ -61,7 +69,7 @@ const EmailForm = (props: I.ISignUpForm) => {
   return (
     <G.PageContainer>
       <G.FormWrapper height="350px">
-        <G.KindName>이메일 📩</G.KindName>
+        <G.KindName>Email 🧛‍♂️</G.KindName>
 
         <S.EmailForm onSubmit={submitEmail(onValidEmail)}>
           <G.Input
@@ -79,11 +87,11 @@ const EmailForm = (props: I.ISignUpForm) => {
           {/* 이메일 인증 폼 상태 텍스트 */}
           <ErrorText
             isError={errorEmail.email ? true : false}
-            message={errorEmail.email?.message + " 💁‍♂️"}
+            message={errorEmail.email?.message}
           />
           <SuccessText
             isSuccess={successEmail}
-            message="TOJ 이메일 인증 코드가 전송 됐어요 ✨"
+            message="TOJ 이메일 인증 코드가 전송 됐어요"
           />
 
           <G.Button
@@ -114,7 +122,7 @@ const EmailForm = (props: I.ISignUpForm) => {
           {/* 인증 코드 폼 상태 텍스트 */}
           <ErrorText
             isError={errorCode.code ? true : false}
-            message={errorCode.code?.message + " 💁‍♂️"}
+            message={errorCode.code?.message}
           />
 
           <G.Button

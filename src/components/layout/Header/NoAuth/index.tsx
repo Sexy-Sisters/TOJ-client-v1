@@ -35,7 +35,7 @@ const NoAuthHeader = (props: IHeader) => {
 
         <HamburgerButton
           state={menuToggle}
-          onSize="450px"
+          reWidth="450px"
           onClick={setMenuToggle}
         />
       </Header__logo>

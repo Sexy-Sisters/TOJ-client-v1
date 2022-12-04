@@ -4,6 +4,7 @@ export const Error = styled.p<{ error: boolean }>`
   display: ${props => (props.error ? "inline" : "none")};
   position: absolute;
   z-index: 100;
+  white-space: nowrap;
   margin-top: 60px;
   font-size: 16px;
   color: ${props => props.theme.error};
