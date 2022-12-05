@@ -10,4 +10,8 @@ export const SignUpController = {
   },
 };
 
-export const SignInController = {};
+export const SignInController = {
+  signIn: () => {
+    return `/api/v2/auth`;
+  },
+};

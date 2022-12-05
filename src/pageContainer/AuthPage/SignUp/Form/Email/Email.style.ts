@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import * as S from "../../SignUp.style";
+import * as G from "../../../style/AuthPage.style";
 
-export const CodeForm = styled(S.Form)`
+export const CodeForm = styled(G.Form)`
   flex-direction: column;
   height: 140px;
 `;
 
-export const EmailForm = styled(S.Form)``;
+export const EmailForm = styled(G.Form)``;

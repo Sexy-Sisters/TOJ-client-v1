@@ -1,6 +1,7 @@
 import RequestApi from "../../../../shared/utils/requestApi";
 import { ICodeAPI, IEmailAPI, ISignUpAPI } from "../interface/signUp";
-import { SignUpController } from "./requestUrls";
+import { ISignInAPI } from "../interface/signIn";
+import { SignInController, SignUpController } from "./requestUrls";
 
 class Auth {
   /**
@@ -44,6 +45,23 @@ class Auth {
       return RequestApi({
         method: "POST",
         url: SignUpController.signUp(),
+        data: data,
+      });
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+
+  /**
+   * signIn api
+   * @param data 이메일, 비밀번호
+   */
+  signIn(data: ISignInAPI) {
+    try {
+      return RequestApi({
+        method: "POST",
+        url: SignInController.signIn(),
         data: data,
       });
     } catch (error) {

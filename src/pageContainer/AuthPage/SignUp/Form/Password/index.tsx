@@ -1,4 +1,4 @@
-import { ErrorText, SuccessText } from "components/common";
+import { ErrorText, SuccessText } from "../../../common";
 import {
   IPwdForm,
   IRePwdForm,
@@ -7,8 +7,9 @@ import {
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import React from "react";
 import { useForm } from "react-hook-form";
-import * as G from "../../SignUp.style";
+import * as G from "pageContainer/AuthPage/style/AuthPage.style";
 import * as S from "./Password.style";
+import * as SignUp from "../../SignUp.style";
 
 const mainColor = "#EB2F06";
 const buttonColor = "#FF6464";
@@ -55,8 +56,8 @@ const PasswordForm = (props: ISignUpForm) => {
   };
 
   return (
-    <G.PageContainer>
-      <G.FormWrapper height="350px">
+    <SignUp.PageContainer>
+      <SignUp.FormWrapper height="350px">
         <G.KindName>Password 👺</G.KindName>
 
         <G.Form onSubmit={submitPwd(onValidPwd)}>
@@ -127,10 +128,10 @@ const PasswordForm = (props: ISignUpForm) => {
             저장
           </G.Button>
         </S.RePasswordForm>
-      </G.FormWrapper>
+      </SignUp.FormWrapper>
 
       <G.ColorLine color={mainColor} />
-    </G.PageContainer>
+    </SignUp.PageContainer>
   );
 };
 

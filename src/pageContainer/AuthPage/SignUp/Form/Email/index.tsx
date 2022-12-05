@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import auth from "pageContainer/AuthPage/api/auth";
-import { ErrorText, LoadingIcon, SuccessText } from "components/common";
+import { ErrorText, LoadingIcon, SuccessText } from "../../../common";
 import * as I from "pageContainer/AuthPage/interface/signUp";
-import * as G from "pageContainer/AuthPage/SignUp/SignUp.style";
+import * as G from "pageContainer/AuthPage/style/AuthPage.style";
+import * as SignUp from "../../SignUp.style";
 import * as S from "./Email.style";
 
 const mainColor = "#FDCB6E";
@@ -68,8 +69,8 @@ const EmailForm = (props: I.ISignUpForm) => {
   };
 
   return (
-    <G.PageContainer>
-      <G.FormWrapper height="350px">
+    <SignUp.PageContainer>
+      <SignUp.FormWrapper height="350px">
         <G.KindName>Email 🧛‍♂️</G.KindName>
 
         <S.EmailForm onSubmit={submitEmail(onValidEmail)}>
@@ -136,10 +137,10 @@ const EmailForm = (props: I.ISignUpForm) => {
             코드 인증
           </G.Button>
         </S.CodeForm>
-      </G.FormWrapper>
+      </SignUp.FormWrapper>
 
       <G.ColorLine color={mainColor} />
-    </G.PageContainer>
+    </SignUp.PageContainer>
   );
 };
 
