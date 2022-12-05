@@ -1,4 +1,4 @@
-import { ErrorText } from "components/common";
+import { ErrorText, SuccessText } from "components/common";
 import { useRouter } from "next/router";
 import auth from "pageContainer/AuthPage/api/auth";
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
@@ -14,7 +14,7 @@ const NicknameForm = (props: { email: string; password: string }) => {
     register,
     handleSubmit,
     setError,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<I.INicknameForm>();
   const { push } = useRouter();
 
@@ -76,6 +76,10 @@ const NicknameForm = (props: { email: string; password: string }) => {
           <ErrorText
             isError={errors.nickname ? true : false}
             message={errors.nickname?.message}
+          />
+          <SuccessText
+            isSuccess={isSubmitSuccessful}
+            message="TOJ 가입을 환영합니다!"
           />
 
           <G.Button

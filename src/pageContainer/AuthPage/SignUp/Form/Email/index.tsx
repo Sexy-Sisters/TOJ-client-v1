@@ -50,14 +50,15 @@ const EmailForm = (props: I.ISignUpForm) => {
         code: data.code,
       })) as I.ICodeResponse;
 
-      // 유효한 코드인지 검증
+      // 인증 코드 유효성 검증
       if (APIresponse.data.data === true) {
         props.signUpData(watch("email"));
         props.nextSection(curSection => curSection + 1);
-      } else {
+      }
+      if (APIresponse.data.data === false && APIresponse.data.message) {
         setErrorCode(
           "code",
-          { message: "코드가 일치하지 않아요" },
+          { message: APIresponse.data.message },
           { shouldFocus: true },
         );
       }

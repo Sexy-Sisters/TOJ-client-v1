@@ -91,7 +91,11 @@ export const Button = styled.button<{
 export const ColorLine = styled.div<{ color: string }>`
   position: absolute;
   bottom: 100px;
-  width: 100vw;
+  width: 100%;
   height: 15px;
   background-color: ${props => props.color};
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    height: 10px;
+  }
 `;
