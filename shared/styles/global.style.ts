@@ -135,5 +135,12 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+}
+input {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
 }
 `;

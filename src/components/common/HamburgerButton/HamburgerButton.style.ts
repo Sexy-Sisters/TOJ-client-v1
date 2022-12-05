@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 export const Hamburger = styled.button<{
   state: boolean;
-  onSize: string;
+  reWidth: string;
 }>`
   display: none;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 
-  @media (max-width: ${props => props.onSize}) {
+  @media (max-width: ${props => props.reWidth}) {
     display: block;
     position: relative;
     z-index: 200;
