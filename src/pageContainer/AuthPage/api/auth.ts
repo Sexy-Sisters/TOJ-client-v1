@@ -1,6 +1,11 @@
 import RequestApi from "../../../../shared/utils/requestApi";
 import { ICodeAPI, IEmailAPI, ISignUpAPI } from "../interface/signUp";
-import { SignUpController } from "./requestUrls";
+import { ISignInAPI } from "../interface/signIn";
+import {
+  AuthController,
+  SignInController,
+  SignUpController,
+} from "./requestUrls";
 
 class Auth {
   /**
@@ -48,6 +53,41 @@ class Auth {
       });
     } catch (error) {
       console.log(error);
+      return error;
+    }
+  }
+
+  /**
+   * signIn api
+   * @param data 이메일, 비밀번호
+   */
+  signIn(data: ISignInAPI) {
+    try {
+      return RequestApi({
+        method: "POST",
+        url: SignInController.signIn(),
+        data: data,
+      });
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+
+  /**
+   * 엑세스 토큰 재발급을 위한 api
+   * @returns 엑세스 토큰 재발급
+   */
+  refresh(refreshToken?: string) {
+    try {
+      return RequestApi(
+        {
+          method: "POST",
+          url: AuthController.refresh(),
+        },
+        refreshToken,
+      );
+    } catch (error: any) {
       return error;
     }
   }

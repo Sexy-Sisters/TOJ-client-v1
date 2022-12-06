@@ -1,4 +1,4 @@
-import { SUCCESS_EMOJI } from "../../../../shared/constants";
+import { SUCCESS_EMOJI } from "../../../../../shared/constants";
 import * as S from "./Success.style";
 
 interface ISuccessText {

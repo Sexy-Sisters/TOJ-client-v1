@@ -9,6 +9,9 @@ const RequestApi = (config: AxiosRequestConfig, token?: string) => {
           baseURL: BASE_URL,
           url: config.url,
           data: config.data,
+          headers: {
+            accessToken: token,
+          },
         })
       : axios({
           method: config.method,

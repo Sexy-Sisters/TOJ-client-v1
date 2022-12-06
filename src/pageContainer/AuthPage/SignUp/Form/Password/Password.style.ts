@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as G from "../../SignUp.style";
+import * as G from "../../../style/AuthPage.style";
 
 export const RePasswordForm = styled(G.Form)`
   flex-direction: column;

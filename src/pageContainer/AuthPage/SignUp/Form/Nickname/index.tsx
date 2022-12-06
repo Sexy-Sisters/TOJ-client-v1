@@ -1,10 +1,11 @@
-import { ErrorText, SuccessText } from "components/common";
+import { ErrorText, SuccessText } from "../../../common";
 import { useRouter } from "next/router";
 import auth from "pageContainer/AuthPage/api/auth";
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import { useForm } from "react-hook-form";
 import * as I from "pageContainer/AuthPage/interface/signUp";
-import * as G from "../../SignUp.style";
+import * as G from "pageContainer/AuthPage/style/AuthPage.style";
+import * as SignUp from "../../SignUp.style";
 
 const mainColor = "#0984E3";
 const buttonColor = "#4B9CDB";
@@ -50,8 +51,8 @@ const NicknameForm = (props: { email: string; password: string }) => {
   };
 
   return (
-    <G.PageContainer>
-      <G.FormWrapper height="200px">
+    <SignUp.PageContainer>
+      <SignUp.FormWrapper height="200px">
         <G.KindName>{`Last,\nNickname 🦋`}</G.KindName>
 
         <G.Form onSubmit={handleSubmit(onValid)}>
@@ -92,10 +93,10 @@ const NicknameForm = (props: { email: string; password: string }) => {
             완료!
           </G.Button>
         </G.Form>
-      </G.FormWrapper>
+      </SignUp.FormWrapper>
 
       <G.ColorLine color={mainColor} />
-    </G.PageContainer>
+    </SignUp.PageContainer>
   );
 };
 
