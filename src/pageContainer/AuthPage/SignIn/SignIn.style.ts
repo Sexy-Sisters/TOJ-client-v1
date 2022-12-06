@@ -16,7 +16,6 @@ export const Form = styled(Auth.Form)`
   margin-top: 150px;
 `;
 
-export const InputWrapper = styled.div`
-  display: flex;
-  position: relative;
+export const ErrorBox = styled.div`
+  margin-top: 40px;
 `;

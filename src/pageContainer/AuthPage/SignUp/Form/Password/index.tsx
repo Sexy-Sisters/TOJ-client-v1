@@ -7,7 +7,7 @@ import {
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import React from "react";
 import { useForm } from "react-hook-form";
-import * as G from "pageContainer/AuthPage/style/AuthPage.style";
+import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as S from "./Password.style";
 import * as SignUp from "../../SignUp.style";
 
@@ -58,10 +58,10 @@ const PasswordForm = (props: ISignUpForm) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="350px">
-        <G.KindName>Password 👺</G.KindName>
+        <Auth.KindName>Password 👺</Auth.KindName>
 
-        <G.Form onSubmit={submitPwd(onValidPwd)}>
-          <G.Input
+        <Auth.Form onSubmit={submitPwd(onValidPwd)}>
+          <Auth.Input
             disabled={successPwd}
             placeholder="비밀번호..."
             type="password"
@@ -89,7 +89,7 @@ const PasswordForm = (props: ISignUpForm) => {
             message="사용 가능한 비밀번호 입니다"
           />
 
-          <G.Button
+          <Auth.Button
             disabled={successPwd}
             type="submit"
             width="25%"
@@ -98,11 +98,11 @@ const PasswordForm = (props: ISignUpForm) => {
             hoverColor={mainColor}
           >
             확인
-          </G.Button>
-        </G.Form>
+          </Auth.Button>
+        </Auth.Form>
 
         <S.RePasswordForm onSubmit={submitRePwd(onValidRePwd)}>
-          <G.Input
+          <Auth.Input
             placeholder="비밀번호 재입력..."
             type="password"
             width="100%"
@@ -118,7 +118,7 @@ const PasswordForm = (props: ISignUpForm) => {
             message={errorRePwd.rePassword?.message}
           />
 
-          <G.Button
+          <Auth.Button
             type="submit"
             width="100%"
             border="15px"
@@ -126,11 +126,11 @@ const PasswordForm = (props: ISignUpForm) => {
             hoverColor={mainColor}
           >
             저장
-          </G.Button>
+          </Auth.Button>
         </S.RePasswordForm>
       </SignUp.FormWrapper>
 
-      <G.ColorLine color={mainColor} />
+      <Auth.ColorLine color={mainColor} />
     </SignUp.PageContainer>
   );
 };

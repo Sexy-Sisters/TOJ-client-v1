@@ -4,7 +4,7 @@ import auth from "pageContainer/AuthPage/api/auth";
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import { useForm } from "react-hook-form";
 import * as I from "pageContainer/AuthPage/interface/signUp";
-import * as G from "pageContainer/AuthPage/style/AuthPage.style";
+import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as SignUp from "../../SignUp.style";
 
 const mainColor = "#0984E3";
@@ -53,10 +53,10 @@ const NicknameForm = (props: { email: string; password: string }) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="200px">
-        <G.KindName>{`Last,\nNickname 🦋`}</G.KindName>
+        <Auth.KindName>{`Last,\nNickname 🦋`}</Auth.KindName>
 
-        <G.Form onSubmit={handleSubmit(onValid)}>
-          <G.Input
+        <Auth.Form onSubmit={handleSubmit(onValid)}>
+          <Auth.Input
             placeholder="닉네임..."
             width="70%"
             border="15px"
@@ -83,7 +83,7 @@ const NicknameForm = (props: { email: string; password: string }) => {
             message="TOJ 가입을 환영합니다!"
           />
 
-          <G.Button
+          <Auth.Button
             type="submit"
             width="25%"
             border="15px"
@@ -91,11 +91,11 @@ const NicknameForm = (props: { email: string; password: string }) => {
             hoverColor={mainColor}
           >
             완료!
-          </G.Button>
-        </G.Form>
+          </Auth.Button>
+        </Auth.Form>
       </SignUp.FormWrapper>
 
-      <G.ColorLine color={mainColor} />
+      <Auth.ColorLine color={mainColor} />
     </SignUp.PageContainer>
   );
 };
