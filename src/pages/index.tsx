@@ -3,13 +3,21 @@ import { HaveAuth_Header } from "components/layout";
 import Base_Layout from "../components/layout/baseLayout";
 import { NextPageWithLayout } from "../../shared/interfaces/page";
 import { GetServerSideProps } from "next";
-import { SIGN_IN_URL } from "../../shared/constants";
-``;
+import {
+  ACCESS_TOKEN,
+  REFRESH_TOKEN,
+  SIGN_IN_URL,
+} from "../../shared/constants";
+import { getToken } from "../../shared/utils/tokenManager";
+
 const Home: NextPageWithLayout = () => {
   return <></>;
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
+  const token = getToken();
+  console.log(token);
+
   return (
     <Base_Layout>
       <HaveAuth_Header isTransparent={false} isFixed />
@@ -21,10 +29,8 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
 // access, refresh token
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const cookie = ctx.req.cookies;
-  const accessToken = cookie["accessToken"];
-  const refreshToken = cookie["refreshToken"];
-
-  console.log(ctx.req.cookies);
+  const accessToken = cookie[ACCESS_TOKEN];
+  const refreshToken = cookie[REFRESH_TOKEN];
 
   if (accessToken) {
     if (refreshToken) {

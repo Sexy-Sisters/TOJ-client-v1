@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import auth from "pageContainer/AuthPage/api/auth";
 import { ErrorText, LoadingIcon, SuccessText } from "../../../common";
 import * as I from "pageContainer/AuthPage/interface/signUp";
-import * as G from "pageContainer/AuthPage/style/AuthPage.style";
+import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as SignUp from "../../SignUp.style";
 import * as S from "./Email.style";
 
@@ -71,10 +71,10 @@ const EmailForm = (props: I.ISignUpForm) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="350px">
-        <G.KindName>Email 🧛‍♂️</G.KindName>
+        <Auth.KindName>Email 🧛‍♂️</Auth.KindName>
 
         <S.EmailForm onSubmit={submitEmail(onValidEmail)}>
-          <G.Input
+          <Auth.Input
             disabled={successEmail}
             placeholder="이메일..."
             type="email"
@@ -96,7 +96,7 @@ const EmailForm = (props: I.ISignUpForm) => {
             message="TOJ 이메일 인증 코드가 전송 됐어요"
           />
 
-          <G.Button
+          <Auth.Button
             disabled={successEmail}
             type="submit"
             width="25%"
@@ -106,11 +106,11 @@ const EmailForm = (props: I.ISignUpForm) => {
           >
             {!submittingEmail && "확인"}
             <LoadingIcon isLoading={submittingEmail} posY="17.5%" posX="40%" />
-          </G.Button>
+          </Auth.Button>
         </S.EmailForm>
 
         <S.CodeForm onSubmit={submitCode(onValidCode)}>
-          <G.Input
+          <Auth.Input
             placeholder="인증 코드..."
             width="100%"
             border="15px"
@@ -127,7 +127,7 @@ const EmailForm = (props: I.ISignUpForm) => {
             message={errorCode.code?.message}
           />
 
-          <G.Button
+          <Auth.Button
             type="submit"
             width="100%"
             border="15px"
@@ -135,11 +135,11 @@ const EmailForm = (props: I.ISignUpForm) => {
             hoverColor={mainColor}
           >
             코드 인증
-          </G.Button>
+          </Auth.Button>
         </S.CodeForm>
       </SignUp.FormWrapper>
 
-      <G.ColorLine color={mainColor} />
+      <Auth.ColorLine color={mainColor} />
     </SignUp.PageContainer>
   );
 };
