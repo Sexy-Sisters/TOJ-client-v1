@@ -1,3 +1,9 @@
+export const AuthController = {
+  refresh: () => {
+    return `/api/v2/auth/refresh`;
+  },
+};
+
 export const SignUpController = {
   email: () => {
     return `/api/v2/auth/code`;

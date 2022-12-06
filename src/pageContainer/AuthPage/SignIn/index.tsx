@@ -6,9 +6,10 @@ import { ErrorText } from "../common";
 import auth from "../api/auth";
 import { useRouter } from "next/router";
 import { HOME_URL } from "../../../../shared/constants";
+import { setToken } from "../../../../shared/utils/tokenManager";
 
-const mainColor = "#78E08F";
-const buttonColor = "#99DEA8";
+const mainColor = "#27AE60";
+const buttonColor = "#2ECC71";
 
 const SignInPage = () => {
   const {
@@ -19,27 +20,22 @@ const SignInPage = () => {
   } = useForm<I.ISignInForm>();
   const { push } = useRouter();
 
-  const onVaild = async (data: I.ISignInForm) => {
+  const onVaild = async ({ email, password }: I.ISignInForm) => {
     const authUser: I.ISignInAPI = {
-      email: data.email,
-      password: data.password,
+      email: email,
+      password: password,
     };
-    const APIresponse = (await auth.signIn(authUser)) as I.ISignInResponse;
+    const { data: res } = (await auth.signIn(authUser)) as I.ISignInResponse;
 
-    if (APIresponse.data.result === "SUCCESS") {
-      localStorage.setItem("accessToken", APIresponse.data.data.accessToken);
-      localStorage.setItem("refreshToken", APIresponse.data.data.refreshToken);
+    if (res.result === "SUCCESS") {
+      setToken(res.data.accessToken, res.data.refreshToken);
       push(HOME_URL);
     }
-    if (
-      APIresponse.data.result === "FAIL" &&
-      APIresponse.data.message &&
-      APIresponse.data.errorCode
-    ) {
+    if (res.result === "FAIL" && res.message && res.errorCode) {
       setError(
-        APIresponse.data.errorCode,
+        res.errorCode,
         {
-          message: APIresponse.data.message,
+          message: res.message,
         },
         { shouldFocus: true },
       );
@@ -49,7 +45,7 @@ const SignInPage = () => {
   return (
     <S.PageContainer>
       <S.Form onSubmit={handleSubmit(onVaild)}>
-        <Auth.KindName>Sign in 🧑‍🎤</Auth.KindName>
+        <Auth.KindName>Sign in 🦖</Auth.KindName>
 
         <S.InputWrapper>
           <Auth.Input

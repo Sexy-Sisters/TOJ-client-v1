@@ -60,12 +60,12 @@ export const Button = styled.button<{
 
 export const ColorLine = styled.div<{ color: string }>`
   position: absolute;
-  bottom: 100px;
+  bottom: 0;
   width: 100%;
-  height: 15px;
+  height: 100px;
   background-color: ${props => props.color};
 
   @media (max-width: ${MOBILE_SIZE}) {
-    height: 10px;
+    height: 50px;
   }
 `;
