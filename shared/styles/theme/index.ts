@@ -20,7 +20,7 @@ export const lightTheme: DefaultTheme = {
   bgColor: "#f5f6fa",
   textColor: "#000000",
 
-  header: "#DCDDE1",
+  header: "#ecf0f1",
   input: "#dfe6e9",
 
   error: "#ff4757",

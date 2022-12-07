@@ -9,48 +9,49 @@ import {
   Logo,
   ThemeButton,
 } from "components/layout/Header/Header.style";
-import {
-  SignIn,
-  SignUp_button,
-  Header__logo,
-  Header__UI,
-  Header__menu,
-} from "./NoAuthHeader.style";
+import * as S from "./NoAuthHeader.style";
 import { HamburgerButton } from "components/common";
-
-const SIGN_IN_URL = "/auth/signIn";
-const SIGN_UP_URL = "/auth/signUp";
+import {
+  HOME_URL,
+  SIGN_IN_URL,
+  SIGN_UP_URL,
+} from "../../../../../shared/constants";
 
 const NoAuthHeader = (props: IHeader) => {
-  const { push } = useRouter();
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
+  const { push } = useRouter();
 
   return (
     <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
-      <Header__logo>
-        <Link href={"/"}>
+      <S.Header__logo>
+        <Link href={HOME_URL}>
           <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
         </Link>
 
         <HamburgerButton
           state={menuToggle}
-          reWidth="450px"
+          inSize="500px"
           onClick={setMenuToggle}
         />
-      </Header__logo>
+      </S.Header__logo>
 
-      <Header__menu toggle={menuToggle}>
-        <Header__UI className="header-ui">
-          <SignIn href={SIGN_IN_URL}>Sign in</SignIn>
-          <SignUp_button onClick={() => push(SIGN_UP_URL)}>
+      <S.Header__menu toggle={menuToggle}>
+        <S.Header__UI className="header-ui">
+          <S.SignIn href={SIGN_IN_URL} className="header-button">
+            Sign in
+          </S.SignIn>
+          <S.SignUp_button
+            onClick={() => push(SIGN_UP_URL)}
+            className="header-button"
+          >
             Sign up
-          </SignUp_button>
-          <ThemeButton onClick={toggleTheme}>
+          </S.SignUp_button>
+          <ThemeButton onClick={toggleTheme} className="header-button">
             {curTheme === darkTheme ? "🌝" : "🌚"}
           </ThemeButton>
-        </Header__UI>
-      </Header__menu>
+        </S.Header__UI>
+      </S.Header__menu>
     </Header>
   );
 };
