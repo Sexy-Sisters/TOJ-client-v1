@@ -2,19 +2,22 @@ import { Logo__block, UI__block } from "components/layout/Header/Header.style";
 import Link from "next/link";
 import styled from "styled-components";
 
-const MOBILE_SIZE = "450px";
+const MOBILE_SIZE = "500px";
 
 export const Header__logo = styled(Logo__block)`
   @media (max-width: ${MOBILE_SIZE}) {
     width: 100%;
-    .hamburger-button {
-      margin: 0 30px 0 0;
-    }
+    justify-content: space-between;
   }
 `;
 
-export const Header__UI = styled(UI__block)`
-  width: 250px;
+export const Header__UI = styled.div`
+  display: flex;
+  align-items: center;
+
+  .header-button {
+    margin: 30px;
+  }
 `;
 
 export const SignIn = styled(Link)`
@@ -52,15 +55,15 @@ export const Header__menu = styled.div<{ toggle: boolean }>`
   @media (max-width: ${MOBILE_SIZE}) {
     position: absolute;
     z-index: 100;
-    right: ${props => (props.toggle ? "0" : "-50vw")};
-    width: 50vw;
+    right: ${props => (props.toggle ? "0" : "-150px")};
+    width: 150px;
     height: 100vh;
     background-color: ${sideMenuColor};
     transition: all 0.5s ease-in-out;
 
     .header-ui {
       flex-direction: column;
-      height: 300px;
+      height: 200px;
       margin: 0;
     }
   }

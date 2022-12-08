@@ -1,23 +1,23 @@
-import { Hamburger, Hamburger__bar } from "./HamburgerButton.style";
+import * as S from "./HamburgerButton.style";
 
 interface IHamburgerButton {
   state: boolean;
-  reWidth: string;
+  inSize: string;
   onClick: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HamburgerButton = ({ state, reWidth, onClick }: IHamburgerButton) => {
+const HamburgerButton = ({ state, inSize, onClick }: IHamburgerButton) => {
   return (
-    <Hamburger
+    <S.Hamburger
       className="hamburger-button"
       onClick={() => onClick(cur => !cur)}
       state={state}
-      reWidth={reWidth}
+      inSize={inSize}
     >
-      <Hamburger__bar className="bar-one" />
-      <Hamburger__bar className="bar-two" />
-      <Hamburger__bar className="bar-three" />
-    </Hamburger>
+      <S.Hamburger__bar className="bar-one" />
+      <S.Hamburger__bar className="bar-two" />
+      <S.Hamburger__bar className="bar-three" />
+    </S.Hamburger>
   );
 };
 

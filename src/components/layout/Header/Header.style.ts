@@ -22,14 +22,12 @@ export const UI__block = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 30px;
 `;
 
 export const Logo__block = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-left: 30px;
+  margin: 0 30px 0 30px;
 `;
 
 export const ThemeButton = styled.button`

@@ -8,16 +8,12 @@ import {
   REFRESH_TOKEN,
   SIGN_IN_URL,
 } from "../../shared/constants";
-import { getToken } from "../../shared/utils/tokenManager";
 
 const Home: NextPageWithLayout = () => {
   return <></>;
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
-  const token = getToken();
-  console.log(token);
-
   return (
     <Base_Layout>
       <HaveAuth_Header isTransparent={false} isFixed />
