@@ -1,4 +1,4 @@
-import { ERROR_EMOJI } from "../../../../../shared/constants";
+import { ERROR_EMOJI } from "../../../../shared/constants";
 import * as S from "./ErrorText.style";
 
 interface IErrorText {
@@ -8,7 +8,7 @@ interface IErrorText {
 
 const ErrorText = ({ isError, message }: IErrorText) => {
   return (
-    <S.Error error={isError}>
+    <S.Error error={isError} className="error-text">
       {message} {ERROR_EMOJI}
     </S.Error>
   );

@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import auth from "pageContainer/AuthPage/api/auth";
-import { ErrorText, LoadingIcon, SuccessText } from "../../../common";
+import { ErrorText, LoadingIcon, SuccessText } from "components/common";
 import * as I from "pageContainer/AuthPage/interface/signUp";
 import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as SignUp from "../../SignUp.style";
@@ -9,7 +9,7 @@ import * as S from "./Email.style";
 const mainColor = "#FDCB6E";
 const buttonColor = "#FFDC9C";
 
-const EmailForm = (props: I.ISignUpForm) => {
+const EmailForm = (props: I.ISignUpPage) => {
   const {
     watch,
     setError: setErrorEmail,
@@ -20,7 +20,7 @@ const EmailForm = (props: I.ISignUpForm) => {
       isSubmitSuccessful: successEmail,
       isSubmitting: submittingEmail,
     },
-  } = useForm<I.IEmailForm>();
+  } = useForm<I.IEmail>();
 
   const {
     setError: setErrorCode,
@@ -29,7 +29,7 @@ const EmailForm = (props: I.ISignUpForm) => {
     formState: { errors: errorCode },
   } = useForm<I.ICodeForm>();
 
-  const onValidEmail = async (data: I.IEmailForm) => {
+  const onValidEmail = async (data: I.IEmail) => {
     try {
       const APIresponse = (await auth.signUp_email(data)) as I.IEmailResponse;
       if (APIresponse.data.result === "FAIL" && APIresponse.data.message) {

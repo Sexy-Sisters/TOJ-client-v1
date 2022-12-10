@@ -1,4 +1,4 @@
-import { ErrorText, SuccessText } from "../../../common";
+import { ErrorText, SuccessText } from "components/common";
 import {
   IPwdForm,
   IRePwdForm,

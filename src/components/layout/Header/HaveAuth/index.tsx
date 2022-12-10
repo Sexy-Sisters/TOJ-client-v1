@@ -6,18 +6,18 @@ import {
   LOGO_URL,
   USER_SETTING_URL,
 } from "components/layout/Header/Header.constant";
-import { Header__logo, UserProfile, UserName, Menu } from "./HaveAuth.style";
 import { HamburgerButton } from "components/common";
-import { HOME_URL } from "../../../../../shared/constants";
+import { HOME_URL, SCHOOL_SEARCH } from "../../../../../shared/constants";
+import * as S from "./HaveAuth.style";
 
 const HaveAuthHeader = (props: IHeader) => {
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
 
   return (
     <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
-      <Header__logo>
+      <S.Header__logo>
         <Link href={HOME_URL}>
-          <Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
+          <Logo src={LOGO_URL} alt="TOJ Logo" width={40} height={40} />
         </Link>
 
         <HamburgerButton
@@ -25,20 +25,32 @@ const HaveAuthHeader = (props: IHeader) => {
           inSize="500px"
           onClick={setMenuToggle}
         />
-      </Header__logo>
+      </S.Header__logo>
 
-      <Menu toggle={menuToggle}>
-        <Link href={USER_SETTING_URL}>
-          <UserProfile
-            src="/image/user_profile.jpeg"
-            alt="사용자 프로필 이미지"
-            width={40}
-            height={40}
-          />
-        </Link>
+      <S.Menu toggle={menuToggle}>
+        <S.FuncTags>
+          <Link href={SCHOOL_SEARCH}>
+            <S.Tag>School search</S.Tag>
+          </Link>
+          <S.Tag>any</S.Tag>
+          <S.Tag>any</S.Tag>
+        </S.FuncTags>
 
-        <UserName className="user-nickname">유저 닉네임</UserName>
-      </Menu>
+        <S.UserInfoButtons>
+          <p>🔔</p>
+
+          <Link href={USER_SETTING_URL}>
+            <S.UserProfile
+              src="/image/user_profile.jpeg"
+              alt="User Profile Image"
+              width={40}
+              height={40}
+            />
+          </Link>
+
+          <S.UserName className="user-nickname">User Nickname</S.UserName>
+        </S.UserInfoButtons>
+      </S.Menu>
     </Header>
   );
 };
