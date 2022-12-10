@@ -69,7 +69,6 @@ class Auth {
         data: data,
       });
     } catch (error) {
-      console.log(error);
       return error;
     }
   }
@@ -85,6 +84,8 @@ class Auth {
           method: "POST",
           url: AuthController.refresh(),
         },
+        false,
+        undefined,
         refreshToken,
       );
     } catch (error: any) {

@@ -1,4 +1,4 @@
-import { LOADING_EMOJI } from "../../../../../shared/constants";
+import { LOADING_EMOJI } from "../../../../shared/constants";
 import * as S from "./Loading.style";
 
 interface ILoadingIcon {

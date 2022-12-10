@@ -8,9 +8,9 @@ export const Header = styled.header<IHeader>`
   position: ${props => (props.isFixed ? "fixed" : "absolute")};
   z-index: 1000;
   width: 100vw;
-  height: 80px;
+  height: 70px;
   background-color: ${props =>
-    props.isTransparent ? "transparent" : props.theme.header};
+    props.isTransparent ? "transparent" : props.theme.bgColor};
 `;
 
 export const Logo = styled(Image)`
@@ -27,7 +27,9 @@ export const UI__block = styled.div`
 export const Logo__block = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 30px 0 30px;
+  & > * {
+    margin: 0 30px 0 30px;
+  }
 `;
 
 export const ThemeButton = styled.button`

@@ -1,11 +1,6 @@
 import { IAPIResponse } from "../../../../shared/interfaces/page";
 
-export interface ISignInForm {
-  email: string;
-  password: string;
-}
-
-export interface ISignInAPI {
+export interface ISignIn {
   email: string;
   password: string;
 }
@@ -16,7 +11,7 @@ export interface ISignInResponse extends IAPIResponse {
       accessToken: string;
       refreshToken: string;
     };
-    errorCode: "email" | "password" | null;
+    errorCode: string | null;
     message: string | null;
     result: "SUCCESS" | "FAIL";
   };

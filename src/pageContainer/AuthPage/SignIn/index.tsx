@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
-import { ErrorText } from "../common";
+import { ErrorText } from "components/common";
 import { useRouter } from "next/router";
 import { HOME_URL } from "../../../../shared/constants";
 import { setToken } from "../../../../shared/utils/tokenManager";
 import auth from "../api/auth";
 import * as S from "./SignIn.style";
 import * as Auth from "../style/AuthPage.style";
-import * as I from "../interface/signIn";
+import { ISignIn, ISignInResponse } from "../interface/signIn";
 
 const mainColor = "#27AE60";
 const buttonColor = "#2ECC71";
@@ -17,15 +17,15 @@ const SignInPage = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<I.ISignInForm>();
+  } = useForm<ISignIn>();
   const { push } = useRouter();
 
-  const onVaild = async ({ email, password }: I.ISignInForm) => {
-    const authUser: I.ISignInAPI = {
+  const onVaild = async ({ email, password }: ISignIn) => {
+    const authUser: ISignIn = {
       email: email,
       password: password,
     };
-    const { data: res } = (await auth.signIn(authUser)) as I.ISignInResponse;
+    const { data: res } = (await auth.signIn(authUser)) as ISignInResponse;
 
     if (res.result === "SUCCESS") {
       setToken(res.data.accessToken, res.data.refreshToken);

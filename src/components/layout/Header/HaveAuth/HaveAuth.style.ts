@@ -14,6 +14,7 @@ export const Header__logo = styled(Logo__block)`
 export const Menu = styled(UI__block)<{ toggle: boolean }>`
   display: flex;
   align-items: center;
+  width: 95vw;
 
   .user-nickname {
     display: none;
@@ -36,6 +37,31 @@ export const Menu = styled(UI__block)<{ toggle: boolean }>`
     .user-nickname {
       display: inline;
     }
+  }
+`;
+
+export const FuncTags = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+`;
+
+export const UserInfoButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+`;
+
+export const Tag = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${props => props.theme.textColor};
+
+  &:hover {
+    transition: opacity 0.2s;
+    opacity: 0.7;
   }
 `;
 

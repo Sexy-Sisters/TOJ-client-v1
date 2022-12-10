@@ -1,7 +1,7 @@
-import { HaveAuth_Header, NoAuth_Header } from "components/layout";
+import { Header } from "components/layout";
 import BaseLayout from "components/layout/baseLayout";
 import { NextSeo } from "next-seo";
-import { BASE_URL } from "../../../shared/constants";
+import { BASE_URL, SIGN_UP_URL } from "../../../shared/constants";
 import { NextPageWithLayout } from "../../../shared/interfaces/page";
 import { SignUpPage } from "../../pageContainer";
 
@@ -11,9 +11,9 @@ const SignUp: NextPageWithLayout = () => {
       <NextSeo
         title="SignUp"
         description="TOJ 회원가입 페이지"
-        canonical={BASE_URL + "/sign-up"}
+        canonical={BASE_URL + SIGN_UP_URL}
         openGraph={{
-          url: BASE_URL + "/sign-up",
+          url: BASE_URL + SIGN_UP_URL,
         }}
       />
 
@@ -25,7 +25,7 @@ const SignUp: NextPageWithLayout = () => {
 SignUp.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <BaseLayout>
-      <NoAuth_Header isFixed isTransparent />
+      <Header isFixed isTransparent={false} />
       {page}
     </BaseLayout>
   );

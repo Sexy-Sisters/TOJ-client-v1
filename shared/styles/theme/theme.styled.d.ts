@@ -7,8 +7,8 @@ declare module "styled-components" {
     textColor: string;
 
     // UI color
-    header: string;
     input: string;
+    inputText: string;
 
     // state color
     error: string;

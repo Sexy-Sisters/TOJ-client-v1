@@ -16,6 +16,7 @@ const Introduce: NextPageWithLayout = () => {
           url: BASE_URL + "/introduce",
         }}
       />
+
       <IntroducePage />
     </>
   );

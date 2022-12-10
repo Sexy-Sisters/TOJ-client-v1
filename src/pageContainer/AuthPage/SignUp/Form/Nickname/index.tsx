@@ -1,4 +1,4 @@
-import { ErrorText, SuccessText } from "../../../common";
+import { ErrorText, SuccessText } from "components/common";
 import { useRouter } from "next/router";
 import auth from "pageContainer/AuthPage/api/auth";
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";

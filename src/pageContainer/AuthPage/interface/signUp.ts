@@ -28,22 +28,18 @@ export interface ICodeResponse extends IAPIResponse {
   };
 }
 
-export interface ISignUpForm {
+export interface ISignUpPage {
   nextSection: React.Dispatch<React.SetStateAction<number>>;
   signUpData: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export interface ISignUpAPI {
+export interface ISignUp {
   email: string;
   nickname: string;
   password: string;
 }
 
-export interface IEmailForm {
-  email: string;
-}
-
-export interface IEmailAPI {
+export interface IEmail {
   email: string;
 }
 
@@ -56,14 +52,14 @@ export interface ICodeAPI {
   code: string;
 }
 
-export interface IPwdForm {
+export interface IPwd {
   password: string;
 }
 
-export interface IRePwdForm {
+export interface IRePwd {
   rePassword: string;
 }
 
-export interface INicknameForm {
+export interface INickname {
   nickname: string;
 }
