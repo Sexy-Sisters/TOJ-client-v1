@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { BASE_URL } from "../constants";
+import { BASE_URL } from "../constants/urls";
 
 const RefreshToken = "Refresh-Token";
 

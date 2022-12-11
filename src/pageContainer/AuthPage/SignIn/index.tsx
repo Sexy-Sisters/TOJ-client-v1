@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { ErrorText } from "components/common";
 import { useRouter } from "next/router";
-import { HOME_URL } from "../../../../shared/constants";
+import { HOME_URL } from "../../../../shared/constants/urls";
 import { setToken } from "../../../../shared/utils/tokenManager";
 import auth from "../api/auth";
 import * as S from "./SignIn.style";
@@ -52,25 +52,25 @@ const SignInPage = () => {
       </S.ErrorBox>
 
       <S.Form onSubmit={handleSubmit(onVaild)}>
-        <Auth.KindName>Sign in 🦖</Auth.KindName>
+        <Auth.KindName>Sign in to TOJ 🦖</Auth.KindName>
 
         <Auth.Input
           type="email"
-          placeholder="이메일..."
+          placeholder="email..."
           width="100%"
           border="15px"
           {...register("email", {
-            required: "이메일을 입력해 주세요",
+            required: "Please enter your email",
           })}
         />
 
         <Auth.Input
           type="password"
-          placeholder="비밀번호..."
+          placeholder="password..."
           width="100%"
           border="15px"
           {...register("password", {
-            required: "비밀번호를 입력해 주세요",
+            required: "Please enter your password",
           })}
         />
 
@@ -82,7 +82,7 @@ const SignInPage = () => {
           defaultColor={buttonColor}
           hoverColor={mainColor}
         >
-          로그인
+          Sign in
         </Auth.Button>
       </S.Form>
 

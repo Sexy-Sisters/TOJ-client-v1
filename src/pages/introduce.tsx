@@ -1,6 +1,6 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import { BASE_URL } from "../../shared/constants";
+import { BASE_URL } from "../../shared/constants/urls";
 import { IntroducePage } from "../pageContainer";
 import { NextPageWithLayout } from "../../shared/interfaces/page";
 import BaseLayout from "components/layout/baseLayout";

@@ -16,15 +16,15 @@ const NicknameForm = (props: { email: string; password: string }) => {
     handleSubmit,
     setError,
     formState: { errors, isSubmitSuccessful },
-  } = useForm<I.INicknameForm>();
+  } = useForm<I.INickname>();
   const { push } = useRouter();
 
-  const onValid = async (data: I.INicknameForm) => {
+  const onValid = async (data: I.INickname) => {
     // 닉네임 공백 검증
     const validResult = validSpace(data.nickname.length, data.nickname, () => {
       setError(
         "nickname",
-        { message: "닉네임에 공백을 포함할 수 없어요" },
+        { message: "Nickname can't contain spaces" },
         { shouldFocus: true },
       );
     });
@@ -57,18 +57,18 @@ const NicknameForm = (props: { email: string; password: string }) => {
 
         <Auth.Form onSubmit={handleSubmit(onValid)}>
           <Auth.Input
-            placeholder="닉네임..."
+            placeholder="nickname..."
             width="70%"
             border="15px"
             {...register("nickname", {
-              required: "닉네임을 입력해 주세요",
+              required: "Please enter your nickname",
               minLength: {
                 value: 2,
-                message: "닉네임은 2자 이상으로 입력해 주세요",
+                message: "Please enter at least 2 characters",
               },
               maxLength: {
                 value: 8,
-                message: "닉네임은 8자 이하로 입력해 주세요",
+                message: "Please enter no more than 8 characters.",
               },
             })}
           />
@@ -80,17 +80,17 @@ const NicknameForm = (props: { email: string; password: string }) => {
           />
           <SuccessText
             isSuccess={isSubmitSuccessful}
-            message="TOJ 가입을 환영합니다!"
+            message="Welcome to TOJ!"
           />
 
           <Auth.Button
             type="submit"
             width="25%"
             border="15px"
-            defaultColor={buttonColor}
-            hoverColor={mainColor}
+            defaultColor={mainColor}
+            hoverColor={buttonColor}
           >
-            완료!
+            Submit
           </Auth.Button>
         </Auth.Form>
       </SignUp.FormWrapper>

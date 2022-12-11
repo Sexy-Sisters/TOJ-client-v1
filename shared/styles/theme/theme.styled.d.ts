@@ -8,6 +8,7 @@ declare module "styled-components" {
 
     // UI color
     input: string;
+    inputHover: string;
     inputText: string;
 
     // state color

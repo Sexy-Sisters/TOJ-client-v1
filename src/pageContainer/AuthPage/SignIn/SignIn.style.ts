@@ -12,10 +12,11 @@ export const PageContainer = styled.div`
 export const Form = styled(Auth.Form)`
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   height: 350px;
   margin-top: 150px;
 `;
 
 export const ErrorBox = styled.div`
-  margin-top: 40px;
+  margin: 40px 0 0 0;
 `;

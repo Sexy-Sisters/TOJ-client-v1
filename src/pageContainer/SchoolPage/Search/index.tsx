@@ -4,6 +4,8 @@ import school from "../api/school";
 import * as S from "./Search.style";
 import { ErrorText } from "components/common";
 import React from "react";
+import { SCHOOL_MAIN_URL } from "../../../../shared/constants/urls";
+import { useRouter } from "next/router";
 
 const SEARCH_TITLE = `Search for\nthe name of the school 🔍`;
 const EMPTY_EMOJI = `👀\n👅`;
@@ -17,11 +19,15 @@ const SearchPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ISearch>();
+  const { push } = useRouter();
 
-  const searchResult = () => {
+  const searchResult = (): JSX.Element[] | JSX.Element => {
     if (searchList) {
       return searchList.map(school => (
-        <S.SchoolTag key={school.code}>
+        <S.SchoolTag
+          key={school.code}
+          onClick={() => push(SCHOOL_MAIN_URL + `/${school.code}`)}
+        >
           <S.NameText>{school.name}</S.NameText>
           <S.AddressText>{school.address}</S.AddressText>
         </S.SchoolTag>
