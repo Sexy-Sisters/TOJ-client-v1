@@ -32,6 +32,9 @@ export const Input = styled.input<{ width: string; border: string }>`
     font-size: 20px;
     color: ${props => props.theme.bgColor};
   }
+  &:hover {
+    background-color: ${props => props.theme.inputHover};
+  }
 
   @media (max-width: ${MOBILE_SIZE}) {
     font-size: 20px;

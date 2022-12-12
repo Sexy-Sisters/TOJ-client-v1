@@ -15,7 +15,7 @@ import {
   HOME_URL,
   SIGN_IN_URL,
   SIGN_UP_URL,
-} from "../../../../../shared/constants";
+} from "../../../../../shared/constants/urls";
 
 const NoAuthHeader = (props: IHeader) => {
   const { curTheme, toggleTheme } = React.useContext(ThemeContext);

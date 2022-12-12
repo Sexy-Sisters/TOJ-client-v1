@@ -1,20 +1,16 @@
-import RequestApi from "../../../../shared/utils/requestApi";
-import { ICodeAPI, IEmailAPI, ISignUpAPI } from "../interface/signUp";
-import { ISignInAPI } from "../interface/signIn";
-import {
-  AuthController,
-  SignInController,
-  SignUpController,
-} from "./requestUrls";
+import apiController from "../../../../shared/utils/apiController";
+import { ICodeAPI, IEmail, ISignUp } from "../interface/signUp";
+import { ISignIn } from "../interface/signIn";
+import { SignInController, SignUpController } from "./requestUrls";
 
 class Auth {
   /**
    * signUp 이메일 유효성 확인을 위한 api
    * @param data 이메일
    */
-  signUp_email(data: IEmailAPI) {
+  signUp_email(data: IEmail) {
     try {
-      return RequestApi({
+      return apiController({
         method: "POST",
         url: SignUpController.email(),
         data: data,
@@ -30,7 +26,7 @@ class Auth {
    */
   signUp_code(data: ICodeAPI) {
     try {
-      return RequestApi({
+      return apiController({
         method: "DELETE",
         url: SignUpController.code(),
         data: data,
@@ -44,51 +40,30 @@ class Auth {
    * signUp api
    * @param data 이메일, 비밀번호, 닉네임
    */
-  signUp(data: ISignUpAPI) {
+  signUp(data: ISignUp) {
     try {
-      return RequestApi({
+      return apiController({
         method: "POST",
         url: SignUpController.signUp(),
         data: data,
       });
     } catch (error) {
-      console.log(error);
       return error;
     }
   }
 
   /**
    * signIn api
-   * @param data 이메일, 비밀번호
+   * @param data 이메일 (email), 비밀번호 (password)
    */
-  signIn(data: ISignInAPI) {
+  signIn(data: ISignIn) {
     try {
-      return RequestApi({
+      return apiController({
         method: "POST",
         url: SignInController.signIn(),
         data: data,
       });
     } catch (error) {
-      return error;
-    }
-  }
-
-  /**
-   * 엑세스 토큰 재발급을 위한 api
-   * @returns 엑세스 토큰 재발급
-   */
-  refresh(refreshToken?: string) {
-    try {
-      return RequestApi(
-        {
-          method: "POST",
-          url: AuthController.refresh(),
-        },
-        false,
-        undefined,
-        refreshToken,
-      );
-    } catch (error: any) {
       return error;
     }
   }

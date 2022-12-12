@@ -70,7 +70,6 @@ export const SearchBar = styled.input`
   }
 `;
 
-const buttonHover = "#FFDC9C";
 export const SearchButton = styled.button`
   width: 25%;
   height: 45px;
@@ -81,7 +80,7 @@ export const SearchButton = styled.button`
   color: ${props => props.theme.bgColor};
 
   &:hover {
-    background-color: ${buttonHover};
+    background-color: #ffdc9c;
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
@@ -100,7 +99,13 @@ export const SchoolTag = styled.label`
   border-radius: 15px;
   background-color: white;
 
+  transition: box-shadow 0.3s;
+  cursor: pointer;
   animation: fadeIn 0.6s;
+
+  &:hover {
+    box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+  }
 
   @keyframes fadeIn {
     0% {

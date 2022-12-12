@@ -7,7 +7,7 @@ import {
   USER_SETTING_URL,
 } from "components/layout/Header/Header.constant";
 import { HamburgerButton } from "components/common";
-import { HOME_URL, SCHOOL_SEARCH } from "../../../../../shared/constants";
+import { HOME_URL, SCHOOL_SEARCH } from "../../../../../shared/constants/urls";
 import * as S from "./HaveAuth.style";
 
 const HaveAuthHeader = (props: IHeader) => {

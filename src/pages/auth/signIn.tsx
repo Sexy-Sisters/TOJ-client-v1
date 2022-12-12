@@ -1,7 +1,7 @@
 import { Header } from "components/layout";
 import BaseLayout from "components/layout/baseLayout";
 import { NextSeo } from "next-seo";
-import { BASE_URL, SIGN_IN_URL } from "../../../shared/constants";
+import { BASE_URL, SIGN_IN_URL } from "../../../shared/constants/urls";
 import { NextPageWithLayout } from "../../../shared/interfaces/page";
 import { SignInPage } from "../../pageContainer";
 
@@ -10,7 +10,7 @@ const SignIn: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="SignIn"
-        description="TOJ 로그인 페이지"
+        description="TOJ signIn page"
         canonical={BASE_URL + SIGN_IN_URL}
         openGraph={{
           url: BASE_URL + SIGN_IN_URL,
