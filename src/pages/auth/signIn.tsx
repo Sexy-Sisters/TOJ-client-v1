@@ -10,7 +10,7 @@ const SignIn: NextPageWithLayout = () => {
     <>
       <NextSeo
         title="SignIn"
-        description="TOJ 로그인 페이지"
+        description="TOJ signIn page"
         canonical={BASE_URL + SIGN_IN_URL}
         openGraph={{
           url: BASE_URL + SIGN_IN_URL,

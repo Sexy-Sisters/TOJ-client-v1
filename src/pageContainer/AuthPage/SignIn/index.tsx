@@ -20,21 +20,22 @@ const SignInPage = () => {
   } = useForm<ISignIn>();
   const { push } = useRouter();
 
-  const onVaild = async ({ email, password }: ISignIn) => {
-    const authUser: ISignIn = {
-      email: email,
-      password: password,
-    };
-    const { data: res } = (await auth.signIn(authUser)) as ISignInResponse;
+  const onVaild = async (user: ISignIn) => {
+    try {
+      const { data: res } = (await auth.signIn(user)) as ISignInResponse;
+      console.log(res);
 
-    if (res.result === "SUCCESS") {
-      setToken(res.data.accessToken, res.data.refreshToken);
-      push(HOME_URL);
-    }
-    if (res.result === "FAIL" && res.message) {
-      setError("email", {
-        message: res.message,
-      });
+      if (res.result === "SUCCESS") {
+        setToken(res.data.accessToken, res.data.refreshToken);
+        push(HOME_URL);
+      }
+      if (res.result === "FAIL" && res.message) {
+        setError("email", {
+          message: res.message,
+        });
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -79,8 +80,8 @@ const SignInPage = () => {
           type="submit"
           width="100%"
           border="15px"
-          defaultColor={buttonColor}
-          hoverColor={mainColor}
+          defaultColor={mainColor}
+          hoverColor={buttonColor}
         >
           Sign in
         </Auth.Button>

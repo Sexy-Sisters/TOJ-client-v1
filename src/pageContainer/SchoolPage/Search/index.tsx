@@ -40,6 +40,7 @@ const SearchPage = () => {
   const onValid = async (data: ISearch) => {
     try {
       const { data: res } = (await school.search(data)) as ISearchResponse;
+
       if (res.result === "SUCCESS") {
         setSearchList(res.data);
       }

@@ -1,23 +1,19 @@
-export const AuthController = {
-  refresh: () => {
-    return `/api/v2/auth/refresh`;
-  },
-};
+import { API_VERSION } from "../../../../shared/constants";
 
 export const SignUpController = {
   email: () => {
-    return `/api/v2/auth/code`;
+    return `${API_VERSION}auth/code`;
   },
   code: () => {
-    return `/api/v2/auth/code`;
+    return `${API_VERSION}auth/code`;
   },
   signUp: () => {
-    return `/api/v2/user`;
+    return `${API_VERSION}user`;
   },
 };
 
 export const SignInController = {
   signIn: () => {
-    return `/api/v2/auth`;
+    return `${API_VERSION}auth`;
   },
 };
