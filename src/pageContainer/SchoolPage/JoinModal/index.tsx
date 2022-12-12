@@ -1,6 +1,19 @@
-import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+import { IInitialSchool } from "../interface/main";
 import * as S from "./Join.style";
+
+export type schoolInitialType =
+  | "초등학교"
+  | "중학교"
+  | "고등학교"
+  | "공동실습소";
+
+const SCHOOL_INITIAL = {
+  초등학교: { age: { start: 8, end: 13 }, grade: 6 },
+  중학교: { age: { start: 14, end: 16 }, grade: 3 },
+  고등학교: { age: { start: 17, end: 19 }, grade: 3 },
+  공동실습소: { age: { start: 17, end: 19 }, grade: 3 },
+};
 
 const optionList = (start: number, end: number): JSX.Element[] => {
   const list: JSX.Element[] = [];
@@ -10,8 +23,7 @@ const optionList = (start: number, end: number): JSX.Element[] => {
   return list;
 };
 
-const JoinModal = () => {
-  const { query } = useRouter();
+const JoinModal = (props: IInitialSchool) => {
   const { register, handleSubmit } = useForm();
 
   const onValid = () => {};
@@ -32,7 +44,10 @@ const JoinModal = () => {
           <S.InputWrapper>
             <S.Text>I'm</S.Text>
             <S.Select width="40%" {...register("age")}>
-              {optionList(8, 19)}
+              {optionList(
+                SCHOOL_INITIAL[props.grade as schoolInitialType].age.start,
+                SCHOOL_INITIAL[props.grade as schoolInitialType].age.end,
+              )}
             </S.Select>
             <S.Text>years old</S.Text>
           </S.InputWrapper>
@@ -40,7 +55,10 @@ const JoinModal = () => {
           <S.InputWrapper>
             <S.Text>I'm in the</S.Text>
             <S.Select width="30%" {...register("grade")}>
-              {optionList(1, 6)}
+              {optionList(
+                1,
+                SCHOOL_INITIAL[props.grade as schoolInitialType].grade,
+              )}
             </S.Select>
             <S.Text>grade</S.Text>
           </S.InputWrapper>

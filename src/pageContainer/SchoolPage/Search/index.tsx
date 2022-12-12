@@ -1,19 +1,19 @@
 import { useForm } from "react-hook-form";
-import { ISearch, ISearchResponse } from "../interface/search";
+import { ISearch, ISearchData, ISearchResponse } from "../interface/search";
 import school from "../api/school";
-import * as S from "./Search.style";
 import { ErrorText } from "components/common";
 import React from "react";
 import { SCHOOL_MAIN_URL } from "../../../../shared/constants/urls";
 import { useRouter } from "next/router";
+import * as S from "./Search.style";
 
 const SEARCH_TITLE = `Search for\nthe name of the school 🔍`;
 const EMPTY_EMOJI = `👀\n👅`;
 
 const SearchPage = () => {
-  const [searchList, setSearchList] = React.useState<
-    { name: string; code: string; address: string }[] | null
-  >(null);
+  const [searchList, setSearchList] = React.useState<ISearchData[] | null>(
+    null,
+  );
   const {
     register,
     handleSubmit,
@@ -26,7 +26,9 @@ const SearchPage = () => {
       return searchList.map(school => (
         <S.SchoolTag
           key={school.code}
-          onClick={() => push(SCHOOL_MAIN_URL + `/${school.code}`)}
+          onClick={() =>
+            push(SCHOOL_MAIN_URL + `/${school.division}&${school.code}`)
+          }
         >
           <S.NameText>{school.name}</S.NameText>
           <S.AddressText>{school.address}</S.AddressText>

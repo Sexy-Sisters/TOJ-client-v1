@@ -1,3 +1,8 @@
+export interface IInitialSchool {
+  code: string;
+  grade: string;
+}
+
 export interface IJoin {
   schoolCode: string;
 }

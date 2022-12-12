@@ -1,5 +1,5 @@
 import apiController from "../../../../shared/utils/apiController";
-import { IStudentCard } from "../interface/join";
+import { IStudentCard } from "../interface/main";
 import { ISearch } from "../interface/search";
 import { SearchController, StudentController } from "./requestUrls";
 class School {
