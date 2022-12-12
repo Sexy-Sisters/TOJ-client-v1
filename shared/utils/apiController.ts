@@ -7,8 +7,8 @@ import axios, {
 import { BASE_URL } from "../constants/urls";
 import { getToken } from "./tokenManager";
 
-const REFRESH_TOKEN = "Refresh-Token";
-const AUTHORIZATION = "Authorization";
+const REFRESH_TOKEN_KEY = "Refresh-Token";
+const AUTHORIZATION_KEY = "Authorization";
 
 const apiController: AxiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -19,8 +19,8 @@ apiController.interceptors.request.use(
     if (config.headers) {
       const token = getToken();
       if (token.accessToken && token.refreshToken) {
-        config.headers[AUTHORIZATION] = `Bearer ${token.accessToken}`;
-        config.headers[REFRESH_TOKEN] = token.refreshToken;
+        config.headers[AUTHORIZATION_KEY] = `Bearer ${token.accessToken}`;
+        config.headers[REFRESH_TOKEN_KEY] = token.refreshToken;
       }
     }
 

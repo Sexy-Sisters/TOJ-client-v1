@@ -23,7 +23,6 @@ const SignInPage = () => {
   const onVaild = async (user: ISignIn) => {
     try {
       const { data: res } = (await auth.signIn(user)) as ISignInResponse;
-      console.log(res);
 
       if (res.result === "SUCCESS") {
         setToken(res.data.accessToken, res.data.refreshToken);

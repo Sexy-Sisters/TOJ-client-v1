@@ -19,9 +19,9 @@ const NicknameForm = (props: { email: string; password: string }) => {
   } = useForm<I.INickname>();
   const { push } = useRouter();
 
-  const onValid = async (data: I.INickname) => {
+  const onValid = async ({ nickname }: I.INickname) => {
     // 닉네임 공백 검증
-    const validResult = validSpace(data.nickname.length, data.nickname, () => {
+    const validResult = validSpace(nickname.length, nickname, () => {
       setError(
         "nickname",
         { message: "Nickname can't contain spaces" },
@@ -32,18 +32,18 @@ const NicknameForm = (props: { email: string; password: string }) => {
     if (validResult === false) {
       const authUser = {
         email: props.email,
-        nickname: data.nickname,
+        nickname: nickname,
         password: props.password,
       };
-      const APIresponse = (await auth.signUp(authUser)) as I.ISignUpResponse;
+      const res = (await auth.signUp(authUser)) as I.ISignUpResponse;
 
-      if (APIresponse.data.result === "SUCCESS") {
+      if (res.data.result === "SUCCESS") {
         push("signIn");
       }
-      if (APIresponse.data.result === "FAIL" && APIresponse.data.message) {
+      if (res.data.result === "FAIL" && res.data.message) {
         setError(
           "nickname",
-          { message: APIresponse.data.message },
+          { message: res.data.message },
           { shouldFocus: true },
         );
       }

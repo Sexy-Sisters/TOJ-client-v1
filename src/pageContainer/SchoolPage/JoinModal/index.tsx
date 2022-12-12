@@ -2,11 +2,7 @@ import { useForm } from "react-hook-form";
 import { IInitialSchool } from "../interface/main";
 import * as S from "./Join.style";
 
-export type schoolInitialType =
-  | "초등학교"
-  | "중학교"
-  | "고등학교"
-  | "공동실습소";
+type SchoolInitialType = "초등학교" | "중학교" | "고등학교" | "공동실습소";
 
 const SCHOOL_INITIAL = {
   초등학교: { age: { start: 8, end: 13 }, grade: 6 },
@@ -45,8 +41,8 @@ const JoinModal = (props: IInitialSchool) => {
             <S.Text>I'm</S.Text>
             <S.Select width="40%" {...register("age")}>
               {optionList(
-                SCHOOL_INITIAL[props.grade as schoolInitialType].age.start,
-                SCHOOL_INITIAL[props.grade as schoolInitialType].age.end,
+                SCHOOL_INITIAL[props.grade as SchoolInitialType].age.start,
+                SCHOOL_INITIAL[props.grade as SchoolInitialType].age.end,
               )}
             </S.Select>
             <S.Text>years old</S.Text>
@@ -57,7 +53,7 @@ const JoinModal = (props: IInitialSchool) => {
             <S.Select width="30%" {...register("grade")}>
               {optionList(
                 1,
-                SCHOOL_INITIAL[props.grade as schoolInitialType].grade,
+                SCHOOL_INITIAL[props.grade as SchoolInitialType].grade,
               )}
             </S.Select>
             <S.Text>grade</S.Text>
