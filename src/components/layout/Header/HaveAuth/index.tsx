@@ -1,13 +1,16 @@
 import Link from "next/link";
 import React from "react";
 import { Header, Logo } from "../Header.style";
+import { HamburgerButton } from "components/common";
 import {
   IHeader,
   LOGO_URL,
   USER_SETTING_URL,
 } from "components/layout/Header/Header.constant";
-import { HamburgerButton } from "components/common";
-import { HOME_URL, SCHOOL_SEARCH } from "../../../../../shared/constants/urls";
+import {
+  HOME_URL,
+  SCHOOL_SEARCH_URL,
+} from "../../../../../shared/constants/urls";
 import * as S from "./HaveAuth.style";
 
 const HaveAuthHeader = (props: IHeader) => {
@@ -15,7 +18,7 @@ const HaveAuthHeader = (props: IHeader) => {
 
   return (
     <Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
-      <S.Header__logo>
+      <S.HeaderLogo>
         <Link href={HOME_URL}>
           <Logo src={LOGO_URL} alt="TOJ Logo" width={40} height={40} />
         </Link>
@@ -25,20 +28,18 @@ const HaveAuthHeader = (props: IHeader) => {
           inSize="500px"
           onClick={setMenuToggle}
         />
-      </S.Header__logo>
+      </S.HeaderLogo>
 
       <S.Menu toggle={menuToggle}>
         <S.FuncTags>
-          <Link href={SCHOOL_SEARCH}>
-            <S.Tag>School search</S.Tag>
+          <Link href={SCHOOL_SEARCH_URL}>
+            <S.Tag color="#FDCB6E">School search</S.Tag>
           </Link>
-          <S.Tag>any</S.Tag>
-          <S.Tag>any</S.Tag>
+          <S.Tag color="black">any</S.Tag>
+          <S.Tag color="black">any</S.Tag>
         </S.FuncTags>
 
-        <S.UserInfoButtons>
-          <p>🔔</p>
-
+        <S.UserInfoWrapper>
           <Link href={USER_SETTING_URL}>
             <S.UserProfile
               src="/image/user_profile.jpeg"
@@ -48,8 +49,8 @@ const HaveAuthHeader = (props: IHeader) => {
             />
           </Link>
 
-          <S.UserName className="user-nickname">User Nickname</S.UserName>
-        </S.UserInfoButtons>
+          <S.UserName>User Nickname</S.UserName>
+        </S.UserInfoWrapper>
       </S.Menu>
     </Header>
   );

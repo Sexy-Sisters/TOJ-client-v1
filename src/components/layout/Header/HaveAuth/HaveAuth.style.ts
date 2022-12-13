@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const MOBILE_SIZE = "500px";
 
-export const Header__logo = styled(Logo__block)`
+export const HeaderLogo = styled(Logo__block)`
   @media (max-width: ${MOBILE_SIZE}) {
     justify-content: space-between;
     width: 100%;
@@ -16,27 +16,16 @@ export const Menu = styled(UI__block)<{ toggle: boolean }>`
   align-items: center;
   width: 95vw;
 
-  .user-nickname {
-    display: none;
-  }
-  & > * {
-    margin: 0 30px 0 30px;
-  }
-
   @media (max-width: ${MOBILE_SIZE}) {
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
     position: absolute;
     z-index: 100;
-    right: ${props => (props.toggle ? "0" : "-200px")};
-    width: 200px;
+    right: ${props => (props.toggle ? "0" : "-250px")};
+    width: 250px;
     height: 100vh;
     background-color: ${props => props.theme.bgColor};
     transition: all 0.5s ease-in-out;
-
-    .user-nickname {
-      display: inline;
-    }
   }
 `;
 
@@ -44,30 +33,45 @@ export const FuncTags = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 230px;
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    flex-direction: column;
+    width: 100%;
+    height: 150px;
+  }
 `;
 
-export const UserInfoButtons = styled.div`
+export const UserInfoWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100px;
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    flex-direction: column;
+    height: 150px;
+  }
 `;
 
-export const Tag = styled.p`
+export const Tag = styled.p<{ color: string }>`
   font-size: 16px;
   font-weight: bold;
-  color: ${props => props.theme.textColor};
+  color: ${props => props.color};
 
   &:hover {
     transition: opacity 0.2s;
     opacity: 0.7;
+  }
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    font-size: 20px;
   }
 `;
 
 export const UserProfile = styled(Image)`
   width: 40px;
   height: auto;
+  margin: 0 30px 0 30px;
   border-radius: 50%;
 
   @media (max-width: ${MOBILE_SIZE}) {
@@ -76,7 +80,12 @@ export const UserProfile = styled(Image)`
 `;
 
 export const UserName = styled.p`
-  font-size: 24px;
+  display: none;
+  font-size: 20px;
   font-weight: bold;
   color: ${props => props.theme.textColor};
+
+  @media (max-width: ${MOBILE_SIZE}) {
+    display: inline;
+  }
 `;
