@@ -7,7 +7,11 @@ export const SearchController = {
 };
 
 export const StudentController = {
-  create_studentCard: () => {
+  create_student: () => {
     return `${API_VERSION}student`;
+  },
+
+  join_student: () => {
+    return `${API_VERSION}school`;
   },
 };

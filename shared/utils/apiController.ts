@@ -4,11 +4,14 @@ import axios, {
   AxiosRequestConfig,
   AxiosResponse,
 } from "axios";
+import { IRefreshResponse, refreshApi } from "./refreshManager";
 import { BASE_URL } from "../constants/urls";
-import { getToken } from "./tokenManager";
+import { getToken, setToken } from "./tokenManager";
 
-const REFRESH_TOKEN_KEY = "Refresh-Token";
-const AUTHORIZATION_KEY = "Authorization";
+const ACCESS_TOKEN_EXPIRED_ERROR = 401;
+
+export const REFRESH_TOKEN_KEY = "Refresh-Token";
+export const AUTHORIZATION_KEY = "Authorization";
 
 const apiController: AxiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -24,8 +27,6 @@ apiController.interceptors.request.use(
       }
     }
 
-    console.log(config);
-
     return config;
   },
   (error: AxiosError) => {
@@ -35,12 +36,32 @@ apiController.interceptors.request.use(
 
 apiController.interceptors.response.use(
   (response: AxiosResponse) => {
-    console.log(response);
-
     return response;
   },
-  (error: AxiosError) => {
-    console.log(error);
+  async error => {
+    const {
+      config,
+      response: { status },
+    } = error;
+
+    if (status === ACCESS_TOKEN_EXPIRED_ERROR) {
+      try {
+        const { data: res } = (await refreshApi()) as IRefreshResponse;
+
+        if (res.result === "SUCCESS" && res.data.accessToken) {
+          setToken(res.data.accessToken);
+          if (res.data.refreshToken) {
+            setToken(res.data.accessToken, res.data.refreshToken);
+          }
+        }
+
+        console.log(res);
+
+        return await axios.request(config);
+      } catch (err) {
+        console.log("토큰 재요청 에러", err);
+      }
+    }
     return Promise.reject(error);
   },
 );

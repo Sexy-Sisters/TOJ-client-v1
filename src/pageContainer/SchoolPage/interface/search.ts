@@ -1,4 +1,4 @@
-import { IAPIResponse } from "../../../../shared/interfaces/page";
+import { IAPIResponse } from "../../../../shared/interfaces/api";
 
 export interface ISearch {
   name: string;

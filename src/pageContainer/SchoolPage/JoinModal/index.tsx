@@ -1,5 +1,11 @@
 import { useForm } from "react-hook-form";
-import { IInitialSchool } from "../interface/main";
+import school from "../api/school";
+import {
+  IJoinResponse,
+  IStudent,
+  IStudentResponse,
+  JoinModalProps,
+} from "../interface/join";
 import * as S from "./Join.style";
 
 type SchoolInitialType = "초등학교" | "중학교" | "고등학교" | "공동실습소";
@@ -19,10 +25,20 @@ const optionList = (start: number, end: number): JSX.Element[] => {
   return list;
 };
 
-const JoinModal = (props: IInitialSchool) => {
-  const { register, handleSubmit } = useForm();
+const JoinModal = (props: JoinModalProps) => {
+  const { register, handleSubmit } = useForm<IStudent>();
 
-  const onValid = () => {};
+  const onValid = async (data: IStudent) => {
+    const { data: studentRes } = (await school.create_student(
+      data,
+    )) as IStudentResponse;
+
+    if (studentRes.result === "SUCCESS") {
+      const { data: joinRes } = (await school.join_student({
+        schoolCode: props.code,
+      })) as IJoinResponse;
+    }
+  };
 
   return (
     <S.Container>
@@ -39,7 +55,10 @@ const JoinModal = (props: IInitialSchool) => {
         <S.UIWrapper onSubmit={handleSubmit(onValid)}>
           <S.InputWrapper>
             <S.Text>I'm</S.Text>
-            <S.Select width="40%" {...register("age")}>
+            <S.Select
+              width="40%"
+              {...register("age", { required: "Please select your age" })}
+            >
               {optionList(
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].age.start,
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].age.end,
@@ -50,7 +69,10 @@ const JoinModal = (props: IInitialSchool) => {
 
           <S.InputWrapper>
             <S.Text>I'm in the</S.Text>
-            <S.Select width="30%" {...register("grade")}>
+            <S.Select
+              width="30%"
+              {...register("grade", { required: "Please select your grade" })}
+            >
               {optionList(
                 1,
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].grade,
@@ -61,14 +83,24 @@ const JoinModal = (props: IInitialSchool) => {
 
           <S.InputWrapper>
             <S.Text>I'm in class</S.Text>
-            <S.Select width="50%" {...register("classroom")}>
+            <S.Select
+              width="50%"
+              {...register("classroom", {
+                required: "Please select your classroom",
+              })}
+            >
               {optionList(1, 20)}
             </S.Select>
           </S.InputWrapper>
 
           <S.InputWrapper>
             <S.Text>I'm number</S.Text>
-            <S.Select width="50%" {...register("number")}>
+            <S.Select
+              width="50%"
+              {...register("number", {
+                required: "Please select your number",
+              })}
+            >
               {optionList(1, 100)}
             </S.Select>
           </S.InputWrapper>
