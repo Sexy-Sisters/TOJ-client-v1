@@ -33,8 +33,6 @@ const JoinModal = (props: JoinModalProps) => {
   const { register, handleSubmit } = useForm<IStudent>();
 
   const onValid = async (data: IStudent) => {
-    props.toggle(curValue => !curValue);
-
     try {
       const { data: studentRes } = (await school.create_student(
         data,
@@ -54,8 +52,6 @@ const JoinModal = (props: JoinModalProps) => {
     }
   };
 
-  console.log(props.grade, props.code);
-
   return (
     <S.Container modalState={props.modalState}>
       <S.ModalContainer>
@@ -71,10 +67,7 @@ const JoinModal = (props: JoinModalProps) => {
         <S.UIWrapper onSubmit={handleSubmit(onValid)}>
           <S.InputWrapper>
             <S.Text>I'm</S.Text>
-            <S.Select
-              width="40%"
-              {...register("age", { required: "Please select your age" })}
-            >
+            <S.Select width="40%" {...register("age")}>
               {optionList(
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].age.start,
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].age.end,
@@ -85,10 +78,7 @@ const JoinModal = (props: JoinModalProps) => {
 
           <S.InputWrapper>
             <S.Text>I'm in the</S.Text>
-            <S.Select
-              width="30%"
-              {...register("grade", { required: "Please select your grade" })}
-            >
+            <S.Select width="30%" {...register("grade")}>
               {optionList(
                 1,
                 SCHOOL_INITIAL[props.grade as SchoolInitialType].grade,
@@ -99,24 +89,14 @@ const JoinModal = (props: JoinModalProps) => {
 
           <S.InputWrapper>
             <S.Text>I'm in class</S.Text>
-            <S.Select
-              width="50%"
-              {...register("classroom", {
-                required: "Please select your classroom",
-              })}
-            >
+            <S.Select width="50%" {...register("classroom")}>
               {optionList(1, 20)}
             </S.Select>
           </S.InputWrapper>
 
           <S.InputWrapper>
             <S.Text>I'm number</S.Text>
-            <S.Select
-              width="50%"
-              {...register("number", {
-                required: "Please select your number",
-              })}
-            >
+            <S.Select width="50%" {...register("number")}>
               {optionList(1, 100)}
             </S.Select>
           </S.InputWrapper>
