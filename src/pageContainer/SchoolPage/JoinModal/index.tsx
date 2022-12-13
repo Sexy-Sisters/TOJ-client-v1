@@ -8,13 +8,17 @@ import {
 } from "../interface/join";
 import * as S from "./Join.style";
 
-type SchoolInitialType = "초등학교" | "중학교" | "고등학교" | "공동실습소";
+type SchoolInitialType =
+  | "초등학교"
+  | "중학교"
+  | "고등학교"
+  | "방송통신고등학교";
 
 const SCHOOL_INITIAL = {
   초등학교: { age: { start: 8, end: 13 }, grade: 6 },
   중학교: { age: { start: 14, end: 16 }, grade: 3 },
   고등학교: { age: { start: 17, end: 19 }, grade: 3 },
-  공동실습소: { age: { start: 17, end: 19 }, grade: 3 },
+  방송통신고등학교: { age: { start: 17, end: 19 }, grade: 3 },
 };
 
 const optionList = (start: number, end: number): JSX.Element[] => {
@@ -29,19 +33,31 @@ const JoinModal = (props: JoinModalProps) => {
   const { register, handleSubmit } = useForm<IStudent>();
 
   const onValid = async (data: IStudent) => {
-    const { data: studentRes } = (await school.create_student(
-      data,
-    )) as IStudentResponse;
+    props.toggle(curValue => !curValue);
 
-    if (studentRes.result === "SUCCESS") {
-      const { data: joinRes } = (await school.join_student({
-        schoolCode: props.code,
-      })) as IJoinResponse;
+    try {
+      const { data: studentRes } = (await school.create_student(
+        data,
+      )) as IStudentResponse;
+
+      if (studentRes.result === "SUCCESS") {
+        const { data: joinRes } = (await school.join_student({
+          schoolCode: props.code,
+        })) as IJoinResponse;
+
+        if (joinRes.result === "SUCCESS") {
+          props.toggle(curValue => !curValue);
+        }
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
+  console.log(props.grade, props.code);
+
   return (
-    <S.Container>
+    <S.Container modalState={props.modalState}>
       <S.ModalContainer>
         <S.DecoContainer>
           <S.DecoWrapper>

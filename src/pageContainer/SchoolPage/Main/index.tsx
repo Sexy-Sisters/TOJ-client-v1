@@ -13,7 +13,6 @@ const MainPage = () => {
 
   React.useEffect(() => {
     const schoolData = query.schoolData;
-    console.log(schoolData);
 
     if (typeof schoolData === "string") {
       const [grade, code] = schoolData.split("&");
@@ -26,8 +25,10 @@ const MainPage = () => {
       <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
         Join
       </S.JoinButton>
-      {joinModalToggle && initialSchool && (
+
+      {initialSchool && (
         <JoinModal
+          modalState={joinModalToggle}
           toggle={setJoinModalToggle}
           code={initialSchool.code}
           grade={initialSchool.grade}

@@ -55,7 +55,10 @@ apiController.interceptors.response.use(
           }
         }
 
-        console.log(res);
+        config.headers[AUTHORIZATION_KEY] = `Bearer ${getToken().accessToken}`;
+        config.headers[REFRESH_TOKEN_KEY] = getToken().refreshToken;
+
+        console.log("리프레시 요청", config);
 
         return await axios.request(config);
       } catch (err) {

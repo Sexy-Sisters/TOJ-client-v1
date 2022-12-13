@@ -4,6 +4,7 @@ import { IAPIResponse } from "../../../../shared/interfaces/api";
 export interface JoinModalProps {
   code: string;
   grade: string;
+  modalState: boolean;
   toggle: Dispatch<SetStateAction<boolean>>;
 }
 
