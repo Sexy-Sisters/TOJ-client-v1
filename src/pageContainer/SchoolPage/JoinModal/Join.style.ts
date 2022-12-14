@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 const MOBILE_SIZE = "500px";
 
-export const Container = styled.div`
+export const Container = styled.div<{ modalState: boolean }>`
   display: flex;
   justify-content: center;
   position: absolute;
   left: 0;
-  top: 0;
+  top: ${props => (props.modalState ? "0" : "-100vh")};
   width: 100vw;
   height: 100vh;
+  transition: all 0.7s;
 `;
 
 export const ModalContainer = styled.div`

@@ -2,30 +2,37 @@ import React from "react";
 import { useRouter } from "next/router";
 import JoinModal from "../JoinModal";
 import * as S from "./Main.style";
-import { IInitialSchool } from "../interface/main";
 
 const MainPage = () => {
   const { query } = useRouter();
-  const [initialSchool, setInitialSchool] =
-    React.useState<IInitialSchool | null>(null);
+  const [initialSchool, setInitialSchool] = React.useState<{
+    code: string;
+    grade: string;
+  } | null>(null);
   const [joinModalToggle, setJoinModalToggle] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    const initialValue = query.schoolData;
+    const schoolData = query.schoolData;
 
-    if (typeof initialValue === "string") {
-      const [grade, code] = initialValue.split("&");
+    if (typeof schoolData === "string") {
+      const [grade, code] = schoolData.split("&");
       setInitialSchool({ grade, code });
     }
-  }, []);
+  }, [query]);
 
   return (
     <S.PageContainer>
       <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
         Join
       </S.JoinButton>
-      {joinModalToggle && initialSchool && (
-        <JoinModal code={initialSchool.code} grade={initialSchool.grade} />
+
+      {initialSchool && (
+        <JoinModal
+          modalState={joinModalToggle}
+          toggle={setJoinModalToggle}
+          code={initialSchool.code}
+          grade={initialSchool.grade}
+        />
       )}
     </S.PageContainer>
   );
