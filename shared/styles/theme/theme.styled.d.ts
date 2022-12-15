@@ -15,6 +15,8 @@ declare module "styled-components" {
     error: string;
     success: string;
 
+    lightGray: string;
+
     // most color
     yellowColor: string;
     redColor: string;

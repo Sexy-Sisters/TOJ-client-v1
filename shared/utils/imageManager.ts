@@ -24,7 +24,7 @@ const ImageController = {
 
 /**
  * 이미지 서버 업로드를 위한 api
- * @param data 이미지 (images) FormData
+ * @param data 이미지 타입 (dir), 이미지 (images) FormData
  */
 export const imageUpload = (data: IImageUpload) => {
   try {

@@ -3,14 +3,23 @@ import Image from "next/image";
 import { IHeader } from "./Header.constant";
 
 export const Header = styled.header<IHeader>`
-  display: flex;
-  justify-content: space-between;
   position: ${props => (props.isFixed ? "fixed" : "absolute")};
   z-index: 1000;
   width: 100vw;
-  height: 70px;
+  height: 60px;
   background-color: ${props =>
     props.isTransparent ? "transparent" : props.theme.bgColor};
+`;
+
+export const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 100px 0 100px;
+
+  @media (max-width: 600px) {
+    padding: 0 50px 0 50px;
+  }
 `;
 
 export const Logo = styled(Image)`
@@ -27,9 +36,6 @@ export const UI__block = styled.div`
 export const Logo__block = styled.div`
   display: flex;
   align-items: center;
-  & > * {
-    margin: 0 30px 0 30px;
-  }
 `;
 
 export const ThemeButton = styled.button`

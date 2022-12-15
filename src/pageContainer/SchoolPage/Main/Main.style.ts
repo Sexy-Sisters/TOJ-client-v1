@@ -6,9 +6,13 @@ export const PageContainer = styled.div`
   background-color: ${props => props.theme.bgColor};
 `;
 
+export const WikiPage = styled.div`
+  width: 100%;
+  padding-top: 90px;
+`;
+
 export const JoinButton = styled.button`
-  width: 40px;
-  height: 20px;
+  width: 100px;
+  height: 60px;
   font-size: 24px;
-  margin: 100px 0 0 0;
 `;

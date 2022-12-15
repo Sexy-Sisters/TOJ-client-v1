@@ -6,20 +6,8 @@ import {
   IStudentResponse,
   JoinModalProps,
 } from "../interface/join";
-import * as S from "./Join.style";
-
-type SchoolInitialType =
-  | "초등학교"
-  | "중학교"
-  | "고등학교"
-  | "방송통신고등학교";
-
-const SCHOOL_INITIAL = {
-  초등학교: { age: { start: 8, end: 13 }, grade: 6 },
-  중학교: { age: { start: 14, end: 16 }, grade: 3 },
-  고등학교: { age: { start: 17, end: 19 }, grade: 3 },
-  방송통신고등학교: { age: { start: 17, end: 19 }, grade: 3 },
-};
+import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
+import * as S from "./JoinModal.style";
 
 const optionList = (start: number, end: number): JSX.Element[] => {
   const list: JSX.Element[] = [];

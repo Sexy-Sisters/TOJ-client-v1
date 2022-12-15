@@ -2,19 +2,22 @@ import { Logo__block, UI__block } from "components/layout/Header/Header.style";
 import Image from "next/image";
 import styled from "styled-components";
 
-const MOBILE_SIZE = "500px";
+const MOBILE_SIZE = "800px";
 
 export const HeaderLogo = styled(Logo__block)`
+  margin-right: 70px;
+
   @media (max-width: ${MOBILE_SIZE}) {
     justify-content: space-between;
     width: 100%;
+    margin: 0;
   }
 `;
 
 export const Menu = styled(UI__block)<{ toggle: boolean }>`
   display: flex;
   align-items: center;
-  width: 95vw;
+  width: 100%;
 
   @media (max-width: ${MOBILE_SIZE}) {
     flex-direction: column-reverse;
@@ -33,7 +36,7 @@ export const FuncTags = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 230px;
+  width: 250px;
 
   @media (max-width: ${MOBILE_SIZE}) {
     flex-direction: column;
@@ -53,14 +56,15 @@ export const UserInfoWrapper = styled.div`
   }
 `;
 
-export const Tag = styled.p<{ color: string }>`
-  font-size: 16px;
+export const Tag = styled.p`
+  font-size: 14px;
   font-weight: bold;
-  color: ${props => props.color};
+  padding: 10px;
+  border-radius: 6px;
+  color: ${props => props.theme.textColor};
 
   &:hover {
-    transition: opacity 0.2s;
-    opacity: 0.7;
+    background-color: ${props => props.theme.lightGray};
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
@@ -71,7 +75,6 @@ export const Tag = styled.p<{ color: string }>`
 export const UserProfile = styled(Image)`
   width: 40px;
   height: auto;
-  margin: 0 30px 0 30px;
   border-radius: 50%;
 
   @media (max-width: ${MOBILE_SIZE}) {

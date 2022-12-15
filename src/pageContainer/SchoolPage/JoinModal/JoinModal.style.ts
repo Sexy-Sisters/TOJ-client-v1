@@ -7,7 +7,7 @@ export const Container = styled.div<{ modalState: boolean }>`
   justify-content: center;
   position: absolute;
   left: 0;
-  top: ${props => (props.modalState ? "0" : "-100vh")};
+  top: ${props => (props.modalState ? "0" : "-200vh")};
   width: 100vw;
   height: 100vh;
   transition: all 0.7s;
@@ -22,7 +22,7 @@ export const ModalContainer = styled.div`
   width: 400px;
   height: 500px;
   border-radius: 20px;
-  background-color: white;
+  background-color: #f5f6fa;
 
   @media (max-width: ${MOBILE_SIZE}) {
     width: 300px;

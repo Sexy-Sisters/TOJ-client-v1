@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import JoinModal from "../JoinModal";
 import * as S from "./Main.style";
+import Wiki from "./Wiki";
 
 const MainPage = () => {
   const { query } = useRouter();
@@ -22,18 +23,24 @@ const MainPage = () => {
 
   return (
     <S.PageContainer>
-      <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
-        Join
-      </S.JoinButton>
+      <S.WikiPage>
+        <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
+          Join
+        </S.JoinButton>
 
-      {initialSchool && (
-        <JoinModal
-          modalState={joinModalToggle}
-          toggle={setJoinModalToggle}
-          code={initialSchool.code}
-          grade={initialSchool.grade}
-        />
-      )}
+        {initialSchool && (
+          <>
+            <Wiki schoolCode={initialSchool.code} />
+
+            <JoinModal
+              modalState={joinModalToggle}
+              toggle={setJoinModalToggle}
+              code={initialSchool.code}
+              grade={initialSchool.grade}
+            />
+          </>
+        )}
+      </S.WikiPage>
     </S.PageContainer>
   );
 };
