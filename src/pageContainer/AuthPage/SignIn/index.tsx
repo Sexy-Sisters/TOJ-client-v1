@@ -48,6 +48,8 @@ const SignInPage = () => {
               ? "이메일과 비밀번호를 다시 확인해 봅시다"
               : errors.email?.message
           }
+          top={"60px"}
+          left={"0"}
         />
       </S.ErrorBox>
 

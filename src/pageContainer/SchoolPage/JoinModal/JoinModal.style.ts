@@ -3,6 +3,7 @@ import styled from "styled-components";
 const MOBILE_SIZE = "500px";
 
 export const Container = styled.div<{ modalState: boolean }>`
+  z-index: 100;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -13,7 +14,16 @@ export const Container = styled.div<{ modalState: boolean }>`
   transition: all 0.7s;
 `;
 
+export const BackgroundContainer = styled.div`
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(72, 73, 74, 0.5);
+`;
+
 export const ModalContainer = styled.div`
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +33,9 @@ export const ModalContainer = styled.div`
   height: 500px;
   border-radius: 20px;
   background-color: #f5f6fa;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   @media (max-width: ${MOBILE_SIZE}) {
     width: 300px;
@@ -56,6 +69,7 @@ export const Select = styled.select<{ width: string }>`
   border: none;
   text-align: center;
   appearance: none;
+  outline: none;
 
   @media (max-width: ${MOBILE_SIZE}) {
     height: 30px;

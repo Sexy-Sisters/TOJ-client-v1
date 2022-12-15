@@ -90,6 +90,8 @@ const EmailForm = (props: I.ISignUpPage) => {
           <ErrorText
             isError={errorEmail.email ? true : false}
             message={errorEmail.email?.message}
+            top={"60px"}
+            left={"0"}
           />
           <SuccessText
             isSuccess={successEmail}
@@ -125,6 +127,8 @@ const EmailForm = (props: I.ISignUpPage) => {
           <ErrorText
             isError={errorCode.code ? true : false}
             message={errorCode.code?.message}
+            top={"60px"}
+            left={"0"}
           />
 
           <Auth.Button

@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import school from "../api/school";
 import {
-  IJoinResponse,
-  IStudent,
-  IStudentResponse,
-  JoinModalProps,
-} from "../interface/join";
-import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
+  SCHOOL_INITIAL,
+  SchoolInitialType,
+  IError,
+  defaultError,
+} from "./JoinModal.constant";
 import * as S from "./JoinModal.style";
+import * as I from "../interface/join";
+import React from "react";
+import { ErrorText } from "components/common";
 
 const optionList = (start: number, end: number): JSX.Element[] => {
   const list: JSX.Element[] = [];
@@ -17,32 +19,74 @@ const optionList = (start: number, end: number): JSX.Element[] => {
   return list;
 };
 
-const JoinModal = (props: JoinModalProps) => {
-  const { register, handleSubmit } = useForm<IStudent>();
+const JoinModal = (props: I.JoinModalProps) => {
+  const { register, handleSubmit } = useForm<I.IStudent>();
+  const backgroundRef = React.useRef<HTMLDivElement>(null);
+  const [errorContainer, setErrorContainer] =
+    React.useState<IError>(defaultError);
 
-  const onValid = async (data: IStudent) => {
+  const handleClickBackground = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === backgroundRef.current) {
+      props.toggle(curToggle => !curToggle);
+    }
+  };
+
+  const onErrorEvent = (message: string) => {
+    setErrorContainer({
+      isError: true,
+      message: message,
+    });
+
+    setTimeout(() => setErrorContainer(defaultError), 4000);
+  };
+
+  const joinSchool = async () => {
+    try {
+      const { data: joinRes } = (await school.join_student({
+        schoolCode: props.code,
+      })) as I.IJoinResponse;
+
+      if (joinRes.result === "SUCCESS") {
+        props.toggle(curValue => !curValue);
+      }
+      if (joinRes.result === "FAIL" && joinRes.message) {
+        onErrorEvent(joinRes.message);
+      }
+    } catch (err) {}
+  };
+
+  const onValid = async (payload: I.IStudent) => {
     try {
       const { data: studentRes } = (await school.create_student(
-        data,
-      )) as IStudentResponse;
+        payload,
+      )) as I.IStudentResponse;
 
       if (studentRes.result === "SUCCESS") {
-        const { data: joinRes } = (await school.join_student({
-          schoolCode: props.code,
-        })) as IJoinResponse;
-
-        if (joinRes.result === "SUCCESS") {
-          props.toggle(curValue => !curValue);
-        }
+        joinSchool();
       }
-    } catch (err) {
-      console.log(err);
-    }
+      if (studentRes.result === "FAIL" && studentRes.message) {
+        onErrorEvent(studentRes.message);
+      }
+    } catch (err) {}
   };
 
   return (
     <S.Container modalState={props.modalState}>
+      <S.BackgroundContainer
+        ref={backgroundRef}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+          handleClickBackground(e)
+        }
+      />
+
       <S.ModalContainer>
+        <ErrorText
+          isError={errorContainer.isError}
+          message={errorContainer.message}
+          top={"450px"}
+          left={"0"}
+        />
+
         <S.DecoContainer>
           <S.DecoWrapper>
             <S.DecoSpring />

@@ -79,6 +79,8 @@ const PasswordForm = (props: I.ISignUpPage) => {
           <ErrorText
             isError={errorPwd.password ? true : false}
             message={errorPwd.password?.message}
+            top={"60px"}
+            left={"0"}
           />
           <SuccessText
             isSuccess={successPwd}
@@ -112,6 +114,8 @@ const PasswordForm = (props: I.ISignUpPage) => {
           <ErrorText
             isError={errorRePwd.rePassword ? true : false}
             message={errorRePwd.rePassword?.message}
+            top={"60px"}
+            left={"0"}
           />
 
           <Auth.Button
