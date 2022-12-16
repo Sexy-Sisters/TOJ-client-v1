@@ -12,13 +12,3 @@ export const SCHOOL_INITIAL = {
   방송통신고등학교: { age: { start: 17, end: 19 }, grade: 3 },
   공동실습소: { age: { start: 17, end: 19 }, grade: 3 },
 };
-
-export interface IError {
-  isError: boolean;
-  message: string;
-}
-
-export const defaultError: IError = {
-  isError: false,
-  message: "",
-};

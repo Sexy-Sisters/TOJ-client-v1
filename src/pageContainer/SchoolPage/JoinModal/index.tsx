@@ -1,15 +1,10 @@
 import { useForm } from "react-hook-form";
 import school from "../api/school";
-import {
-  SCHOOL_INITIAL,
-  SchoolInitialType,
-  IError,
-  defaultError,
-} from "./JoinModal.constant";
+import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
 import * as S from "./JoinModal.style";
 import * as I from "../interface/join";
+import { useToast } from "../../../../shared/hooks";
 import React from "react";
-import { ErrorText } from "components/common";
 
 const optionList = (start: number, end: number): JSX.Element[] => {
   const list: JSX.Element[] = [];
@@ -22,22 +17,12 @@ const optionList = (start: number, end: number): JSX.Element[] => {
 const JoinModal = (props: I.JoinModalProps) => {
   const { register, handleSubmit } = useForm<I.IStudent>();
   const backgroundRef = React.useRef<HTMLDivElement>(null);
-  const [errorContainer, setErrorContainer] =
-    React.useState<IError>(defaultError);
+  const { onToast } = useToast();
 
   const handleClickBackground = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === backgroundRef.current) {
       props.toggle(curToggle => !curToggle);
     }
-  };
-
-  const onErrorEvent = (message: string) => {
-    setErrorContainer({
-      isError: true,
-      message: message,
-    });
-
-    setTimeout(() => setErrorContainer(defaultError), 4000);
   };
 
   const joinSchool = async () => {
@@ -46,13 +31,16 @@ const JoinModal = (props: I.JoinModalProps) => {
         schoolCode: props.code,
       })) as I.IJoinResponse;
 
-      if (joinRes.result === "SUCCESS") {
+      if (joinRes.result === "SUCCESS" && joinRes.message) {
         props.toggle(curValue => !curValue);
+        onToast("success", joinRes.message);
       }
       if (joinRes.result === "FAIL" && joinRes.message) {
-        onErrorEvent(joinRes.message);
+        onToast("error", joinRes.message);
       }
-    } catch (err) {}
+    } catch (err) {
+      onToast("error", "예상치 못한 에러");
+    }
   };
 
   const onValid = async (payload: I.IStudent) => {
@@ -65,9 +53,11 @@ const JoinModal = (props: I.JoinModalProps) => {
         joinSchool();
       }
       if (studentRes.result === "FAIL" && studentRes.message) {
-        onErrorEvent(studentRes.message);
+        onToast("error", studentRes.message);
       }
-    } catch (err) {}
+    } catch (err) {
+      onToast("error", "예상치 못한 에러");
+    }
   };
 
   return (
@@ -80,13 +70,6 @@ const JoinModal = (props: I.JoinModalProps) => {
       />
 
       <S.ModalContainer>
-        <ErrorText
-          isError={errorContainer.isError}
-          message={errorContainer.message}
-          top={"450px"}
-          left={"0"}
-        />
-
         <S.DecoContainer>
           <S.DecoWrapper>
             <S.DecoSpring />

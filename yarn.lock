@@ -3797,6 +3797,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sweetalert2@npm:^11.6.15":
+  version: 11.6.15
+  resolution: "sweetalert2@npm:11.6.15"
+  checksum: c8272447b97d213a008927c954a6bd467063a3120a324e2a808e52da4342d0f1bb540d5ad0f3faec9880824c1e070e1b2f7845fe83807cd58cd50cca97402be9
+  languageName: node
+  linkType: hard
+
 "tar@npm:^6.0.5":
   version: 6.1.12
   resolution: "tar@npm:6.1.12"
@@ -3887,6 +3894,7 @@ __metadata:
     react-quill: ^2.0.0
     recoil: ^0.7.6
     styled-components: ^5.3.6
+    sweetalert2: ^11.6.15
     typescript: ^4.9.3
   languageName: unknown
   linkType: soft
