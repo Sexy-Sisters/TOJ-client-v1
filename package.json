@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@toast-ui/editor": "^3.2.1",
+    "@toast-ui/editor-plugin-color-syntax": "^3.1.0",
+    "@toast-ui/react-editor": "^3.2.2",
     "@types/node": "18.11.9",
-    "@types/quill": "^2.0.10",
     "@types/react": "18.0.25",
     "@types/react-cookies": "^0.1.0",
     "@types/react-dom": "18.0.9",
@@ -29,14 +31,15 @@
     "react-icons": "^4.6.0",
     "react-intersection-observer": "^9.4.1",
     "react-is": "^18.2.0",
-    "react-quill": "^2.0.0",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
-    "sweetalert2": "^11.6.15"
+    "sweetalert2": "^11.6.15",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/react-beforeunload": "^2.1.1",
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "@yarnpkg/sdks": "^3.0.0-rc.31",
@@ -49,5 +52,5 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "typescript": "^4.9.3"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@4.0.0-rc.33"
 }
