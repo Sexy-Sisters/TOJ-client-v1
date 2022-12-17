@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { ThemeContext } from "../../../../../shared/contexts";
 import { darkTheme } from "../../../../../shared/styles/theme";
-import { IHeader, LOGO_URL } from "../Header.constant";
+import { IHeader, LOGO_DARK_URL, LOGO_LIGHT_URL } from "../Header.constant";
 import { HamburgerButton } from "components/common";
 import {
   HOME_URL,
@@ -23,7 +23,12 @@ const NoAuthHeader = (props: IHeader) => {
       <C.HeaderContainer>
         <S.Header__logo>
           <Link href={HOME_URL}>
-            <C.Logo src={LOGO_URL} alt="TOJ 로고" width={40} height={40} />
+            <C.Logo
+              src={curTheme === darkTheme ? LOGO_DARK_URL : LOGO_LIGHT_URL}
+              alt="TOJ logo"
+              width={50}
+              height={50}
+            />
           </Link>
 
           <HamburgerButton

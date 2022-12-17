@@ -6,7 +6,7 @@ export const Header = styled.header<IHeader>`
   position: ${props => (props.isFixed ? "fixed" : "absolute")};
   z-index: 1000;
   width: 100vw;
-  height: 60px;
+  height: 70px;
   background-color: ${props =>
     props.isTransparent ? "transparent" : props.theme.bgColor};
 `;
@@ -23,8 +23,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Logo = styled(Image)`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 `;
 
 export const UI__block = styled.div`
