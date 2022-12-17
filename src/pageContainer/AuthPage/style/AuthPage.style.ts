@@ -24,20 +24,16 @@ export const Input = styled.input<{ width: string; border: string }>`
   height: 50px;
   border-radius: ${props => props.border};
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   background-color: ${props => props.theme.input};
   color: ${props => props.theme.textColor};
 
   &::placeholder {
-    font-size: 20px;
+    font-size: 16px;
     color: ${props => props.theme.bgColor};
   }
   &:hover {
     background-color: ${props => props.theme.inputHover};
-  }
-
-  @media (max-width: ${MOBILE_SIZE}) {
-    font-size: 20px;
   }
 `;
 
@@ -51,7 +47,7 @@ export const Button = styled.button<{
   width: ${props => props.width};
   height: 50px;
   border-radius: ${props => props.border};
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   background-color: ${props => props.defaultColor};
   color: ${props => props.theme.bgColor};

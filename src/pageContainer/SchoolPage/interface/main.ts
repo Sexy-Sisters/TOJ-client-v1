@@ -6,8 +6,10 @@ export interface IGetWiki {
 
 export interface IWiki {
   id: number;
-  content: string;
   name: string;
+  html: string;
+  markdown: string;
+  views: number;
 }
 
 export interface IGetWikiResponse extends IAPIResponse {
@@ -21,5 +23,6 @@ export interface IGetWikiResponse extends IAPIResponse {
 
 export interface IUpdateWiki {
   id: number;
-  content: string;
+  html: string;
+  markdown: string;
 }

@@ -26,24 +26,10 @@ export const ContentContainer = styled.div`
 export const Content = styled.div`
   width: 700px;
   margin-top: 50px;
-
-  // quill에서 가운데 정렬을 한 경우
-  .ql-align-center {
-    text-align: center;
-  }
-
-  // quill에서 코드 블럭을 사용한 경우
-  .ql-syntax {
-    padding: 5px;
-    margin: 0 10px;
-    border-radius: 3px;
-    background-color: ${props => props.theme.input};
-    color: white;
-  }
 `;
 
 export const EditorContainer = styled.div`
-  width: 800px;
+  width: 1000px;
   height: 500px;
   margin: 0 auto;
   margin-bottom: 100px;

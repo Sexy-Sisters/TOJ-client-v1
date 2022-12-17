@@ -1,23 +1,23 @@
 import { useForm } from "react-hook-form";
-import { ErrorText } from "components/common";
 import { useRouter } from "next/router";
-import { HOME_URL } from "../../../../shared/constants/urls";
-import { setToken } from "../../../../shared/utils/tokenManager";
+import { HOME_URL } from "shared/constants/urls";
+import { setToken } from "shared/utils/tokenManager";
 import auth from "../api/auth";
 import * as S from "./SignIn.style";
 import * as Auth from "../style/AuthPage.style";
 import { ISignIn, ISignInResponse } from "../interface/signIn";
+import { useToast } from "shared/hooks";
 
 const mainColor = "#27AE60";
 const buttonColor = "#2ECC71";
 
 const SignInPage = () => {
   const {
-    setError,
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { isSubmitting, errors },
   } = useForm<ISignIn>();
+  const { onToast } = useToast();
   const { push } = useRouter();
 
   const onVaild = async (user: ISignIn) => {
@@ -25,35 +25,28 @@ const SignInPage = () => {
       const { data: res } = (await auth.signIn(user)) as ISignInResponse;
 
       if (res.result === "SUCCESS") {
+        onToast("success", "sign in successfull");
         setToken(res.data.accessToken, res.data.refreshToken);
         push(HOME_URL);
       }
       if (res.result === "FAIL" && res.message) {
-        setError("email", {
-          message: res.message,
-        });
+        onToast("error", res.message);
       }
     } catch (err) {
-      console.log(err);
+      onToast("error", "예상치 못한 에러");
+    }
+  };
+
+  const onInValid = async () => {
+    const message = errors.email?.message || errors.password?.message;
+    if (message) {
+      onToast("error", message);
     }
   };
 
   return (
     <S.PageContainer>
-      <S.ErrorBox>
-        <ErrorText
-          isError={errors.email || errors.password ? true : false}
-          message={
-            errors.password
-              ? "이메일과 비밀번호를 다시 확인해 봅시다"
-              : errors.email?.message
-          }
-          top={"60px"}
-          left={"0"}
-        />
-      </S.ErrorBox>
-
-      <S.Form onSubmit={handleSubmit(onVaild)}>
+      <S.Form onSubmit={handleSubmit(onVaild, onInValid)}>
         <Auth.KindName>Sign in to TOJ 🦖</Auth.KindName>
 
         <Auth.Input

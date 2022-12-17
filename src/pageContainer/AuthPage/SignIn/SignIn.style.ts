@@ -16,7 +16,3 @@ export const Form = styled(Auth.Form)`
   height: 350px;
   margin-top: 150px;
 `;
-
-export const ErrorBox = styled.div`
-  margin: 40px 0 0 0;
-`;

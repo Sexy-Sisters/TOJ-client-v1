@@ -3,7 +3,7 @@ import school from "../api/school";
 import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
 import * as S from "./JoinModal.style";
 import * as I from "../interface/join";
-import { useToast } from "../../../../shared/hooks";
+import { useToast } from "shared/hooks";
 import React from "react";
 
 const optionList = (start: number, end: number): JSX.Element[] => {
@@ -31,9 +31,9 @@ const JoinModal = (props: I.JoinModalProps) => {
         schoolCode: props.code,
       })) as I.IJoinResponse;
 
-      if (joinRes.result === "SUCCESS" && joinRes.message) {
+      if (joinRes.result === "SUCCESS") {
         props.toggle(curValue => !curValue);
-        onToast("success", joinRes.message);
+        onToast("success", "신입생 받아라");
       }
       if (joinRes.result === "FAIL" && joinRes.message) {
         onToast("error", joinRes.message);

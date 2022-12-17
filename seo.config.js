@@ -3,7 +3,7 @@ export default {
   additionalLinkTags: [
     {
       rel: "icon",
-      href: "",
+      href: "image/toj_logo_light.svg",
     },
   ],
   additionalMetaTags: [
@@ -15,6 +15,6 @@ export default {
   openGraph: {
     type: "website",
     site_name: "Teacher Online Judge",
-    images: [{ url: "" }],
+    images: [{ url: "toj_logo_light.svg" }],
   },
 };

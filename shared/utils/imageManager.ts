@@ -3,7 +3,7 @@ import { API_VERSION } from "../constants";
 import { BASE_URL } from "../constants/urls";
 import { IAPIResponse } from "../interfaces/api";
 
-type ImageType = "AD" | "USER" | "TEACHER" | "WIKI";
+type ImageType = "AD" | "USER" | "TEACHER" | "WIKI" | "POST" | "SCHOOL";
 
 interface IImageUpload {
   dir: ImageType;
@@ -11,9 +11,14 @@ interface IImageUpload {
 }
 
 export interface IImageUploadResponse extends IAPIResponse {
-  data: {
-    imgUrlList: string[];
-  };
+  data:
+    | {
+        data: {};
+        result: "FAIL";
+        message: string;
+        errorCode: string;
+      }
+    | { imgUrlList: string[] };
 }
 
 const ImageController = {
@@ -28,15 +33,9 @@ const ImageController = {
  */
 export const imageUpload = (data: IImageUpload) => {
   try {
-    return axios({
-      method: "POST",
-      baseURL: BASE_URL,
-      url: ImageController.upload(),
+    return axios.post(BASE_URL + ImageController.upload(), data.images, {
       params: { dir: data.dir },
-      data: { images: data.images },
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      headers: { "Content-Type": `multipart/form-data` },
       transformRequest: (data, headers) => {
         return data;
       },

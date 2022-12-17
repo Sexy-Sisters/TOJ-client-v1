@@ -1,7 +1,7 @@
 import { Header, BaseLayout } from "components/layout";
 import { NextSeo } from "next-seo";
-import { SearchPage } from "pageContainer";
-import { BASE_URL, SCHOOL_SEARCH_URL } from "../../../shared/constants/urls";
+import { SearchPage } from "../../pageContainer";
+import { BASE_URL, SCHOOL_SEARCH_URL } from "shared/constants/urls";
 
 const Search = () => {
   return (

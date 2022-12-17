@@ -33,13 +33,11 @@
     "react-is": "^18.2.0",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6",
-    "sweetalert2": "^11.6.15",
-    "uuid": "^9.0.0"
+    "sweetalert2": "^11.6.15"
   },
   "devDependencies": {
     "@types/react-beforeunload": "^2.1.1",
     "@types/styled-components": "^5.1.26",
-    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "@yarnpkg/sdks": "^3.0.0-rc.31",
