@@ -1,6 +1,6 @@
 import { Header, BaseLayout } from "components/layout";
 import { NextSeo } from "next-seo";
-import { MainPage } from "pageContainer";
+import { MainPage } from "../../../pageContainer";
 
 const Main = () => {
   return (

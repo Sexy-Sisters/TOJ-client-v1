@@ -1,10 +1,11 @@
 import styled, { css, keyframes } from "styled-components";
 
-export const Error = styled.p<{ error: boolean }>`
+export const Error = styled.p<{ error: boolean; left: string; top: string }>`
   display: ${props => (props.error ? "inline" : "none")};
   position: absolute;
   z-index: 100;
-  margin-top: 60px;
+  margin-top: ${props => props.top};
+  margin-left: ${props => props.left};
   font-size: 16px;
   color: ${props => props.theme.error};
   animation: ${props =>

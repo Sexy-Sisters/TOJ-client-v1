@@ -27,6 +27,8 @@ apiController.interceptors.request.use(
       }
     }
 
+    console.log(config);
+
     return config;
   },
   (error: AxiosError) => {
@@ -36,6 +38,8 @@ apiController.interceptors.request.use(
 
 apiController.interceptors.response.use(
   (response: AxiosResponse) => {
+    console.log(response);
+
     return response;
   },
   async error => {
@@ -43,6 +47,8 @@ apiController.interceptors.response.use(
       config,
       response: { status },
     } = error;
+
+    console.log(error);
 
     if (status === ACCESS_TOKEN_EXPIRED_ERROR) {
       try {

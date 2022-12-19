@@ -15,3 +15,13 @@ export const StudentController = {
     return `${API_VERSION}school`;
   },
 };
+
+export const WikiController = {
+  get_wiki: () => {
+    return `${API_VERSION}wiki`;
+  },
+
+  update_wiki: () => {
+    return `${API_VERSION}wiki`;
+  },
+};

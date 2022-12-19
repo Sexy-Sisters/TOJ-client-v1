@@ -46,10 +46,9 @@ export const SearchLabel = styled.label`
 export const SearchBar = styled.input`
   width: 70%;
   height: 45px;
-  border: solid 3px;
   border-radius: 15px;
-  border-color: ${props => props.theme.input};
   font-size: 16px;
+  font-weight: bold;
   background-color: ${props => props.theme.input};
   color: ${props => props.theme.textColor};
 
@@ -62,11 +61,10 @@ export const SearchBar = styled.input`
   }
 
   &::placeholder {
-    color: ${props => props.theme.inputText};
+    color: ${props => props.theme.bgColor};
   }
-
   &:hover {
-    border-color: ${props => props.theme.blueColor};
+    background-color: ${props => props.theme.inputHover};
   }
 `;
 

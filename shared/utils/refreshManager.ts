@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_VERSION } from "../constants";
 import { BASE_URL } from "../constants/urls";
 import { IAPIResponse } from "../interfaces/api";
-import { AUTHORIZATION_KEY, REFRESH_TOKEN_KEY } from "./apiController";
+import { REFRESH_TOKEN_KEY } from "./apiController";
 import { getToken } from "./tokenManager";
 
 export interface IRefreshResponse extends IAPIResponse {

@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "typeRoots": ["./node_modules/@types", "shared/types"],
     "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,7 +13,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "shared/*": ["./shared/*"],
+      "pageContainer/*": ["./src/pageContainer/*"],
+      "components/*": ["./src/components/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "seo.config.js"],
   "exclude": ["node_modules"]

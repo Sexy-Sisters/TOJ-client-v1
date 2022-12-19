@@ -1,25 +1,10 @@
 import { useForm } from "react-hook-form";
 import school from "../api/school";
-import {
-  IJoinResponse,
-  IStudent,
-  IStudentResponse,
-  JoinModalProps,
-} from "../interface/join";
-import * as S from "./Join.style";
-
-type SchoolInitialType =
-  | "초등학교"
-  | "중학교"
-  | "고등학교"
-  | "방송통신고등학교";
-
-const SCHOOL_INITIAL = {
-  초등학교: { age: { start: 8, end: 13 }, grade: 6 },
-  중학교: { age: { start: 14, end: 16 }, grade: 3 },
-  고등학교: { age: { start: 17, end: 19 }, grade: 3 },
-  방송통신고등학교: { age: { start: 17, end: 19 }, grade: 3 },
-};
+import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
+import * as S from "./JoinModal.style";
+import * as I from "../interface/join";
+import { useToast } from "shared/hooks";
+import React from "react";
 
 const optionList = (start: number, end: number): JSX.Element[] => {
   const list: JSX.Element[] = [];
@@ -29,31 +14,61 @@ const optionList = (start: number, end: number): JSX.Element[] => {
   return list;
 };
 
-const JoinModal = (props: JoinModalProps) => {
-  const { register, handleSubmit } = useForm<IStudent>();
+const JoinModal = (props: I.JoinModalProps) => {
+  const { register, handleSubmit } = useForm<I.IStudent>();
+  const backgroundRef = React.useRef<HTMLDivElement>(null);
+  const { onToast } = useToast();
 
-  const onValid = async (data: IStudent) => {
+  const handleClickBackground = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === backgroundRef.current) {
+      props.toggle(curToggle => !curToggle);
+    }
+  };
+
+  const joinSchool = async () => {
     try {
-      const { data: studentRes } = (await school.create_student(
-        data,
-      )) as IStudentResponse;
+      const { data: joinRes } = (await school.join_student({
+        schoolCode: props.code,
+      })) as I.IJoinResponse;
 
-      if (studentRes.result === "SUCCESS") {
-        const { data: joinRes } = (await school.join_student({
-          schoolCode: props.code,
-        })) as IJoinResponse;
-
-        if (joinRes.result === "SUCCESS") {
-          props.toggle(curValue => !curValue);
-        }
+      if (joinRes.result === "SUCCESS") {
+        props.toggle(curValue => !curValue);
+        onToast("success", "신입생 받아라");
+      }
+      if (joinRes.result === "FAIL" && joinRes.message) {
+        onToast("error", joinRes.message);
       }
     } catch (err) {
-      console.log(err);
+      onToast("error", "예상치 못한 에러");
+    }
+  };
+
+  const onValid = async (payload: I.IStudent) => {
+    try {
+      const { data: studentRes } = (await school.create_student(
+        payload,
+      )) as I.IStudentResponse;
+
+      if (studentRes.result === "SUCCESS") {
+        joinSchool();
+      }
+      if (studentRes.result === "FAIL" && studentRes.message) {
+        onToast("error", studentRes.message);
+      }
+    } catch (err) {
+      onToast("error", "예상치 못한 에러");
     }
   };
 
   return (
     <S.Container modalState={props.modalState}>
+      <S.BackgroundContainer
+        ref={backgroundRef}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) =>
+          handleClickBackground(e)
+        }
+      />
+
       <S.ModalContainer>
         <S.DecoContainer>
           <S.DecoWrapper>

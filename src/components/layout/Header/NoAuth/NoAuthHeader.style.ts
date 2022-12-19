@@ -13,11 +13,9 @@ export const Header__logo = styled(Logo__block)`
 
 export const Header__UI = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-
-  .header-button {
-    margin: 30px;
-  }
+  width: 260px;
 `;
 
 export const SignIn = styled(Link)`

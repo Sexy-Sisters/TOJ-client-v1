@@ -77,6 +77,8 @@ const NicknameForm = (props: { email: string; password: string }) => {
           <ErrorText
             isError={errors.nickname ? true : false}
             message={errors.nickname?.message}
+            top={"60px"}
+            left={"0"}
           />
           <SuccessText
             isSuccess={isSubmitSuccessful}

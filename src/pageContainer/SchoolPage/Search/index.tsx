@@ -15,6 +15,7 @@ const SearchPage = () => {
     null,
   );
   const {
+    setError,
     register,
     handleSubmit,
     formState: { errors },
@@ -46,8 +47,17 @@ const SearchPage = () => {
       if (res.result === "SUCCESS") {
         setSearchList(res.data);
       }
-      if (res.result === "FAIL") {
+      if (res.result === "FAIL" && res.message) {
         setSearchList(null);
+        setError(
+          "name",
+          {
+            message: res.message,
+          },
+          {
+            shouldFocus: true,
+          },
+        );
       }
     } catch (err) {
       console.log(err);
@@ -72,6 +82,8 @@ const SearchPage = () => {
           <ErrorText
             isError={errors.name?.message ? true : false}
             message={errors.name?.message}
+            top={"60px"}
+            left={"0"}
           />
         </S.SearchWrapper>
 
