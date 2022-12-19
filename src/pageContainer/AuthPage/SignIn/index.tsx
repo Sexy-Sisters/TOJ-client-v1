@@ -18,7 +18,7 @@ const SignInPage = () => {
     formState: { isSubmitting, errors },
   } = useForm<ISignIn>();
   const { onToast } = useToast();
-  const { push } = useRouter();
+  const { replace } = useRouter();
 
   const onVaild = async (user: ISignIn) => {
     try {
@@ -27,7 +27,7 @@ const SignInPage = () => {
       if (res.result === "SUCCESS") {
         onToast("success", "sign in successfull");
         setToken(res.data.accessToken, res.data.refreshToken);
-        push(HOME_URL);
+        location.replace(HOME_URL);
       }
       if (res.result === "FAIL" && res.message) {
         onToast("error", res.message);

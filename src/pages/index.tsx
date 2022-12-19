@@ -13,6 +13,7 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <Base_Layout>
       <Header isFixed isTransparent={false} />
+
       {page}
     </Base_Layout>
   );

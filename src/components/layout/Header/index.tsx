@@ -1,7 +1,7 @@
 import React from "react";
 import HaveAuthHeader from "./HaveAuth";
 import NoAuthHeader from "./NoAuth";
-import { ownToken } from "../../../../shared/utils/tokenManager";
+import { ownToken } from "shared/utils/tokenManager";
 import { IHeader } from "./Header.constant";
 
 const Header = ({ isFixed, isTransparent }: IHeader) => {

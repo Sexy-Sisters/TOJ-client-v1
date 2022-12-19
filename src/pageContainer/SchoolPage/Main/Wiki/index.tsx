@@ -2,9 +2,9 @@ import dynamic from "next/dynamic";
 import school from "pageContainer/SchoolPage/api/school";
 import React from "react";
 import { useToast } from "shared/hooks";
+import { Editor } from "@toast-ui/react-editor";
 import * as I from "pageContainer/SchoolPage/interface/main";
 import * as S from "./Wiki.style";
-import { Editor } from "@toast-ui/react-editor";
 
 const defaultWiki: I.IWiki = {
   id: -1,
@@ -51,8 +51,8 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
         markdown: editorData.getMarkdown(),
       };
       try {
-        const res = await school.update_wiki(newWiki);
-        console.log(res);
+        await school.update_wiki(newWiki);
+        onToast("success", "스쿨 위키 수정 완료");
       } catch (err) {
         onToast("error", "스쿨 위키 수정 실패");
       }
