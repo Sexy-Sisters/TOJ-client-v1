@@ -11,14 +11,12 @@ interface IImageUpload {
 }
 
 export interface IImageUploadResponse extends IAPIResponse {
-  data:
-    | {
-        data: {};
-        result: "FAIL";
-        message: string;
-        errorCode: string;
-      }
-    | { imgUrlList: string[] };
+  data: {
+    data: { imgUrlList: string[] };
+    result: "SUCCESS" | "FAIL";
+    message: string | null;
+    errorCode: string | null;
+  };
 }
 
 const ImageController = {
