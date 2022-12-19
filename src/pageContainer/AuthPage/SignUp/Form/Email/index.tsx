@@ -31,13 +31,9 @@ const EmailForm = (props: I.ISignUpPage) => {
 
   const onValidEmail = async (data: I.IEmail) => {
     try {
-      const APIresponse = (await auth.signUp_email(data)) as I.IEmailResponse;
-      if (APIresponse.data.result === "FAIL" && APIresponse.data.message) {
-        setErrorEmail(
-          "email",
-          { message: APIresponse.data.message },
-          { shouldFocus: true },
-        );
+      const { data: res } = (await auth.signUp_email(data)) as I.IEmailResponse;
+      if (res.result === "FAIL" && res.message) {
+        setErrorEmail("email", { message: res.message }, { shouldFocus: true });
       }
     } catch (e) {
       console.log(e);
@@ -63,8 +59,13 @@ const EmailForm = (props: I.ISignUpPage) => {
           { shouldFocus: true },
         );
       }
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      setErrorCode(
+        "code",
+        { message: "예상치 못한 에러 발생" },
+        { shouldFocus: true },
+      );
+      console.log(err);
     }
   };
 

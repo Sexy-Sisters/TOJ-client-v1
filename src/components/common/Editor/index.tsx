@@ -1,27 +1,19 @@
-import { Editor } from "@toast-ui/react-editor";
-import "@toast-ui/editor/dist/theme/toastui-editor-dark.css";
-import "@toast-ui/editor/dist/toastui-editor.css";
 import React from "react";
-import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import "@toast-ui/editor/dist/theme/toastui-editor-dark.css";
+import { Editor } from "@toast-ui/react-editor";
+import { imageUpload } from "shared/utils/imageManager";
+import { IImageUploadResponse } from "shared/utils/imageManager";
 import { useToast } from "shared/hooks";
+import curIsDark from "shared/utils/themeManager";
 
 interface CustomEditor {
   editorRef: React.RefObject<Editor>;
   markDownStr: string;
 }
 
-function CustomEditor(props: CustomEditor) {
+const CustomEditor = (props: CustomEditor) => {
   const { onToast } = useToast();
-
-  const toolbarItems = [
-    ["heading", "bold", "italic", "strike"],
-    ["hr"],
-    ["ul", "ol", "task"],
-    ["table", "link"],
-    ["image"],
-    ["code"],
-    ["scrollSync"],
-  ];
 
   return (
     <Editor
@@ -29,10 +21,9 @@ function CustomEditor(props: CustomEditor) {
       initialValue={props.markDownStr}
       previewStyle="vertical"
       height="600px"
-      theme=""
+      theme={curIsDark() ? "dark" : ""}
       hideModeSwitch={true}
       initialEditType="markdown"
-      toolbarItems={toolbarItems}
       useCommandShortcut={true}
       hooks={{
         addImageBlobHook: async (blob, callback) => {
@@ -45,14 +36,13 @@ function CustomEditor(props: CustomEditor) {
               images: image,
             })) as IImageUploadResponse;
 
-            console.log(res);
-
-            // if (res.result) {
-            //   onToast("error", "사진의 이름이 너무 깁니다");
-            //   callback("", "rejected img");
-            // } else {
-            //   callback(res.imgUrlList[0], "img");
-            // }
+            if (res.result === "FAIL" && res.message) {
+              onToast("error", res.message);
+              callback("", "plz different img");
+            }
+            if (res.result === "SUCCESS") {
+              callback(res.data.imgUrlList[0], "img");
+            }
           } catch (err) {
             console.log(err);
           }
@@ -60,6 +50,6 @@ function CustomEditor(props: CustomEditor) {
       }}
     />
   );
-}
+};
 
 export default CustomEditor;

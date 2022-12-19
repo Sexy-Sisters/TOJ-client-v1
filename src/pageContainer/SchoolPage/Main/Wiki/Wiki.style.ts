@@ -7,6 +7,10 @@ export const Container = styled.div`
   width: 100vw;
 `;
 
+export const WrapperViewer = styled.div`
+  width: 600px;
+`;
+
 export const Title = styled.div`
   margin: 0 auto;
 `;
@@ -30,7 +34,6 @@ export const Content = styled.div`
 
 export const EditorContainer = styled.div`
   width: 1000px;
-  height: 500px;
   margin: 0 auto;
   margin-bottom: 100px;
 `;

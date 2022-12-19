@@ -1,8 +1,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import JoinModal from "../JoinModal";
-import * as S from "./Main.style";
 import Wiki from "./Wiki";
+import * as S from "./Main.style";
 
 const MainPage = () => {
   const { query } = useRouter();

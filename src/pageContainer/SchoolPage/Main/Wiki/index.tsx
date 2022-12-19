@@ -1,6 +1,6 @@
+import React from "react";
 import dynamic from "next/dynamic";
 import school from "pageContainer/SchoolPage/api/school";
-import React from "react";
 import { useToast } from "shared/hooks";
 import { Editor } from "@toast-ui/react-editor";
 import * as I from "pageContainer/SchoolPage/interface/main";
@@ -14,7 +14,11 @@ const defaultWiki: I.IWiki = {
   name: "<h1>아직 학교에 아무도 없네요... 🤔</h1>",
 };
 
-const PostEditor = dynamic(() => import("components/common/Editor"), {
+const WikiEditor = dynamic(() => import("components/common/Editor"), {
+  ssr: false,
+});
+
+const WikiViewer = dynamic(() => import("components/common/Viewer"), {
   ssr: false,
 });
 
@@ -39,7 +43,7 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
       }
     }
     getWiki();
-  }, []);
+  }, [schoolCode]);
 
   const wikiUpdate = async () => {
     if (editorRef.current) {
@@ -53,6 +57,7 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
       try {
         await school.update_wiki(newWiki);
         onToast("success", "스쿨 위키 수정 완료");
+        location.reload();
       } catch (err) {
         onToast("error", "스쿨 위키 수정 실패");
       }
@@ -72,7 +77,7 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
             <S.Button onClick={() => setOnEditor(false)}>Cancel</S.Button>
 
             <S.EditorContainer>
-              <PostEditor editorRef={editorRef} markDownStr={wiki.markdown} />
+              <WikiEditor editorRef={editorRef} markDownStr={wiki.markdown} />
             </S.EditorContainer>
           </>
         ) : (
@@ -80,7 +85,9 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
             <S.Button onClick={() => setOnEditor(true)}>Edit</S.Button>
 
             <S.ContentContainer>
-              <S.Content dangerouslySetInnerHTML={{ __html: wiki.html }} />
+              <S.WrapperViewer>
+                <WikiViewer initialValue={wiki.markdown} />
+              </S.WrapperViewer>
             </S.ContentContainer>
           </>
         )}
