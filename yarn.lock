@@ -492,7 +492,7 @@ __metadata:
     "@toast-ui/editor": "npm:^3.2.1"
   peerDependencies:
     react: ^17.0.1
-  checksum: 7c37d04c6fd4c6e4da05f64844ceea5c7c9fdd40974c0c3609dece7a7872f6eabf44dba30fcc953c18ba4cbbb9147a499799b4508e579fbbb8a99a1143816182
+  checksum: 74cff515a6bb4f3532934a660468c51ba1087e75cb9b760609cce21143e9cf0d9230b7921faa31eb0225f1b433cd1c1d887f7f26a1434f6cf5903cda98fb72df
   languageName: node
   linkType: hard
 
@@ -618,7 +618,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.11.9":
+"@types/node@npm:*":
+  version: 18.11.17
+  resolution: "@types/node@npm:18.11.17"
+  checksum: c344af96ffdcc429d8d79576de72061553cd083d06cde8209a82b3d927c62ecf2211f24c3b970194636833f9dcfd94228f2b019f2d796f1f20dfc0d12e6dcc2b
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.11.9":
   version: 18.11.9
   resolution: "@types/node@npm:18.11.9"
   checksum: 7b7d90894dd1ae9b6836e49ace5bdea55cc08806a508e38851e333f1ad77ec81ea6dca58e6a2444ad0471fee965b9908cc1ef06028eebca9c20d54729df98bab
@@ -674,7 +681,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.25":
+"@types/react@npm:*":
+  version: 18.0.26
+  resolution: "@types/react@npm:18.0.26"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    "@types/scheduler": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: b2520e54786585b9fdb6fa3cbb92cbd05a0f0951ec3480ed71f320dbd41e0d663d6582fe34bf0e590047917f51b9205a33b40a1986340d002501ffef58f5fbe4
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.0.25":
   version: 18.0.25
   resolution: "@types/react@npm:18.0.25"
   dependencies:
@@ -2186,7 +2204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:7.1.7, glob@npm:^7.1.3":
+"glob@npm:7.1.7":
   version: 7.1.7
   resolution: "glob@npm:7.1.7"
   dependencies:
@@ -2200,7 +2218,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.2.0":
+"glob@npm:^7.1.3, glob@npm:^7.2.0":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -2849,10 +2867,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:2.1.2, ms@npm:^2.1.1":
+"ms@npm:2.1.2":
   version: 2.1.2
   resolution: "ms@npm:2.1.2"
   checksum: 3f46af60a08158f1c77746c06c2f6c7aba7feddafd41335f9baa2d7e0741d7539774aa7d5d1661a7f2b7eed55a7063771297eea016051924dbb04d4c2bf40bcb
+  languageName: node
+  linkType: hard
+
+"ms@npm:^2.1.1":
+  version: 2.1.3
+  resolution: "ms@npm:2.1.3"
+  checksum: 78c12f6b473a022ebacc393fc14b76fe40b8feda7218124b86c4684e440e10377a063bec1d3902df1f74714f02b74b36ad7d3a6de9e2fbffa26fc29e5ce018fc
   languageName: node
   linkType: hard
 
@@ -3869,6 +3894,7 @@ __metadata:
     "@types/styled-components": "npm:^5.1.26"
     "@typescript-eslint/eslint-plugin": "npm:^5.43.0"
     "@typescript-eslint/parser": "npm:^5.43.0"
+    "@yarnpkg/core": "npm:^4.0.0-rc.33"
     "@yarnpkg/sdks": "npm:^3.0.0-rc.31"
     axios: "npm:^1.2.0"
     babel-plugin-styled-components: "npm:^2.0.7"

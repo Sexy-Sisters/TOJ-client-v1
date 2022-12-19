@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/router";
 import { HOME_URL } from "shared/constants/urls";
 import { setToken } from "shared/utils/tokenManager";
 import auth from "../api/auth";
@@ -18,7 +17,6 @@ const SignInPage = () => {
     formState: { isSubmitting, errors },
   } = useForm<ISignIn>();
   const { onToast } = useToast();
-  const { replace } = useRouter();
 
   const onVaild = async (user: ISignIn) => {
     try {
