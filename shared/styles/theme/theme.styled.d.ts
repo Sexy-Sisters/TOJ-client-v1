@@ -11,12 +11,11 @@ declare module "styled-components" {
     inputHover: string;
     inputText: string;
     modalBg: string;
+    block: string;
 
     // state color
     error: string;
     success: string;
-
-    lightGray: string;
 
     // most color
     yellowColor: string;

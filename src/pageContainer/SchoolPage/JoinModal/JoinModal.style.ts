@@ -7,8 +7,8 @@ export const Container = styled.div<{ modalState: boolean }>`
   display: flex;
   justify-content: center;
   position: absolute;
-  left: 0;
-  top: ${props => (props.modalState ? "0" : "-200vh")};
+  left: ${props => (props.modalState ? "0" : "-100%")};
+  top: 0;
   width: 100vw;
   height: 100vh;
   transition: all 0.7s;
@@ -19,7 +19,7 @@ export const BackgroundContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(72, 73, 74, 0.5);
+  /* background-color: rgba(72, 73, 74, 0.5); */
 `;
 
 export const ModalContainer = styled.div`

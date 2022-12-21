@@ -44,10 +44,10 @@ const HaveAuthHeader = (props: IHeader) => {
         <S.Menu toggle={menuToggle}>
           <S.FuncTags>
             <Link href={SCHOOL_SEARCH_URL}>
-              <S.Tag>School search</S.Tag>
+              <S.Tag>학교 검색</S.Tag>
             </Link>
             <Link href={INTRODUCE_URL}>
-              <S.Tag>Introduce TOJ</S.Tag>
+              <S.Tag>TOJ 개발 동기</S.Tag>
             </Link>
             <S.Tag>any</S.Tag>
           </S.FuncTags>

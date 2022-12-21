@@ -5,6 +5,7 @@ import * as I from "pageContainer/AuthPage/interface/signUp";
 import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as SignUp from "../../SignUp.style";
 import * as S from "./Email.style";
+import { EXCEPTION_MSG } from "shared/constants";
 
 const mainColor = "#FDCB6E";
 const buttonColor = "#FFDC9C";
@@ -36,7 +37,7 @@ const EmailForm = (props: I.ISignUpPage) => {
         setErrorEmail("email", { message: res.message }, { shouldFocus: true });
       }
     } catch (e) {
-      console.log(e);
+      setErrorEmail("email", { message: EXCEPTION_MSG }, { shouldFocus: true });
     }
   };
 

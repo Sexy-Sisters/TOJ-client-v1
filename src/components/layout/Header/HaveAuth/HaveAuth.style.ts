@@ -64,7 +64,7 @@ export const Tag = styled.p`
   color: ${props => props.theme.textColor};
 
   &:hover {
-    background-color: ${props => props.theme.lightGray};
+    background-color: ${props => props.theme.block};
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
@@ -76,6 +76,7 @@ export const UserProfile = styled(Image)`
   width: 40px;
   height: auto;
   border-radius: 50%;
+  border: ${props => props.theme.textColor} solid 2.5px;
 
   @media (max-width: ${MOBILE_SIZE}) {
     width: 100px;
