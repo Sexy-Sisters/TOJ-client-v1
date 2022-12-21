@@ -6,10 +6,10 @@ import { SIGN_IN_URL } from "shared/constants/urls";
 import { useToast } from "shared/hooks";
 import { ownToken } from "shared/utils/tokenManager";
 import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
-import * as S from "./Main.style";
+import * as S from "./Door.style";
 import { EXCEPTION_MSG } from "shared/constants";
 
-const MainPage = () => {
+const DoorPage = () => {
   const { query, push } = useRouter();
   const { onToast } = useToast();
   const [initialSchool, setInitialSchool] = React.useState<{
@@ -101,4 +101,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default DoorPage;

@@ -49,7 +49,9 @@ const HaveAuthHeader = (props: IHeader) => {
             <Link href={INTRODUCE_URL}>
               <S.Tag>TOJ 개발 동기</S.Tag>
             </Link>
-            <S.Tag>any</S.Tag>
+            <Link href={""}>
+              <S.Tag>등교</S.Tag>
+            </Link>
           </S.FuncTags>
 
           <S.UserInfoWrapper>

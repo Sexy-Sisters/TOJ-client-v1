@@ -1,6 +1,6 @@
 import apiController from "../../../../shared/utils/apiController";
 import { IJoin, IStudent } from "../interface/join";
-import { IGetWiki, IUpdateWiki } from "../interface/main";
+import { IGetWiki, IUpdateWiki } from "../interface/door";
 import { ISearch } from "../interface/search";
 import {
   SearchController,

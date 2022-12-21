@@ -1,10 +1,10 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { ISearch, ISearchData, ISearchResponse } from "../interface/search";
 import school from "../api/school";
 import { ErrorText } from "components/common";
-import { SCHOOL_MAIN_URL } from "../../../../shared/constants/urls";
+import { SCHOOL_DOOR_URL } from "../../../../shared/constants/urls";
 import * as S from "./Search.style";
-import React from "react";
 
 const SEARCH_TITLE = `Search for\nthe name of the school 🔍`;
 const EMPTY_EMOJI = `👀\n👅`;
@@ -27,7 +27,7 @@ const SearchPage = () => {
           key={school.code}
           onClick={() =>
             location.replace(
-              SCHOOL_MAIN_URL + `/${school.division}&${school.code}`,
+              SCHOOL_DOOR_URL + `/${school.division}&${school.code}`,
             )
           }
         >

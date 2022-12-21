@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import school from "pageContainer/SchoolPage/api/school";
 import { useToast } from "shared/hooks";
 import { Editor } from "@toast-ui/react-editor";
-import * as I from "pageContainer/SchoolPage/interface/main";
+import * as I from "pageContainer/SchoolPage/interface/door";
 import * as S from "./Wiki.style";
 
 const DEFAULT_WIKI: I.IWiki = {
