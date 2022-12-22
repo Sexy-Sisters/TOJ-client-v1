@@ -40,6 +40,5 @@ export const BgChanger = styled.label`
   color: #636e72;
   background-color: #dfe6e9;
   opacity: 0.7;
-
   cursor: pointer;
 `;

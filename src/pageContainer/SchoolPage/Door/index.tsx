@@ -7,10 +7,12 @@ import { useToast } from "shared/hooks";
 import { ownToken } from "shared/utils/tokenManager";
 import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
 import { EXCEPTION_MSG } from "shared/constants";
+import JoinModal from "../JoinModal";
 
 const DoorPage = () => {
   const { query, push } = useRouter();
   const { onToast } = useToast();
+  const [joinModalState, joinModalToggle] = React.useState<boolean>(false);
   const [initialSchool, setInitialSchool] = React.useState<{
     code: string;
     grade: string;
@@ -80,9 +82,20 @@ const DoorPage = () => {
       </S.BgContainer>
 
       <S.WikiContainer>
-        <S.JoinButton>Join</S.JoinButton>
+        <S.JoinButton onClick={() => joinModalToggle(curValue => !curValue)}>
+          Join
+        </S.JoinButton>
 
         {initialSchool && <Wiki schoolCode={initialSchool.code} />}
+
+        {initialSchool && (
+          <JoinModal
+            modalState={joinModalState}
+            toggle={joinModalToggle}
+            code={initialSchool.code}
+            grade={initialSchool.grade}
+          />
+        )}
       </S.WikiContainer>
     </S.PageContainer>
   );
