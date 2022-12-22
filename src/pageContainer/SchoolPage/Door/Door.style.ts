@@ -36,9 +36,10 @@ export const BgChanger = styled.label`
   bottom: 15px;
   font-size: 16px;
   padding: 5px 15px 5px 15px;
-  border-radius: 15px;
+  border-radius: 5px;
   color: #636e72;
   background-color: #dfe6e9;
+  opacity: 0.7;
 
   cursor: pointer;
 `;

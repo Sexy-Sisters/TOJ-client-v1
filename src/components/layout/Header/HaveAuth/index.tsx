@@ -1,25 +1,53 @@
 import React from "react";
+import * as C from "../Header.style";
+import * as S from "./HaveAuth.style";
 import Link from "next/link";
 import { HamburgerButton } from "components/common";
 import {
   IHeader,
   LOGO_DARK_URL,
   LOGO_LIGHT_URL,
-  USER_SETTING_URL,
 } from "components/layout/Header/Header.constant";
 import {
   HOME_URL,
   INTRODUCE_URL,
   SCHOOL_SEARCH_URL,
+  USER_SETTING_URL,
 } from "shared/constants/urls";
-import { ThemeContext } from "shared/contexts";
-import { darkTheme } from "shared/styles/theme";
-import * as C from "../Header.style";
-import * as S from "./HaveAuth.style";
+import {
+  get_userProfile,
+  IUserProfile,
+  IUserProfileResponse,
+} from "shared/utils/userManager";
+import curIsDark from "shared/utils/themeManager";
+
+const DEFAULT_USER: IUserProfile = {
+  nickname: "로그인 하자",
+  profileImg: "",
+};
 
 const HaveAuthHeader = (props: IHeader) => {
-  const { curTheme } = React.useContext(ThemeContext);
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
+  const [userProfile, setUserProfile] =
+    React.useState<IUserProfile>(DEFAULT_USER);
+
+  React.useEffect(() => {
+    async function getUserProfile() {
+      try {
+        const { data: res } = (await get_userProfile()) as IUserProfileResponse;
+
+        if (res.result === "SUCCESS") {
+          setUserProfile({
+            nickname: res.data.nickname,
+            profileImg: res.data.profileImg,
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getUserProfile();
+  }, []);
 
   return (
     <C.Header isFixed={props.isFixed} isTransparent={props.isTransparent}>
@@ -27,7 +55,7 @@ const HaveAuthHeader = (props: IHeader) => {
         <S.HeaderLogo>
           <Link href={HOME_URL}>
             <C.Logo
-              src={curTheme === darkTheme ? LOGO_DARK_URL : LOGO_LIGHT_URL}
+              src={curIsDark() ? LOGO_DARK_URL : LOGO_LIGHT_URL}
               alt="TOJ logo"
               width={50}
               height={50}
@@ -57,14 +85,14 @@ const HaveAuthHeader = (props: IHeader) => {
           <S.UserInfoWrapper>
             <Link href={USER_SETTING_URL}>
               <S.UserProfile
-                src="/image/user_profile.jpeg"
-                alt="User Profile Image"
-                width={40}
-                height={40}
+                src={userProfile.profileImg}
+                alt="사용자 프로필 이미지"
+                width={30}
+                height={30}
               />
             </Link>
 
-            <S.UserName>User Nickname</S.UserName>
+            <S.UserName>{userProfile.nickname}</S.UserName>
           </S.UserInfoWrapper>
         </S.Menu>
       </C.HeaderContainer>

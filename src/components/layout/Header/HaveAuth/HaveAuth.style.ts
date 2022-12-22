@@ -79,11 +79,12 @@ export const Tag = styled.p`
 
 export const UserProfile = styled(Image)`
   width: 30px;
-  height: auto;
+  height: 30px;
   border-radius: 50%;
 
   @media (max-width: ${MOBILE_SIZE}) {
     width: 80px;
+    height: 80px;
   }
 `;
 
