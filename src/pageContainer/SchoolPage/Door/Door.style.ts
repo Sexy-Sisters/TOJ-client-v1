@@ -37,8 +37,8 @@ export const BgChanger = styled.label`
   font-size: 16px;
   padding: 5px 15px 5px 15px;
   border-radius: 15px;
-  color: ${props => props.theme.textColor};
-  background-color: ${props => props.theme.block};
+  color: #636e72;
+  background-color: #dfe6e9;
 
   cursor: pointer;
 `;

@@ -7,6 +7,10 @@ const MOBILE_SIZE = "800px";
 export const HeaderLogo = styled(Logo__block)`
   margin-right: 70px;
 
+  .hamburger-button {
+    width: 30px;
+  }
+
   @media (max-width: ${MOBILE_SIZE}) {
     justify-content: space-between;
     width: 100%;
@@ -62,24 +66,24 @@ export const Tag = styled.p`
   padding: 10px;
   border-radius: 6px;
   color: ${props => props.theme.textColor};
+  transition: none;
 
   &:hover {
     background-color: ${props => props.theme.block};
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
 export const UserProfile = styled(Image)`
-  width: 40px;
+  width: 30px;
   height: auto;
   border-radius: 50%;
-  border: ${props => props.theme.textColor} solid 2.5px;
 
   @media (max-width: ${MOBILE_SIZE}) {
-    width: 100px;
+    width: 80px;
   }
 `;
 

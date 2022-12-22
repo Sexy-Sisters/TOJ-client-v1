@@ -9,10 +9,10 @@ export interface JoinModalProps {
 }
 
 export interface IStudent {
-  age: number;
-  grade: number;
-  classroom: number;
-  number: number;
+  bio: string;
+  image: string;
+  name: string;
+  nickname: string;
 }
 
 export interface IStudentResponse extends IAPIResponse {

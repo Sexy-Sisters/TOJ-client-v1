@@ -7,8 +7,7 @@ export const darkTheme: DefaultTheme = {
   input: "#c2c9cc",
   inputHover: "#ccd7db",
   inputText: "#aeb3b5",
-  modalBg: "#2d343s6",
-  block: "#636e72",
+  block: "#43474a",
 
   error: "#ff4757",
   success: "#2ecc71",
@@ -26,7 +25,6 @@ export const lightTheme: DefaultTheme = {
   input: "#9ba5a8",
   inputHover: "#7c8587",
   inputText: "#aeb3b5",
-  modalBg: "#f5f6fa",
   block: "#f5f5f7",
 
   error: "#ff4757",

@@ -23,7 +23,6 @@ const SignInPage = () => {
       const { data: res } = (await auth.signIn(user)) as ISignInResponse;
 
       if (res.result === "SUCCESS") {
-        onToast("success", "sign in successfull");
         setToken(res.data.accessToken, res.data.refreshToken);
         location.replace(HOME_URL);
       }

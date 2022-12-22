@@ -107,16 +107,14 @@ body {
   
   * {
     font-family: "Noto Sans KR", sans-serif;
-    transition: background-color 0.5s;
   }
 
-  
   .swal2-toast {
     font-size: 14px;
-    background-color: ${props => props.theme.modalBg} !important;
+    background-color: white !important;
   }
   .swal2-title {     
-    color: ${props => props.theme.textColor};
+    color: black;
   }
 }
 ol,

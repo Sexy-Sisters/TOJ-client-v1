@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import { HamburgerButton } from "components/common";
 import {
   IHeader,
@@ -13,9 +13,9 @@ import {
   SCHOOL_SEARCH_URL,
 } from "shared/constants/urls";
 import { ThemeContext } from "shared/contexts";
+import { darkTheme } from "shared/styles/theme";
 import * as C from "../Header.style";
 import * as S from "./HaveAuth.style";
-import { darkTheme } from "shared/styles/theme";
 
 const HaveAuthHeader = (props: IHeader) => {
   const { curTheme } = React.useContext(ThemeContext);

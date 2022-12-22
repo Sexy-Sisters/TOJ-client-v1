@@ -1,12 +1,11 @@
 import React from "react";
 import Wiki from "./Wiki";
+import * as S from "./Door.style";
 import { useRouter } from "next/router";
-import JoinModal from "../JoinModal";
 import { SIGN_IN_URL } from "shared/constants/urls";
 import { useToast } from "shared/hooks";
 import { ownToken } from "shared/utils/tokenManager";
 import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
-import * as S from "./Door.style";
 import { EXCEPTION_MSG } from "shared/constants";
 
 const DoorPage = () => {
@@ -16,14 +15,13 @@ const DoorPage = () => {
     code: string;
     grade: string;
   } | null>(null);
-  const [joinModalToggle, setJoinModalToggle] = React.useState<boolean>(false);
   const [bgImg, setBgImg] = React.useState<string>("/image/school_bg.png");
   const bgRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
     if (!ownToken()) {
       push(SIGN_IN_URL);
-      onToast("error", "로그인 하자!");
+      onToast("error", "로그인이 필요합니다");
     } else {
       const schoolData = query.schoolData;
 
@@ -69,7 +67,7 @@ const DoorPage = () => {
         />
 
         <S.BgChanger>
-          📷 이미지
+          커버
           <input
             ref={bgRef}
             id="bg-img"
@@ -82,21 +80,10 @@ const DoorPage = () => {
       </S.BgContainer>
 
       <S.WikiContainer>
-        <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
-          Join
-        </S.JoinButton>
+        <S.JoinButton>Join</S.JoinButton>
 
         {initialSchool && <Wiki schoolCode={initialSchool.code} />}
       </S.WikiContainer>
-
-      {initialSchool && (
-        <JoinModal
-          modalState={joinModalToggle}
-          toggle={setJoinModalToggle}
-          code={initialSchool.code}
-          grade={initialSchool.grade}
-        />
-      )}
     </S.PageContainer>
   );
 };

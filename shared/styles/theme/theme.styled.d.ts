@@ -10,7 +10,6 @@ declare module "styled-components" {
     input: string;
     inputHover: string;
     inputText: string;
-    modalBg: string;
     block: string;
 
     // state color
