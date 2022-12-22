@@ -22,7 +22,7 @@ import {
 import curIsDark from "shared/utils/themeManager";
 
 const DEFAULT_USER: IUserProfile = {
-  nickname: "로그인 하자",
+  nickname: "로그인ㄱㄱ",
   profileImg: "",
 };
 
@@ -84,7 +84,7 @@ const AuthHeader = (props: IHeader) => {
 
           <S.UserInfoWrapper>
             <Link href={USER_SETTING_URL}>
-              <S.UserProfile
+              <S.UserImage
                 src={userProfile.profileImg}
                 alt="사용자 프로필 이미지"
                 width={30}

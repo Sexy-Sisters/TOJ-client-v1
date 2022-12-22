@@ -76,14 +76,14 @@ export const Tag = styled.p`
   }
 `;
 
-export const UserProfile = styled(Image)`
+export const UserImage = styled(Image)`
   width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  height: auto;
+  clip-path: circle(15px at center);
 
   @media (max-width: ${MOBILE_SIZE}) {
     width: 80px;
-    height: 80px;
+    clip-path: circle(40px at center);
   }
 `;
 
