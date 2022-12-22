@@ -5,7 +5,7 @@ import { DoorPage } from "../../../pageContainer";
 const Door = () => {
   return (
     <>
-      <NextSeo title="School-door" description="TOJ School-door page" />
+      <NextSeo title="학교 정보" description="TOJ 학교 대문 페이지" />
 
       <DoorPage />
     </>

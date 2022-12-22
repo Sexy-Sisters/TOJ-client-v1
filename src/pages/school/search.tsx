@@ -7,8 +7,8 @@ const Search = () => {
   return (
     <>
       <NextSeo
-        title="School-search"
-        description="TOJ School-search page"
+        title="학교 검색"
+        description="TOJ 학교 검색 페이지"
         canonical={BASE_URL + SCHOOL_SEARCH_URL}
         openGraph={{
           url: BASE_URL + SCHOOL_SEARCH_URL,

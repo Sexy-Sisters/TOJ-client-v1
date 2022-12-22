@@ -31,7 +31,7 @@ const PasswordForm = (props: I.ISignUpPage) => {
     validSpace(data.password.length, data.password, () => {
       setErrorPwd(
         "password",
-        { message: "Password can't contain spaces" },
+        { message: "비밀번호에 공백을 포함할 수 없습니다" },
         { shouldFocus: true },
       );
     });
@@ -45,7 +45,7 @@ const PasswordForm = (props: I.ISignUpPage) => {
       // 비밀번호 1, 2차가 다른 경우 예외 처리
       setErrorRePwd(
         "rePassword",
-        { message: "The password is different" },
+        { message: "비밀번호가 다릅니다" },
         { shouldFocus: true },
       );
     }
@@ -54,24 +54,24 @@ const PasswordForm = (props: I.ISignUpPage) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="350px">
-        <Auth.KindName>Password 👺</Auth.KindName>
+        <Auth.KindName>비밀번호 👺</Auth.KindName>
 
         <Auth.Form onSubmit={submitPwd(onValidPwd)}>
           <Auth.Input
             disabled={successPwd}
-            placeholder="password..."
+            placeholder="비밀번호"
             type="password"
             width="70%"
-            border="15px"
+            border="10px"
             {...pwd("password", {
-              required: "Please enter your password",
+              required: "비밀번호는 필수 항목 입니다",
               minLength: {
                 value: 8,
-                message: "Least 8 characters long",
+                message: "비밀번호는 최소 8자입니다",
               },
               maxLength: {
                 value: 20,
-                message: "No more than 20 characters.",
+                message: "비밀번호는 최대 20자입니다",
               },
             })}
           />
@@ -84,29 +84,29 @@ const PasswordForm = (props: I.ISignUpPage) => {
           />
           <SuccessText
             isSuccess={successPwd}
-            message="The password is available"
+            message="사용 가능한 비밀번호입니다"
           />
 
           <Auth.Button
             disabled={successPwd}
             type="submit"
             width="25%"
-            border="15px"
+            border="10px"
             defaultColor={mainColor}
             hoverColor={buttonColor}
           >
-            check
+            다음
           </Auth.Button>
         </Auth.Form>
 
         <S.RePasswordForm onSubmit={submitRePwd(onValidRePwd)}>
           <Auth.Input
-            placeholder="Re-enter password..."
+            placeholder="비밀번호 재입력"
             type="password"
             width="100%"
-            border="15px"
+            border="10px"
             {...rePwd("rePassword", {
-              required: "Please re-enter password",
+              required: "비밀번호를 재입력 해주세요",
             })}
           />
 
@@ -121,11 +121,11 @@ const PasswordForm = (props: I.ISignUpPage) => {
           <Auth.Button
             type="submit"
             width="100%"
-            border="15px"
+            border="10px"
             defaultColor={mainColor}
             hoverColor={buttonColor}
           >
-            Next
+            다음
           </Auth.Button>
         </S.RePasswordForm>
       </SignUp.FormWrapper>

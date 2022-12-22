@@ -1,6 +1,6 @@
 import React from "react";
 import * as C from "../Header.style";
-import * as S from "./HaveAuth.style";
+import * as S from "./Auth.style";
 import Link from "next/link";
 import { HamburgerButton } from "components/common";
 import {
@@ -26,7 +26,7 @@ const DEFAULT_USER: IUserProfile = {
   profileImg: "",
 };
 
-const HaveAuthHeader = (props: IHeader) => {
+const AuthHeader = (props: IHeader) => {
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
   const [userProfile, setUserProfile] =
     React.useState<IUserProfile>(DEFAULT_USER);
@@ -100,4 +100,4 @@ const HaveAuthHeader = (props: IHeader) => {
   );
 };
 
-export default HaveAuthHeader;
+export default AuthHeader;

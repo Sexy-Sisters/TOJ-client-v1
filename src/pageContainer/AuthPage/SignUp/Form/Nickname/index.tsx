@@ -1,11 +1,12 @@
+import * as I from "pageContainer/AuthPage/interface/signUp";
+import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
+import * as SignUp from "../../SignUp.style";
 import { ErrorText, SuccessText } from "components/common";
 import { useRouter } from "next/router";
 import auth from "pageContainer/AuthPage/api/auth";
 import { validSpace } from "pageContainer/AuthPage/util/validSpace";
 import { useForm } from "react-hook-form";
-import * as I from "pageContainer/AuthPage/interface/signUp";
-import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
-import * as SignUp from "../../SignUp.style";
+import { SIGN_IN_URL } from "shared/constants/urls";
 
 const mainColor = "#0984E3";
 const buttonColor = "#4B9CDB";
@@ -24,7 +25,7 @@ const NicknameForm = (props: { email: string; password: string }) => {
     const validResult = validSpace(nickname.length, nickname, () => {
       setError(
         "nickname",
-        { message: "Nickname can't contain spaces" },
+        { message: "닉네임에 공백을 포함할 수 없습니다" },
         { shouldFocus: true },
       );
     });
@@ -38,7 +39,7 @@ const NicknameForm = (props: { email: string; password: string }) => {
       const res = (await auth.signUp(authUser)) as I.ISignUpResponse;
 
       if (res.data.result === "SUCCESS") {
-        push("signIn");
+        push(SIGN_IN_URL);
       }
       if (res.data.result === "FAIL" && res.data.message) {
         setError(
@@ -53,22 +54,22 @@ const NicknameForm = (props: { email: string; password: string }) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="200px">
-        <Auth.KindName>{`Last,\nNickname 🦋`}</Auth.KindName>
+        <Auth.KindName>{`마지막으로,\n닉네임 🦋`}</Auth.KindName>
 
         <Auth.Form onSubmit={handleSubmit(onValid)}>
           <Auth.Input
-            placeholder="nickname..."
+            placeholder="닉네임"
             width="70%"
-            border="15px"
+            border="10px"
             {...register("nickname", {
-              required: "Please enter your nickname",
+              required: "닉네임은 필수 항목입니다",
               minLength: {
                 value: 2,
-                message: "Please enter at least 2 characters",
+                message: "닉네임은 최소 2자 이상입니다",
               },
               maxLength: {
                 value: 8,
-                message: "Please enter no more than 8 characters.",
+                message: "닉네임은 최대 8자 이상입니다",
               },
             })}
           />
@@ -82,17 +83,17 @@ const NicknameForm = (props: { email: string; password: string }) => {
           />
           <SuccessText
             isSuccess={isSubmitSuccessful}
-            message="Welcome to TOJ!"
+            message="환영합니다! TOJ"
           />
 
           <Auth.Button
             type="submit"
             width="25%"
-            border="15px"
+            border="10px"
             defaultColor={mainColor}
             hoverColor={buttonColor}
           >
-            Submit
+            회원가입
           </Auth.Button>
         </Auth.Form>
       </SignUp.FormWrapper>

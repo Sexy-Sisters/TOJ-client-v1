@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
 export const Form = styled(Auth.Form)`
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   height: 350px;
   margin-top: 150px;
 `;

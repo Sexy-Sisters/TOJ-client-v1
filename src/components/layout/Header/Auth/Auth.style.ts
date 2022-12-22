@@ -62,7 +62,6 @@ export const UserInfoWrapper = styled.div`
 
 export const Tag = styled.p`
   font-size: 14px;
-  font-weight: bold;
   padding: 10px;
   border-radius: 6px;
   color: ${props => props.theme.textColor};

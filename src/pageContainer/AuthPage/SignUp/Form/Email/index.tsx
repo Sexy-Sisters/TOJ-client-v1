@@ -73,18 +73,18 @@ const EmailForm = (props: I.ISignUpPage) => {
   return (
     <SignUp.PageContainer>
       <SignUp.FormWrapper height="350px">
-        <Auth.KindName>Email 🧛‍♂️</Auth.KindName>
+        <Auth.KindName>이메일 🧛‍♂️</Auth.KindName>
 
         <S.EmailForm onSubmit={submitEmail(onValidEmail)}>
           <Auth.Input
             disabled={successEmail}
-            placeholder="email..."
+            placeholder="이메일"
             type="email"
             spellCheck="false"
             width="70%"
-            border="15px"
+            border="10px"
             {...registerEmail("email", {
-              required: "Please enter your email",
+              required: "이메일은 필수 항목입니다",
             })}
           />
 
@@ -97,31 +97,31 @@ const EmailForm = (props: I.ISignUpPage) => {
           />
           <SuccessText
             isSuccess={successEmail}
-            message="Sent TOJ code, check your email"
+            message="성공, 메일함을 확인하세요"
           />
 
           <Auth.Button
             disabled={successEmail}
             type="submit"
             width="25%"
-            border="15px"
+            border="10px"
             defaultColor={mainColor}
             hoverColor={buttonColor}
           >
-            {!submittingEmail && "check"}
+            {!submittingEmail && "확인"}
             <LoadingIcon isLoading={submittingEmail} posY="17.5%" posX="40%" />
           </Auth.Button>
         </S.EmailForm>
 
         <S.CodeForm onSubmit={submitCode(onValidCode)}>
           <Auth.Input
-            placeholder="auth code..."
+            placeholder="인증 코드"
             width="100%"
-            border="15px"
+            border="10px"
             type="text"
             spellCheck="false"
             {...registerCode("code", {
-              required: "Please enter the auth code",
+              required: "메일함에서 인증 코드를 복사해주세요",
             })}
           />
 
@@ -136,11 +136,11 @@ const EmailForm = (props: I.ISignUpPage) => {
           <Auth.Button
             type="submit"
             width="100%"
-            border="15px"
+            border="10px"
             defaultColor={mainColor}
             hoverColor={buttonColor}
           >
-            Next
+            다음
           </Auth.Button>
         </S.CodeForm>
       </SignUp.FormWrapper>

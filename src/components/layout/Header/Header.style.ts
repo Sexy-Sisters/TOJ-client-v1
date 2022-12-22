@@ -37,24 +37,3 @@ export const Logo__block = styled.div`
   display: flex;
   align-items: center;
 `;
-
-export const ThemeButton = styled.button`
-  font-size: 30px;
-  border-radius: 50%;
-
-  &:hover {
-    animation: pop 0.6s;
-  }
-
-  @keyframes pop {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.2);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-`;

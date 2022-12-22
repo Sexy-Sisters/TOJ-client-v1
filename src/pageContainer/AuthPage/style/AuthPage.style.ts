@@ -22,18 +22,19 @@ export const KindName = styled.h1`
 export const Input = styled.input<{ width: string; border: string }>`
   width: ${props => props.width};
   height: 50px;
+  box-sizing: border-box;
   border-radius: ${props => props.border};
+  border: 2px solid ${props => props.theme.inputText};
   text-align: center;
   font-size: 16px;
-  background-color: ${props => props.theme.input};
   color: ${props => props.theme.textColor};
 
   &::placeholder {
     font-size: 16px;
-    color: ${props => props.theme.bgColor};
+    color: ${props => props.theme.inputText};
   }
   &:hover {
-    background-color: ${props => props.theme.inputHover};
+    background-color: ${props => props.theme.bgColor};
   }
 `;
 
