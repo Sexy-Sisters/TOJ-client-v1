@@ -4,7 +4,7 @@ export const darkTheme: DefaultTheme = {
   bgColor: "#242a2f",
   textColor: "#FFFFFF",
 
-  input: "#c2c9cc",
+  input: "#5d6263",
   inputHover: "#ccd7db",
   inputText: "#aeb3b5",
   block: "#43474a",
@@ -22,7 +22,7 @@ export const lightTheme: DefaultTheme = {
   bgColor: "#ffffff",
   textColor: "#242a2f",
 
-  input: "#9ba5a8",
+  input: "#bdc7c9",
   inputHover: "#7c8587",
   inputText: "#aeb3b5",
   block: "#f5f5f7",

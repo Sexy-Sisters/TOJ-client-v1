@@ -28,13 +28,14 @@ export const Input = styled.input<{ width: string; border: string }>`
   text-align: center;
   font-size: 16px;
   color: ${props => props.theme.textColor};
+  transition: all 0.2s;
 
   &::placeholder {
     font-size: 16px;
     color: ${props => props.theme.inputText};
   }
   &:hover {
-    background-color: ${props => props.theme.bgColor};
+    background-color: ${props => props.theme.block};
   }
 `;
 
@@ -52,6 +53,7 @@ export const Button = styled.button<{
   font-weight: bold;
   background-color: ${props => props.defaultColor};
   color: ${props => props.theme.bgColor};
+  transition: all 0.3s;
 
   &:hover {
     background-color: ${props => props.hoverColor};

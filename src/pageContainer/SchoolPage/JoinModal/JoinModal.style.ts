@@ -7,7 +7,7 @@ export const Container = styled.div<{ modalState: boolean }>`
   display: flex;
   justify-content: center;
   position: absolute;
-  left: ${props => (props.modalState ? "0" : "-100%")};
+  left: ${props => (props.modalState ? "0" : "-200%")};
   top: 0;
   width: 100vw;
   height: 100vh;

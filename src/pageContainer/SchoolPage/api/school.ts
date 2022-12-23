@@ -27,7 +27,7 @@ class School {
 
   /**
    * 학생 생성 위한 api
-   * @param data 자기소개 (bio), 사진 (image), 이름 (name), 닉네임 (nickname)
+   * @param data 나이 (age), 학년 (grade), 반 (classroom), 번호 (nubmer)
    */
   create_student(data: IStudent) {
     try {
