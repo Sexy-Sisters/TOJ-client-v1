@@ -22,6 +22,7 @@ export const BgContainer = styled.div`
 export const BackgroundPhoto = styled(Image)`
   position: absolute;
   z-index: -1;
+  top: -50%;
   width: 100%;
 `;
 

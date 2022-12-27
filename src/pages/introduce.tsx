@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import { BASE_URL, INTRODUCE_URL } from "../../shared/constants/urls";
 import { IntroducePage } from "../pageContainer";
 import { NextPageWithLayout } from "../../shared/interfaces/page";
-import BaseLayout from "components/layout/baseLayout";
+import { Layout } from "components/layout/Layout";
 
 const Introduce: NextPageWithLayout = () => {
   return (
@@ -23,7 +23,7 @@ const Introduce: NextPageWithLayout = () => {
 };
 
 Introduce.getLayout = function getLayout(page: React.ReactElement) {
-  return <BaseLayout>{page}</BaseLayout>;
+  return <Layout>{page}</Layout>;
 };
 
 export default Introduce;

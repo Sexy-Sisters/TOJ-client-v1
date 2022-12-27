@@ -1,5 +1,7 @@
+import StudentList from "./StudentList";
+
 const MainPage = () => {
-  return;
+  return <StudentList />;
 };
 
 export default MainPage;

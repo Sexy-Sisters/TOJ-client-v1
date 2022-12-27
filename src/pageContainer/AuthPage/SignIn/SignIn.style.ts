@@ -14,5 +14,5 @@ export const Form = styled(Auth.Form)`
   justify-content: space-around;
   align-items: flex-start;
   height: 350px;
-  margin-top: 150px;
+  margin-top: 100px;
 `;

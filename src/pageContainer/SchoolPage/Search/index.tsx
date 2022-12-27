@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { ISearch, ISearchData, ISearchResponse } from "../interface/search";
 import school from "../api/school";
 import { ErrorText } from "components/common";
-import { SCHOOL_DOOR_URL } from "../../../../shared/constants/urls";
+import { SCHOOL_DOOR_URL } from "shared/constants/urls";
 
 const SearchPage = () => {
   const [searchList, setSearchList] = React.useState<ISearchData[] | null>(

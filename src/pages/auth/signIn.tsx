@@ -1,5 +1,5 @@
 import { Header } from "components/layout";
-import BaseLayout from "components/layout/baseLayout";
+import { Content, Layout } from "components/layout/Layout";
 import { NextSeo } from "next-seo";
 import { BASE_URL, SIGN_IN_URL } from "shared/constants/urls";
 import { NextPageWithLayout } from "shared/interfaces/page";
@@ -24,10 +24,10 @@ const SignIn: NextPageWithLayout = () => {
 
 SignIn.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <BaseLayout>
+    <Layout>
       <Header isFixed isTransparent={false} />
-      {page}
-    </BaseLayout>
+      <Content>{page}</Content>
+    </Layout>
   );
 };
 

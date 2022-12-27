@@ -19,7 +19,7 @@ export const Header__UI = styled.div`
 `;
 
 export const SignIn = styled(Link)`
-  font-size: 18px;
+  font-size: 14px;
   opacity: 0.5;
   white-space: nowrap;
   transition: all linear 0.3s;
@@ -36,6 +36,7 @@ export const SignUp_button = styled.button`
   border: solid 2.5px ${props => props.theme.textColor};
   border-radius: 10px;
   white-space: nowrap;
+  font-size: 14px;
   transition: all linear 0.2s;
   color: ${props => props.theme.textColor};
 

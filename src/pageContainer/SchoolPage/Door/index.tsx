@@ -7,13 +7,12 @@ import { useToast } from "shared/hooks";
 import { ownToken } from "shared/utils/tokenManager";
 import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
 import { EXCEPTION_MSG } from "shared/constants";
-import JoinModal from "../JoinModal";
+import JoinModal from "./JoinModal";
 import { useInView } from "react-intersection-observer";
 
 const DoorPage = () => {
   const { query, push } = useRouter();
   const { onToast } = useToast();
-  const [viewRef, inView] = useInView({ threshold: 0.1 });
   const [joinModalState, joinModalToggle] = React.useState<boolean>(false);
   const [initialSchool, setInitialSchool] = React.useState<{
     code: string;

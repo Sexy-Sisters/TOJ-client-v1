@@ -1,5 +1,5 @@
 import React from "react";
-import { IAPIResponse } from "../../../../shared/interfaces/api";
+import { IAPIResponse } from "shared/interfaces/api";
 
 export interface ISignUpResponse extends IAPIResponse {
   data: {

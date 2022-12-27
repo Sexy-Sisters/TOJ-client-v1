@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./JoinModal.style";
-import * as I from "../interface/join";
+import * as I from "../../interface/join";
 import { useForm } from "react-hook-form";
-import school from "../api/school";
+import school from "../../api/school";
 import { SCHOOL_INITIAL, SchoolInitialType } from "./JoinModal.constant";
 import { useToast } from "shared/hooks";
 

@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
-import { Header, BaseLayout } from "components/layout";
+import { Header } from "components/layout";
 import { BASE_URL, USER_SETTING_URL } from "shared/constants/urls";
+import { Content, Layout } from "components/layout/Layout";
 
 const Setting = () => {
   return (
@@ -21,10 +22,10 @@ const Setting = () => {
 
 Setting.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <BaseLayout>
+    <Layout>
       <Header isFixed isTransparent={false} />
-      {page}
-    </BaseLayout>
+      <Content>{page}</Content>
+    </Layout>
   );
 };
 

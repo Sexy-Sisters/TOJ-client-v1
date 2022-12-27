@@ -113,16 +113,14 @@ export const SchoolTag = styled.label`
   margin: 20px 0 0 0;
   padding-left: 20px;
   border-radius: 10px;
-  border: 2px solid ${p => p.theme.input};
+  background-color: ${p => p.theme.block};
 
   cursor: pointer;
-  box-sizing: border-box;
   transition: all 0.3s;
   animation: fadeIn 0.6s;
 
   &:hover {
-    border: none;
-    box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
   @keyframes fadeIn {

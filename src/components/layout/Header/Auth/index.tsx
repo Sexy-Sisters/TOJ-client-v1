@@ -11,6 +11,7 @@ import {
 import {
   HOME_URL,
   INTRODUCE_URL,
+  SCHOOL_MAIN_URL,
   SCHOOL_SEARCH_URL,
   USER_SETTING_URL,
 } from "shared/constants/urls";
@@ -77,7 +78,7 @@ const AuthHeader = (props: IHeader) => {
             <Link href={INTRODUCE_URL}>
               <S.Tag>TOJ 개발 동기</S.Tag>
             </Link>
-            <Link href={""}>
+            <Link href={SCHOOL_MAIN_URL}>
               <S.Tag>등교</S.Tag>
             </Link>
           </S.FuncTags>
