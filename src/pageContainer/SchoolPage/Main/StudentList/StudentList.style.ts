@@ -139,3 +139,22 @@ export const Id = styled.p`
   font-size: 12px;
   color: ${p => p.theme.blueColor};
 `;
+
+export const ApproveButton = styled.button`
+  width: 60px;
+  height: 30px;
+  margin-left: 20px;
+  border-radius: 10px;
+  background-color: ${p => p.theme.greenColor};
+  font-size: 14px;
+  color: white;
+
+  &:hover {
+    background-color: ${p => p.theme.success};
+  }
+`;
+
+export const NullText = styled.p`
+  font-size: 20px;
+  color: ${p => p.theme.textColor};
+`;

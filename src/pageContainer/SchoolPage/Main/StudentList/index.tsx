@@ -17,13 +17,17 @@ const StudentList = () => {
 
   React.useEffect(() => {
     async function getStudentList() {
-      const { data: res } = (await school.list_student({
-        status: studentState,
-      })) as IStudentListResponse;
+      try {
+        const { data: res } = (await school.list_student({
+          status: studentState,
+        })) as IStudentListResponse;
 
-      if (res.result === "SUCCESS") {
-        setStudentListData(res.data);
-      }
+        if (res.result === "SUCCESS" && res.data[0]) {
+          setStudentListData(res.data);
+        } else {
+          setStudentListData(null);
+        }
+      } catch (e) {}
     }
     getStudentList();
   }, [studentState]);
@@ -52,22 +56,31 @@ const StudentList = () => {
         <S.SearchBar type="search" placeholder="학생 검색" />
       </S.StudentSearch>
 
-      {studentListData?.map(student => (
-        <S.StudentCard>
-          <S.profileImg
-            src={student.profileImg}
-            alt="학생 프로필"
-            width={40}
-            height={40}
-          />
-          <S.InfoWrapper>
-            <S.Name>{student.nickname}</S.Name>
-            <S.Id>
-              {student.grade}학년 {student.classroom}반 {student.number}번
-            </S.Id>
-          </S.InfoWrapper>
-        </S.StudentCard>
-      ))}
+      {studentListData ? (
+        studentListData.map(student => (
+          <S.StudentCard>
+            <S.profileImg
+              src={student.profileImg}
+              alt="학생 프로필"
+              width={40}
+              height={40}
+            />
+
+            <S.InfoWrapper>
+              <S.Name>{student.nickname}</S.Name>
+              <S.Id>
+                {student.grade}학년 {student.classroom}반 {student.number}번
+              </S.Id>
+            </S.InfoWrapper>
+
+            {studentState === WAITING && (
+              <S.ApproveButton>수락</S.ApproveButton>
+            )}
+          </S.StudentCard>
+        ))
+      ) : (
+        <S.NullText>없음</S.NullText>
+      )}
     </S.Container>
   );
 };
