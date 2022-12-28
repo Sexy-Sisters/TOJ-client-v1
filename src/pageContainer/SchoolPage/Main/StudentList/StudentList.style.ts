@@ -44,18 +44,21 @@ export const KindButton = styled.button`
   font-size: 14px;
   color: ${p => p.theme.textColor};
   background-color: ${p => p.theme.block};
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: ${p => p.theme.bgColor};
   }
 `;
 
-export const NomalButton = styled(KindButton)`
+export const NomalButton = styled(KindButton)<{ click: boolean }>`
   border-top-left-radius: 10px;
+  background-color: ${p => (p.click ? p.theme.bgColor : p.theme.block)};
 `;
 
-export const WaitingButton = styled(KindButton)`
+export const WaitingButton = styled(KindButton)<{ click: boolean }>`
   border-top-right-radius: 10px;
+  background-color: ${p => (p.click ? p.theme.bgColor : p.theme.block)};
 `;
 
 export const StudentSearch = styled.div`
@@ -66,6 +69,11 @@ export const StudentSearch = styled.div`
   border-radius: 40px;
   background-color: ${p => p.theme.bgColor};
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: ${p => p.theme.block};
+  }
 `;
 
 export const SearchIcon = styled(ImSearch)`
@@ -95,9 +103,11 @@ export const StudentCard = styled.div`
   align-items: center;
   width: 90%;
   height: 70px;
+  margin: 10px 0 10px 0;
   border-radius: 10px;
   border: 2px solid ${p => p.theme.block};
   background-color: ${p => p.theme.bgColor};
+  transition: background-color 0.3s;
 
   &:hover {
     background-color: ${p => p.theme.block};

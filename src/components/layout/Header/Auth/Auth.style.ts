@@ -65,7 +65,7 @@ export const Tag = styled.p`
   padding: 10px;
   border-radius: 6px;
   color: ${props => props.theme.textColor};
-  transition: none;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: ${props => props.theme.block};

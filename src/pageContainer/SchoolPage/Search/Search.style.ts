@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
   background-color: ${props => props.theme.bgColor};
 `;
 

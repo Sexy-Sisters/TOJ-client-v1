@@ -2,6 +2,8 @@ import apiController from "../../../../shared/utils/apiController";
 import { IJoin, IStudent } from "../interface/join";
 import { IGetWiki, IUpdateWiki } from "../interface/door";
 import { ISearch } from "../interface/search";
+import { IStudentList } from "../interface/main";
+
 import {
   SearchController,
   StudentController,
@@ -83,6 +85,22 @@ class School {
         method: "PUT",
         url: WikiController.update_wiki(),
         data: data,
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * 학생 리스트를 가져오기 위한 api
+   * @param data 학생 상태 (status)
+   */
+  list_student(data: IStudentList) {
+    try {
+      return apiController({
+        method: "GET",
+        url: StudentController.list_student(),
+        params: data,
       });
     } catch (error) {
       return error;
