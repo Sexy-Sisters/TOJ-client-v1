@@ -18,6 +18,10 @@ export const StudentController = {
   list_student: () => {
     return `${API_VERSION}student`;
   },
+
+  approve_student: () => {
+    return `${API_VERSION}approve`;
+  },
 };
 
 export const WikiController = {

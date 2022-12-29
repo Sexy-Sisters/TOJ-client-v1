@@ -3,7 +3,6 @@ import { IJoin, IStudent } from "../interface/join";
 import { IGetWiki, IUpdateWiki } from "../interface/door";
 import { ISearch } from "../interface/search";
 import { IStudentList } from "../interface/main";
-
 import {
   SearchController,
   StudentController,
@@ -100,6 +99,22 @@ class School {
       return apiController({
         method: "GET",
         url: StudentController.list_student(),
+        params: data,
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * 학교 참여 대기중인 학생 수락을 위한 api
+   * @param data 학생 아이디 (applicantId)
+   */
+  approve_student(data: { applicantId: number }) {
+    try {
+      return apiController({
+        method: "POST",
+        url: StudentController.approve_student(),
         params: data,
       });
     } catch (error) {

@@ -32,6 +32,17 @@ const StudentList = () => {
     getStudentList();
   }, [studentState]);
 
+  const approveStudent = async (id: number) => {
+    try {
+      const res = await school.approve_student({
+        applicantId: id,
+      });
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <S.Container>
       <S.KindBackground>
@@ -74,7 +85,9 @@ const StudentList = () => {
             </S.InfoWrapper>
 
             {studentState === WAITING && (
-              <S.ApproveButton>수락</S.ApproveButton>
+              <S.ApproveButton onClick={() => approveStudent(student.id)}>
+                수락
+              </S.ApproveButton>
             )}
           </S.StudentCard>
         ))

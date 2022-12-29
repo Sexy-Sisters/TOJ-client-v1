@@ -9,6 +9,7 @@ export interface IStudentList {
 }
 
 export interface IStudentCard {
+  id: number;
   classroom: number;
   grade: number;
   nickname: string;
