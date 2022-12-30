@@ -5,7 +5,7 @@ import * as I from "pageContainer/AuthPage/interface/signUp";
 import * as Auth from "pageContainer/AuthPage/style/AuthPage.style";
 import * as SignUp from "../../SignUp.style";
 import * as S from "./Email.style";
-import { EXCEPTION_MSG } from "shared/constants";
+import { EXCEPTION_MSG } from "shared/constants/message";
 
 const mainColor = "#FDCB6E";
 const buttonColor = "#FFDC9C";

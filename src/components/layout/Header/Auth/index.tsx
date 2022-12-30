@@ -75,11 +75,11 @@ const AuthHeader = (props: IHeader) => {
             <Link href={SCHOOL_SEARCH_URL}>
               <S.Tag>학교 검색</S.Tag>
             </Link>
-            <Link href={INTRODUCE_URL}>
-              <S.Tag>TOJ 개발 동기</S.Tag>
-            </Link>
             <Link href={SCHOOL_MAIN_URL}>
               <S.Tag>등교</S.Tag>
+            </Link>
+            <Link href={INTRODUCE_URL}>
+              <S.Tag>TOJ 개발 동기</S.Tag>
             </Link>
           </S.FuncTags>
 
