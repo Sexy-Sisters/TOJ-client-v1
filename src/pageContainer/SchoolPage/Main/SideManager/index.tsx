@@ -1,4 +1,5 @@
 import React from "react";
+import * as S from "./SideManager.style";
 import school from "pageContainer/SchoolPage/api/school";
 import {
   ENGAGED,
@@ -7,13 +8,15 @@ import {
   studentType,
   WAITING,
 } from "pageContainer/SchoolPage/interface/main";
-import * as S from "./StudentList.style";
+import { useRouter } from "next/router";
+import { TEACHER_URL } from "shared/constants/urls";
 
-const StudentList = () => {
+const Sidebar = () => {
   const [studentState, setStudentState] = React.useState<studentType>(ENGAGED);
   const [studentListData, setStudentListData] = React.useState<
     IStudentCard[] | null
   >(null);
+  const { push } = useRouter();
 
   React.useEffect(() => {
     async function getStudentList() {
@@ -46,6 +49,14 @@ const StudentList = () => {
   return (
     <S.Container>
       <S.KindBackground>
+        <S.TeacherPageButton
+          onClick={() => {
+            push(TEACHER_URL);
+          }}
+        >
+          학교 선생님
+        </S.TeacherPageButton>
+
         <S.KindButtonWrapper>
           <S.NomalButton
             click={studentState === ENGAGED ? true : false}
@@ -67,35 +78,37 @@ const StudentList = () => {
         <S.SearchBar type="search" placeholder="학생 검색" />
       </S.StudentSearch>
 
-      {studentListData ? (
-        studentListData.map(student => (
-          <S.StudentCard>
-            <S.profileImg
-              src={student.profileImg}
-              alt="학생 프로필"
-              width={40}
-              height={40}
-            />
+      <S.StudentList>
+        {studentListData ? (
+          studentListData.map(student => (
+            <S.StudentCard>
+              <S.profileImg
+                src={student.profileImg}
+                alt="학생 프로필"
+                width={40}
+                height={40}
+              />
 
-            <S.InfoWrapper>
-              <S.Name>{student.nickname}</S.Name>
-              <S.Id>
-                {student.grade}학년 {student.classroom}반 {student.number}번
-              </S.Id>
-            </S.InfoWrapper>
+              <S.InfoWrapper>
+                <S.Name>{student.nickname}</S.Name>
+                <S.Id>
+                  {student.grade}학년 {student.classroom}반 {student.number}번
+                </S.Id>
+              </S.InfoWrapper>
 
-            {studentState === WAITING && (
-              <S.ApproveButton onClick={() => approveStudent(student.id)}>
-                수락
-              </S.ApproveButton>
-            )}
-          </S.StudentCard>
-        ))
-      ) : (
-        <S.NullText>없음</S.NullText>
-      )}
+              {studentState === WAITING && (
+                <S.ApproveButton onClick={() => approveStudent(student.id)}>
+                  수락
+                </S.ApproveButton>
+              )}
+            </S.StudentCard>
+          ))
+        ) : (
+          <S.NullText>없음</S.NullText>
+        )}
+      </S.StudentList>
     </S.Container>
   );
 };
 
-export default StudentList;
+export default Sidebar;

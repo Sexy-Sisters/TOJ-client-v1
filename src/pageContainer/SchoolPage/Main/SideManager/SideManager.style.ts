@@ -2,21 +2,13 @@ import Image from "next/image";
 import { ImSearch } from "react-icons/im";
 import styled from "styled-components";
 
-export const ListButton = styled.button`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid ${p => p.theme.block};
-  background-color: ${p => p.theme.bgColor};
-`;
-
 export const Container = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 100vh;
+  height: 1500px;
   border-right: 2.5px solid ${p => p.theme.block};
   background-color: ${p => p.theme.bgColor};
 `;
@@ -26,9 +18,24 @@ export const KindBackground = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 150px;
   margin-bottom: 20px;
   background-color: ${p => p.theme.block};
+`;
+
+export const TeacherPageButton = styled.button`
+  width: 120px;
+  height: 40px;
+  margin: 10% auto;
+  border-radius: 20px;
+  background-color: ${p => p.theme.greenColor};
+  font-size: 14px;
+  color: white;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #2ecc71;
+  }
 `;
 
 export const KindButtonWrapper = styled.div`
@@ -48,6 +55,19 @@ export const KindButton = styled.button`
 
   &:hover {
     background-color: ${p => p.theme.bgColor};
+  }
+`;
+
+export const StudentList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 450px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 
@@ -102,7 +122,7 @@ export const StudentCard = styled.div`
   display: flex;
   align-items: center;
   width: 90%;
-  height: 70px;
+  padding: 5px 0 5px 0;
   margin: 10px 0 10px 0;
   border-radius: 10px;
   border: 2px solid ${p => p.theme.block};
@@ -125,8 +145,9 @@ export const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  height: 50%;
+  & * {
+    margin: 5px;
+  }
 `;
 
 export const Name = styled.p`

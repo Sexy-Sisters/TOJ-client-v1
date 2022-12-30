@@ -17,6 +17,12 @@ const SearchPage = () => {
     formState: { errors },
   } = useForm<ISearch>();
   const [searchState, onSearch] = React.useState<boolean>(false);
+  const bodyRef = React.useRef<HTMLCollectionOf<HTMLBodyElement> | null>(null);
+
+  React.useEffect(() => {
+    bodyRef.current = document.getElementsByTagName("body");
+    bodyRef.current[0].style.overflow = "scroll";
+  }, []);
 
   const searchResult = (): JSX.Element[] | null => {
     if (searchList) {

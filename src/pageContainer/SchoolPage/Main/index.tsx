@@ -1,10 +1,10 @@
 import React from "react";
-import StudentList from "./StudentList";
+import SideManager from "./SideManager";
 
 const MainPage = () => {
   return (
     <>
-      <StudentList />
+      <SideManager />
     </>
   );
 };
