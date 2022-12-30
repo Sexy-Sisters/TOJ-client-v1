@@ -11,6 +11,7 @@ declare module "styled-components" {
     inputHover: string;
     inputText: string;
     block: string;
+    headerSidebar: string;
 
     // state color
     error: string;

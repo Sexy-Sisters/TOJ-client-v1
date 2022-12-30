@@ -46,7 +46,6 @@ export const SignUp_button = styled.button`
   }
 `;
 
-const sideMenuColor = "rgba(52, 60, 66, 0.5)";
 export const Header__menu = styled.div<{ toggle: boolean }>`
   display: flex;
   align-items: center;
@@ -57,8 +56,8 @@ export const Header__menu = styled.div<{ toggle: boolean }>`
     right: ${props => (props.toggle ? "0" : "-150px")};
     width: 150px;
     height: 100vh;
-    background-color: ${sideMenuColor};
-    transition: all 0.5s ease-in-out;
+    background-color: ${p => p.theme.headerSidebar};
+    transition: right 0.5s ease-in-out;
 
     .header-ui {
       flex-direction: column;

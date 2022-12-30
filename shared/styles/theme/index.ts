@@ -8,6 +8,7 @@ export const darkTheme: DefaultTheme = {
   inputHover: "#ccd7db",
   inputText: "#aeb3b5",
   block: "#43474a",
+  headerSidebar: "#1e272e",
 
   error: "#ff4757",
   success: "#2ecc71",
@@ -26,6 +27,7 @@ export const lightTheme: DefaultTheme = {
   inputHover: "#7c8587",
   inputText: "#aeb3b5",
   block: "#f5f5f7",
+  headerSidebar: "#dcdde1",
 
   error: "#ff4757",
   success: "#2ecc71",

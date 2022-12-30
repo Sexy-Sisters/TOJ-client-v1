@@ -32,7 +32,7 @@ export const Menu = styled(UI__block)<{ toggle: boolean }>`
     width: 250px;
     height: 100vh;
     background-color: ${props => props.theme.bgColor};
-    transition: all 0.5s ease-in-out;
+    transition: right 0.5s ease-in-out;
   }
 `;
 
