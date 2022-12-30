@@ -1,5 +1,5 @@
 export default {
-  titleTemplate: "TOJ | %s",
+  titleTemplate: "%s",
   additionalLinkTags: [
     {
       rel: "icon",

@@ -14,6 +14,14 @@ export const StudentController = {
   join_student: () => {
     return `${API_VERSION}school`;
   },
+
+  list_student: () => {
+    return `${API_VERSION}student`;
+  },
+
+  approve_student: () => {
+    return `${API_VERSION}approve`;
+  },
 };
 
 export const WikiController = {

@@ -4,15 +4,14 @@ export const darkTheme: DefaultTheme = {
   bgColor: "#242a2f",
   textColor: "#FFFFFF",
 
-  input: "#c2c9cc",
+  input: "#5d6263",
   inputHover: "#ccd7db",
   inputText: "#aeb3b5",
-  modalBg: "#2d3436",
+  block: "#43474a",
+  headerSidebar: "#1e272e",
 
   error: "#ff4757",
   success: "#2ecc71",
-
-  lightGray: "rgba(227, 227, 227, 0.5)",
 
   yellowColor: "#FDCB6E",
   redColor: "#EB2F06",
@@ -24,15 +23,14 @@ export const lightTheme: DefaultTheme = {
   bgColor: "#ffffff",
   textColor: "#242a2f",
 
-  input: "#9ba5a8",
+  input: "#bdc7c9",
   inputHover: "#7c8587",
   inputText: "#aeb3b5",
-  modalBg: "#f5f6fa",
+  block: "#f5f5f7",
+  headerSidebar: "#dcdde1",
 
   error: "#ff4757",
   success: "#2ecc71",
-
-  lightGray: "rgba(227, 227, 227, 0.5)",
 
   yellowColor: "#FDCB6E",
   redColor: "#EB2F06",

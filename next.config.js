@@ -4,4 +4,9 @@ const nextConfig = {
   swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = {
+  nextConfig,
+  images: {
+    domains: ["toj-img-bucket.s3.ap-northeast-2.amazonaws.com"],
+  },
+};

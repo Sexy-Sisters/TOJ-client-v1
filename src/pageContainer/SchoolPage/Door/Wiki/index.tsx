@@ -3,10 +3,10 @@ import dynamic from "next/dynamic";
 import school from "pageContainer/SchoolPage/api/school";
 import { useToast } from "shared/hooks";
 import { Editor } from "@toast-ui/react-editor";
-import * as I from "pageContainer/SchoolPage/interface/main";
+import * as I from "pageContainer/SchoolPage/interface/door";
 import * as S from "./Wiki.style";
 
-const defaultWiki: I.IWiki = {
+const DEFAULT_WIKI: I.IWiki = {
   id: -1,
   views: 0,
   html: "",
@@ -23,9 +23,9 @@ const WikiViewer = dynamic(() => import("components/common/Viewer"), {
 });
 
 const Wiki = ({ schoolCode }: I.IGetWiki) => {
-  const [wiki, setWiki] = React.useState<I.IWiki>(defaultWiki);
-  const editorRef = React.useRef<Editor>(null);
+  const [wiki, setWiki] = React.useState<I.IWiki>(DEFAULT_WIKI);
   const [onEditor, setOnEditor] = React.useState<boolean>(false);
+  const editorRef = React.useRef<Editor>(null);
   const { onToast } = useToast();
 
   React.useEffect(() => {
@@ -38,9 +38,7 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
         if (res.result === "SUCCESS") {
           setWiki(res.data);
         }
-      } catch (err) {
-        onToast("error", "예상치 못한 에러");
-      }
+      } catch (err) {}
     }
     getWiki();
   }, [schoolCode]);
@@ -69,6 +67,11 @@ const Wiki = ({ schoolCode }: I.IGetWiki) => {
       <S.Container>
         <S.Title>
           <S.Name dangerouslySetInnerHTML={{ __html: wiki.name }} />
+
+          <S.InfoWrapper>
+            <S.ViewCount>방문자: {wiki.views}</S.ViewCount>
+            <S.LastDate>최근 수정: 2022-12-15 13:50:17</S.LastDate>
+          </S.InfoWrapper>
         </S.Title>
 
         {onEditor ? (

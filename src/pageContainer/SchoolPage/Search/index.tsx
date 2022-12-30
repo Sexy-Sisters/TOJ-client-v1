@@ -1,13 +1,10 @@
+import React from "react";
+import * as S from "./Search.style";
 import { useForm } from "react-hook-form";
 import { ISearch, ISearchData, ISearchResponse } from "../interface/search";
 import school from "../api/school";
 import { ErrorText } from "components/common";
-import { SCHOOL_MAIN_URL } from "../../../../shared/constants/urls";
-import * as S from "./Search.style";
-import React from "react";
-
-const SEARCH_TITLE = `Search for\nthe name of the school 🔍`;
-const EMPTY_EMOJI = `👀\n👅`;
+import { SCHOOL_DOOR_URL } from "shared/constants/urls";
 
 const SearchPage = () => {
   const [searchList, setSearchList] = React.useState<ISearchData[] | null>(
@@ -19,15 +16,22 @@ const SearchPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ISearch>();
+  const [searchState, onSearch] = React.useState<boolean>(false);
+  const bodyRef = React.useRef<HTMLCollectionOf<HTMLBodyElement> | null>(null);
 
-  const searchResult = (): JSX.Element[] | JSX.Element => {
+  React.useEffect(() => {
+    bodyRef.current = document.getElementsByTagName("body");
+    bodyRef.current[0].style.overflow = "scroll";
+  }, []);
+
+  const searchResult = (): JSX.Element[] | null => {
     if (searchList) {
       return searchList.map(school => (
         <S.SchoolTag
           key={school.code}
           onClick={() =>
             location.replace(
-              SCHOOL_MAIN_URL + `/${school.division}&${school.code}`,
+              SCHOOL_DOOR_URL + `/${school.division}&${school.code}`,
             )
           }
         >
@@ -36,7 +40,7 @@ const SearchPage = () => {
         </S.SchoolTag>
       ));
     } else {
-      return <S.EmptyIcon>{EMPTY_EMOJI}</S.EmptyIcon>;
+      return null;
     }
   };
 
@@ -66,28 +70,45 @@ const SearchPage = () => {
 
   return (
     <S.Container>
-      <S.ContentWrapper onSubmit={handleSubmit(onValid)}>
-        <S.SearchLabel>{SEARCH_TITLE}</S.SearchLabel>
+      <S.ContentWrapper
+        onSubmit={handleSubmit(onValid)}
+        searchState={searchState}
+      >
+        <S.SearchLabel
+          searchState={searchState}
+        >{`학교를 입력하고\n새로운 학교를 둘러보세요! 🏫`}</S.SearchLabel>
 
-        <S.SearchWrapper>
-          <S.SearchBar
-            type="search"
-            placeholder="search for the school"
-            {...register("name", {
-              required: "Please enter the name of the school",
-            })}
-          />
-          <S.SearchButton type="submit">search 🚌</S.SearchButton>
+        <S.SearchContainer>
+          <S.SearchIcon size={25} searchState={searchState} />
+
+          <S.SearchWrapper>
+            <S.SearchInfoText searchState={searchState}>
+              초등학교/중학교/고등학교
+            </S.SearchInfoText>
+
+            <S.SearchBar
+              type="search"
+              autoComplete="off"
+              placeholder="학교 검색..."
+              {...register("name", {
+                required: "학교 이름을 검색해 보세요",
+              })}
+              searchState={searchState}
+              onClick={() => onSearch(true)}
+            />
+
+            <S.SearchLine searchState={searchState} />
+          </S.SearchWrapper>
 
           <ErrorText
             isError={errors.name?.message ? true : false}
             message={errors.name?.message}
-            top={"60px"}
+            top={"100px"}
             left={"0"}
           />
-        </S.SearchWrapper>
+        </S.SearchContainer>
 
-        <S.ResultBox>{searchResult()}</S.ResultBox>
+        <S.ResultContainer>{searchResult()}</S.ResultContainer>
       </S.ContentWrapper>
     </S.Container>
   );

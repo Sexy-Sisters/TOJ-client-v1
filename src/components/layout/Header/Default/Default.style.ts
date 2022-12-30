@@ -19,7 +19,7 @@ export const Header__UI = styled.div`
 `;
 
 export const SignIn = styled(Link)`
-  font-size: 20px;
+  font-size: 14px;
   opacity: 0.5;
   white-space: nowrap;
   transition: all linear 0.3s;
@@ -31,12 +31,13 @@ export const SignIn = styled(Link)`
 `;
 
 export const SignUp_button = styled.button`
-  width: 100px;
-  height: 40px;
-  border: solid 3px ${props => props.theme.textColor};
-  border-radius: 20px;
+  width: 80px;
+  height: 35px;
+  border: solid 2.5px ${props => props.theme.textColor};
+  border-radius: 10px;
   white-space: nowrap;
-  transition: all linear 0.3s;
+  font-size: 14px;
+  transition: all linear 0.2s;
   color: ${props => props.theme.textColor};
 
   &:hover {
@@ -45,7 +46,6 @@ export const SignUp_button = styled.button`
   }
 `;
 
-const sideMenuColor = "rgba(52, 60, 66, 0.5)";
 export const Header__menu = styled.div<{ toggle: boolean }>`
   display: flex;
   align-items: center;
@@ -56,13 +56,34 @@ export const Header__menu = styled.div<{ toggle: boolean }>`
     right: ${props => (props.toggle ? "0" : "-150px")};
     width: 150px;
     height: 100vh;
-    background-color: ${sideMenuColor};
-    transition: all 0.5s ease-in-out;
+    background-color: ${p => p.theme.headerSidebar};
+    transition: right 0.5s ease-in-out;
 
     .header-ui {
       flex-direction: column;
       height: 200px;
       margin: 0;
+    }
+  }
+`;
+
+export const ThemeButton = styled.button`
+  font-size: 25px;
+  border-radius: 50%;
+
+  &:hover {
+    animation: pop 0.6s;
+  }
+
+  @keyframes pop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
     }
   }
 `;

@@ -1,47 +1,26 @@
 import React from "react";
 import { useRouter } from "next/router";
-import JoinModal from "../JoinModal";
-import Wiki from "./Wiki";
-import * as S from "./Main.style";
+import { SIGN_IN_URL } from "shared/constants/urls";
+import { useToast } from "shared/hooks";
+import { ownToken } from "shared/utils/tokenManager";
+import SideManager from "./SideManager";
+import { NO_AUTH_MSG } from "shared/constants/message";
 
 const MainPage = () => {
-  const { query } = useRouter();
-  const [initialSchool, setInitialSchool] = React.useState<{
-    code: string;
-    grade: string;
-  } | null>(null);
-  const [joinModalToggle, setJoinModalToggle] = React.useState<boolean>(false);
+  const { push } = useRouter();
+  const { onToast } = useToast();
 
   React.useEffect(() => {
-    const schoolData = query.schoolData;
-
-    if (typeof schoolData === "string") {
-      const [grade, code] = schoolData.split("&");
-      setInitialSchool({ grade, code });
+    if (!ownToken()) {
+      push(SIGN_IN_URL);
+      onToast("error", NO_AUTH_MSG);
     }
-  }, [query]);
+  }, []);
 
   return (
-    <S.PageContainer>
-      <S.WikiPage>
-        <S.JoinButton onClick={() => setJoinModalToggle(curValue => !curValue)}>
-          Join
-        </S.JoinButton>
-
-        {initialSchool && (
-          <>
-            <Wiki schoolCode={initialSchool.code} />
-
-            <JoinModal
-              modalState={joinModalToggle}
-              toggle={setJoinModalToggle}
-              code={initialSchool.code}
-              grade={initialSchool.grade}
-            />
-          </>
-        )}
-      </S.WikiPage>
-    </S.PageContainer>
+    <>
+      <SideManager />
+    </>
   );
 };
 

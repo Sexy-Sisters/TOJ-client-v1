@@ -1,38 +1,32 @@
 import React from "react";
 import { Header } from "components/layout";
-import Base_Layout from "../components/layout/baseLayout";
-import { NextPageWithLayout } from "../../shared/interfaces/page";
-import { GetServerSideProps } from "next";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../shared/constants";
+import { NextPageWithLayout } from "shared/interfaces/page";
+import { Content, Layout } from "components/layout/Layout";
+import { NextSeo } from "next-seo";
+import { BASE_URL } from "shared/constants/urls";
 
 const Home: NextPageWithLayout = () => {
-  return <></>;
+  return (
+    <>
+      <NextSeo
+        title="이제는 우리가 평가할게"
+        description="TOJ 홈 페이지"
+        canonical={BASE_URL}
+        openGraph={{
+          url: BASE_URL,
+        }}
+      />
+    </>
+  );
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <Base_Layout>
+    <Layout>
       <Header isFixed isTransparent={false} />
-
-      {page}
-    </Base_Layout>
+      <Content>{page}</Content>
+    </Layout>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async ctx => {
-  const cookie = ctx.req.cookies;
-  const accessToken = cookie[ACCESS_TOKEN];
-  const refreshToken = cookie[REFRESH_TOKEN];
-
-  if (accessToken && refreshToken) {
-    return {
-      props: {},
-    };
-  } else {
-    return {
-      props: {},
-    };
-  }
 };
 
 export default Home;

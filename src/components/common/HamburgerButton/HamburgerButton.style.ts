@@ -5,8 +5,8 @@ export const Hamburger = styled.button<{
   inSize: string;
 }>`
   display: none;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 
   @media (max-width: ${props => props.inSize}) {
@@ -31,8 +31,8 @@ export const Hamburger = styled.button<{
 
 export const Hamburger__bar = styled.div`
   width: 100%;
-  height: 4px;
-  margin: 2px auto;
+  height: 3px;
+  margin: 1px auto;
   border-radius: 3px;
   background-color: ${props => props.theme.textColor};
   transition: 0.7s;
@@ -92,10 +92,10 @@ export const Hamburger__bar = styled.div`
       transform: translate3d(0, 0, 0) rotate(0deg);
     }
     50% {
-      transform: translate3d(0, -5px, 0) rotate(0);
+      transform: translate3d(0, -4px, 0) rotate(0);
     }
     100% {
-      transform: translate3d(0, -7.5px, 0) rotate(-45deg);
+      transform: translate3d(0, -4px, 0) rotate(-45deg);
     }
   }
 

@@ -1,28 +1,27 @@
-import { IAPIResponse } from "../../../../shared/interfaces/api";
+import { IAPIResponse } from "shared/interfaces/api";
 
-export interface IGetWiki {
-  schoolCode: string;
+export const ENGAGED = "ENGAGED";
+export const WAITING = "WAITING";
+export type studentType = typeof ENGAGED | typeof WAITING;
+
+export interface IStudentList {
+  status: studentType;
 }
 
-export interface IWiki {
+export interface IStudentCard {
   id: number;
-  name: string;
-  html: string;
-  markdown: string;
-  views: number;
+  classroom: number;
+  grade: number;
+  nickname: string;
+  number: number;
+  profileImg: string;
 }
 
-export interface IGetWikiResponse extends IAPIResponse {
+export interface IStudentListResponse extends IAPIResponse {
   data: {
-    data: IWiki;
+    data: IStudentCard[];
     errorCode: string | null;
     message: string | null;
     result: "SUCCESS" | "FAIL";
   };
-}
-
-export interface IUpdateWiki {
-  id: number;
-  html: string;
-  markdown: string;
 }

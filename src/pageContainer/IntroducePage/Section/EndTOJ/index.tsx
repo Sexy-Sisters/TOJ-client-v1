@@ -1,14 +1,4 @@
-import {
-  EndTOJPage,
-  StrongText,
-  Word,
-  Content__block,
-  Content__wrapper,
-  Title__block,
-  Word__block,
-  Content,
-  Title,
-} from "./EndTOJ.style";
+import * as S from "./EndTOJ.style";
 import {
   TOJ_ADD_TEXT,
   TOJ_STRONG_TEXT,
@@ -19,37 +9,37 @@ import {
 
 const tojContent = () => {
   return TOJ_STRONG_TEXT.map((toj_strong, i) => (
-    <Content key={toj_strong}>
-      <StrongText color={TOJ_COLOR[i]}>{toj_strong}</StrongText>
+    <S.Content key={toj_strong}>
+      <S.StrongText color={TOJ_COLOR[i]}>{toj_strong}</S.StrongText>
       {TOJ_ADD_TEXT[i]}
-    </Content>
+    </S.Content>
   ));
 };
 
 const wordChapter = () => {
   return (
-    <Word__block>
+    <S.Word__block>
       {J_WORD.map(word => (
-        <Word key={word}>{word}</Word>
+        <S.Word key={word}>{word}</S.Word>
       ))}
-    </Word__block>
+    </S.Word__block>
   );
 };
 
 const EndTOJ = () => {
   return (
-    <EndTOJPage>
-      <Title__block>
-        <Title>{TITLE}</Title>
-      </Title__block>
+    <S.EndTOJPage>
+      <S.Title__block>
+        <S.Title>{TITLE}</S.Title>
+      </S.Title__block>
 
-      <Content__block>
-        <Content__wrapper>
+      <S.Content__block>
+        <S.Content__wrapper>
           {tojContent()}
           {wordChapter()}
-        </Content__wrapper>
-      </Content__block>
-    </EndTOJPage>
+        </S.Content__wrapper>
+      </S.Content__block>
+    </S.EndTOJPage>
   );
 };
 

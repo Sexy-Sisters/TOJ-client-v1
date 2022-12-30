@@ -1,7 +1,8 @@
 import apiController from "../../../../shared/utils/apiController";
 import { IJoin, IStudent } from "../interface/join";
-import { IGetWiki, IUpdateWiki } from "../interface/main";
+import { IGetWiki, IUpdateWiki } from "../interface/door";
 import { ISearch } from "../interface/search";
+import { IStudentList } from "../interface/main";
 import {
   SearchController,
   StudentController,
@@ -27,7 +28,7 @@ class School {
 
   /**
    * 학생 생성 위한 api
-   * @param data 나이 (age), 학년 (grade), 반 (classroom), 번호 (number)
+   * @param data 나이 (age), 학년 (grade), 반 (classroom), 번호 (nubmer)
    */
   create_student(data: IStudent) {
     try {
@@ -83,6 +84,38 @@ class School {
         method: "PUT",
         url: WikiController.update_wiki(),
         data: data,
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * 학생 리스트를 가져오기 위한 api
+   * @param data 학생 상태 (status)
+   */
+  list_student(data: IStudentList) {
+    try {
+      return apiController({
+        method: "GET",
+        url: StudentController.list_student(),
+        params: data,
+      });
+    } catch (error) {
+      return error;
+    }
+  }
+
+  /**
+   * 학교 참여 대기중인 학생 수락을 위한 api
+   * @param data 학생 아이디 (applicantId)
+   */
+  approve_student(data: { applicantId: number }) {
+    try {
+      return apiController({
+        method: "POST",
+        url: StudentController.approve_student(),
+        params: data,
       });
     } catch (error) {
       return error;

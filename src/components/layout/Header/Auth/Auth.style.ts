@@ -7,6 +7,10 @@ const MOBILE_SIZE = "800px";
 export const HeaderLogo = styled(Logo__block)`
   margin-right: 70px;
 
+  .hamburger-button {
+    width: 30px;
+  }
+
   @media (max-width: ${MOBILE_SIZE}) {
     justify-content: space-between;
     width: 100%;
@@ -28,7 +32,7 @@ export const Menu = styled(UI__block)<{ toggle: boolean }>`
     width: 250px;
     height: 100vh;
     background-color: ${props => props.theme.bgColor};
-    transition: all 0.5s ease-in-out;
+    transition: right 0.5s ease-in-out;
   }
 `;
 
@@ -58,27 +62,28 @@ export const UserInfoWrapper = styled.div`
 
 export const Tag = styled.p`
   font-size: 14px;
-  font-weight: bold;
   padding: 10px;
   border-radius: 6px;
   color: ${props => props.theme.textColor};
+  transition: background-color 0.2s;
 
   &:hover {
-    background-color: ${props => props.theme.lightGray};
+    background-color: ${props => props.theme.block};
   }
 
   @media (max-width: ${MOBILE_SIZE}) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
-export const UserProfile = styled(Image)`
-  width: 40px;
+export const UserImage = styled(Image)`
+  width: 30px;
   height: auto;
-  border-radius: 50%;
+  clip-path: circle(15px at center);
 
   @media (max-width: ${MOBILE_SIZE}) {
-    width: 100px;
+    width: 80px;
+    clip-path: circle(40px at center);
   }
 `;
 

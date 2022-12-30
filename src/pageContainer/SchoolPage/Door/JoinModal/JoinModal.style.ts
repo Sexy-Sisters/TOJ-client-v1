@@ -6,12 +6,12 @@ export const Container = styled.div<{ modalState: boolean }>`
   z-index: 100;
   display: flex;
   justify-content: center;
-  position: absolute;
+  position: ${props => (props.modalState ? "fixed" : "absolute")};
   left: 0;
-  top: ${props => (props.modalState ? "0" : "-200vh")};
+  top: ${props => (props.modalState ? "0" : "-100%")};
   width: 100vw;
   height: 100vh;
-  transition: all 0.7s;
+  transition: top 0.5s;
 `;
 
 export const BackgroundContainer = styled.div`
@@ -19,7 +19,6 @@ export const BackgroundContainer = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(72, 73, 74, 0.5);
 `;
 
 export const ModalContainer = styled.div`

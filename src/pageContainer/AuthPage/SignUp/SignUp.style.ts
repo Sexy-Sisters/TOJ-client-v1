@@ -9,7 +9,7 @@ export const Section = styled.div`
   flex: none;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 60px);
 `;
 
 export const PageContainer = styled.div`
@@ -27,5 +27,5 @@ export const FormWrapper = styled.div<{ height: string }>`
   justify-content: space-around;
   align-items: flex-start;
   height: ${props => props.height};
-  margin-top: 150px;
+  margin-top: 100px;
 `;

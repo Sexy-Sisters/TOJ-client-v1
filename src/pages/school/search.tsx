@@ -1,14 +1,15 @@
-import { Header, BaseLayout } from "components/layout";
+import { Header } from "components/layout";
 import { NextSeo } from "next-seo";
 import { SearchPage } from "../../pageContainer";
 import { BASE_URL, SCHOOL_SEARCH_URL } from "shared/constants/urls";
+import { Content, Layout } from "components/layout/Layout";
 
 const Search = () => {
   return (
     <>
       <NextSeo
-        title="School-search"
-        description="TOJ School-search page"
+        title="학교 검색"
+        description="TOJ 학교 검색 페이지"
         canonical={BASE_URL + SCHOOL_SEARCH_URL}
         openGraph={{
           url: BASE_URL + SCHOOL_SEARCH_URL,
@@ -22,10 +23,10 @@ const Search = () => {
 
 Search.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <BaseLayout>
+    <Layout>
       <Header isFixed isTransparent={false} />
-      {page}
-    </BaseLayout>
+      <Content>{page}</Content>
+    </Layout>
   );
 };
 

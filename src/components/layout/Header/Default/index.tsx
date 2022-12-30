@@ -11,10 +11,11 @@ import {
   SIGN_UP_URL,
 } from "../../../../../shared/constants/urls";
 import * as C from "components/layout/Header/Header.style";
-import * as S from "./NoAuthHeader.style";
+import * as S from "./Default.style";
+import curIsDark from "shared/utils/themeManager";
 
-const NoAuthHeader = (props: IHeader) => {
-  const { curTheme, toggleTheme } = React.useContext(ThemeContext);
+const DefaultHeader = (props: IHeader) => {
+  const { toggleTheme } = React.useContext(ThemeContext);
   const [menuToggle, setMenuToggle] = React.useState<boolean>(false);
   const { push } = useRouter();
 
@@ -24,7 +25,7 @@ const NoAuthHeader = (props: IHeader) => {
         <S.Header__logo>
           <Link href={HOME_URL}>
             <C.Logo
-              src={curTheme === darkTheme ? LOGO_DARK_URL : LOGO_LIGHT_URL}
+              src={curIsDark() ? LOGO_DARK_URL : LOGO_LIGHT_URL}
               alt="TOJ logo"
               width={50}
               height={50}
@@ -49,9 +50,9 @@ const NoAuthHeader = (props: IHeader) => {
             >
               Sign up
             </S.SignUp_button>
-            <C.ThemeButton onClick={toggleTheme} className="header-button">
-              {curTheme === darkTheme ? "🌝" : "🌚"}
-            </C.ThemeButton>
+            <S.ThemeButton onClick={toggleTheme} className="header-button">
+              {curIsDark() ? "🌝" : "🌚"}
+            </S.ThemeButton>
           </S.Header__UI>
         </S.Header__menu>
       </C.HeaderContainer>
@@ -59,4 +60,4 @@ const NoAuthHeader = (props: IHeader) => {
   );
 };
 
-export default NoAuthHeader;
+export default DefaultHeader;
