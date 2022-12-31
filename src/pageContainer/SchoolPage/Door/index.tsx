@@ -6,7 +6,7 @@ import { SIGN_IN_URL } from "shared/constants/urls";
 import { useToast } from "shared/hooks";
 import { ownToken } from "shared/utils/tokenManager";
 import { IImageUploadResponse, imageUpload } from "shared/utils/imageManager";
-import { EXCEPTION_MSG } from "shared/constants";
+import { EXCEPTION_MSG } from "shared/constants/message";
 import JoinModal from "./JoinModal";
 import { useInView } from "react-intersection-observer";
 
